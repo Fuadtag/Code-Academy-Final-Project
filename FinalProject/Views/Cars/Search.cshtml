@@ -1,0 +1,376 @@
+﻿<!-- Page Title-->
+<div class="rn-page-title">
+    <div class="rn-pt-overlayer"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="rn-page-title-inner">
+                    <h1>Car Search</h1>
+                    <p>Cras eros lorem, rhoncus ac risus sit amet, fringilla ultrices purus.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Title-->
+<!-- Car Search Form-->
+<div class="rn-search-form-big rn-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="rn-big-search-form rn-big-search-form-dark">
+                    <form action="https://demo.kitthemes.com/html/rentnow/car-search.html">
+                        <div class="row">
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="rn-icon-input">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" placeholder="Pickup Location">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <div class="rn-icon-input">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" placeholder="Drop Location">
+                                </div>
+                            </div>
+                            <div class="col-lg-3 rn-date-time-input">
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-8 col-8">
+                                        <div class="rn-icon-input">
+                                            <i class="far fa-calendar-alt"></i>
+                                            <input type="text" placeholder="Pickup Date" id="pickup-date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-4 col-4">
+                                        <div class="rn-icon-input">
+                                            <i class="far fa-clock"></i>
+                                            <input type="text" placeholder="Time" id="pickup-time">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 rn-date-time-input">
+                                <div class="row">
+                                    <div class="col-lg-7 col-md-8 col-8">
+                                        <div class="rn-icon-input">
+                                            <i class="far fa-calendar-alt"></i>
+                                            <input type="text" placeholder="Drop Date" id="drop-date">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-4 col-4">
+                                        <div class="rn-icon-input">
+                                            <i class="far fa-clock"></i>
+                                            <input type="text" placeholder="Time" id="drop-time">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-orange btn-lg mt-30 btn-shadow" type="submit">
+                                <i class="fas fa-search"></i> Find Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="rn-shape rn-shape-bottom">
+        <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path class="rn-shape-fill" d="M500.2,94.7L0,0v100h1000V0L500.2,94.7z" />
+        </svg>
+    </div>
+</div>
+<!-- End Car Search Form-->
+<!-- Car Results-->
+<div class="rn-section rn-car-search-results">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+
+                <!-- Car Search Filters-->
+                <div class="rn-car-search-filters">
+                    <div class="rn-car-search-filter-item">
+                        <label>Car Brand:</label>
+                        <select>
+                            <option value="Any">Any</option>
+                            <option value="Rover">Rover</option>
+                            <option value="Lexus">Lexus</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Tesla">Tesla</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                        </select>
+                    </div>
+                    <div class="rn-car-search-filter-item">
+                        <label>Passengers:</label>
+                        <select>
+                            <option value="Any">Any</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                    </div>
+                    <div class="rn-car-search-filter-item">
+                        <label>Color:</label>
+                        <ul class="rn-car-color-filter">
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="rn-color-silver"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="rn-color-black"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="rn-color-white"></span>
+                                </label>
+                            </li>
+                            <li>
+                                <label>
+                                    <input type="checkbox">
+                                    <span class="rn-color-red"></span>
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="rn-car-search-filter-item rn-csf-item-last">
+                        <label>Sort by:</label>
+                        <select>
+                            <option value="Default">Default</option>
+                            <option value="Relavent">Relavent</option>
+                            <option value="Price: High to Low">Price: High to Low</option>
+                            <option value="Price: Low to High">Price: Low to High</option>
+                            <option value="Name: A to Z">Name: A to Z</option>
+                            <option value="Name: Z to A">Name: Z to A</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- End Car Search Filters-->
+                <!-- Car Search Item-->
+                <div class="rn-car-search-item">
+                    <div class="rn-car-search-item-thumb">
+                        <a href="car-single.html">
+                            <img class="img-fluid" src="~/images/car-search-item-1.jpg" alt="" srcset="~/images/car-search-item-1.jpg 1x, ~/images/car-search-item-1@2x.jpg 2x" />
+                        </a>
+                    </div>
+                    <div class="rn-car-search-item-info">
+                        <h2 class="rn-car-search-item-title">
+                            <a href="#">Black Sedan</a>
+                        </h2>
+                        <div class="rn-car-reviews">
+                            <div class="rn-car-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <a href="#">3 Reviews</a>
+                        </div>
+                        <p>Mauris semper nisl a massa convallis</p>
+                        <div class="rn-car-meta">
+                            <span>
+                                <i class="rni-car-seat"></i> 3 Passengers
+                            </span>
+                            <span>
+                                <i class="rni-suitcase"></i> 2 Luggages
+                            </span>
+                            <span>
+                                <i class="rni-petrol-station"></i> Gas
+                            </span>
+                            <span>
+                                <i class="rni-car-gear"></i> Auto
+                            </span>
+                            <span>
+                                <i class="rni-car-door"></i> 4 Doors
+                            </span>
+                        </div>
+                        <a class="rn-car-more-info" href="#">More Information</a>
+                    </div>
+                    <div class="rn-car-search-item-pricing">
+                        <div class="rn-car-total-price">
+                            <span>$1400</span>/total
+                        </div>
+                        <div class="rn-car-price">
+                            <span>$700</span>/day
+                        </div>
+                        <a class="btn btn-main btn-lg btn-shadow" href="#">Book Now</a>
+                    </div>
+                </div>
+                <!-- End Car Search Item-->
+                <!-- Car Search Item-->
+                <div class="rn-car-search-item">
+                    <div class="rn-car-search-item-thumb">
+                        <a href="car-single.html">
+                            <img class="img-fluid" src="~/images/car-search-item-2.jpg" alt="" srcset="~/images/car-search-item-2.jpg 1x, ~/images/car-search-item-2@2x.jpg 2x" />
+                        </a>
+                    </div>
+                    <div class="rn-car-search-item-info">
+                        <h2 class="rn-car-search-item-title">
+                            <a href="#">Toyota Etios</a>
+                        </h2>
+                        <div class="rn-car-reviews">
+                            <div class="rn-car-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <a href="#">3 Reviews</a>
+                        </div>
+                        <p>Mauris semper nisl a massa convallis</p>
+                        <div class="rn-car-meta">
+                            <span>
+                                <i class="rni-car-seat"></i> 3 Passengers
+                            </span>
+                            <span>
+                                <i class="rni-suitcase"></i> 2 Luggages
+                            </span>
+                            <span>
+                                <i class="rni-petrol-station"></i> Gas
+                            </span>
+                            <span>
+                                <i class="rni-car-gear"></i> Auto
+                            </span>
+                            <span>
+                                <i class="rni-car-door"></i> 4 Doors
+                            </span>
+                        </div>
+                        <a class="rn-car-more-info" href="#">More Information</a>
+                    </div>
+                    <div class="rn-car-search-item-pricing">
+                        <div class="rn-car-total-price">
+                            <span>$1400</span>/total
+                        </div>
+                        <div class="rn-car-price">
+                            <span>$700</span>/day
+                        </div>
+                        <a class="btn btn-main btn-lg btn-shadow" href="#">Book Now</a>
+                    </div>
+                </div>
+                <!-- End Car Search Item-->
+                <!-- Car Search Item-->
+                <div class="rn-car-search-item">
+                    <div class="rn-car-search-item-thumb">
+                        <a href="car-single.html">
+                            <img class="img-fluid" src="~/images/car-search-item-3.jpg" alt="" srcset="~/images/car-search-item-3.jpg 1x, ~/images/car-search-item-3@2x.jpg 2x" />
+                        </a>
+                    </div>
+                    <div class="rn-car-search-item-info">
+                        <h2 class="rn-car-search-item-title">
+                            <a href="#">Red Sporty Car</a>
+                        </h2>
+                        <div class="rn-car-reviews">
+                            <div class="rn-car-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <a href="#">3 Reviews</a>
+                        </div>
+                        <p>Mauris semper nisl a massa convallis</p>
+                        <div class="rn-car-meta">
+                            <span>
+                                <i class="rni-car-seat"></i> 3 Passengers
+                            </span>
+                            <span>
+                                <i class="rni-suitcase"></i> 2 Luggages
+                            </span>
+                            <span>
+                                <i class="rni-petrol-station"></i> Gas
+                            </span>
+                            <span>
+                                <i class="rni-car-gear"></i> Auto
+                            </span>
+                            <span>
+                                <i class="rni-car-door"></i> 4 Doors
+                            </span>
+                        </div>
+                        <a class="rn-car-more-info" href="#">More Information</a>
+                    </div>
+                    <div class="rn-car-search-item-pricing">
+                        <div class="rn-car-total-price">
+                            <span>$1400</span>/total
+                        </div>
+                        <div class="rn-car-price">
+                            <span>$700</span>/day
+                        </div>
+                        <a class="btn btn-main btn-lg btn-shadow" href="#">Book Now</a>
+                    </div>
+                </div>
+                <!-- End Car Search Item-->
+                <!-- Car Search Item-->
+                <div class="rn-car-search-item">
+                    <div class="rn-car-search-item-thumb">
+                        <a href="car-single.html">
+                            <img class="img-fluid" src="~/images/car-search-item-4.jpg" alt="" srcset="~/images/car-search-item-4.jpg 1x, ~/images/car-search-item-4@2x.jpg 2x" />
+                        </a>
+                    </div>
+                    <div class="rn-car-search-item-info">
+                        <h2 class="rn-car-search-item-title">
+                            <a href="#">Mercedes AMG E63</a>
+                        </h2>
+                        <div class="rn-car-reviews">
+                            <div class="rn-car-stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <a href="#">3 Reviews</a>
+                        </div>
+                        <p>Mauris semper nisl a massa convallis</p>
+                        <div class="rn-car-meta">
+                            <span>
+                                <i class="rni-car-seat"></i> 3 Passengers
+                            </span>
+                            <span>
+                                <i class="rni-suitcase"></i> 2 Luggages
+                            </span>
+                            <span>
+                                <i class="rni-petrol-station"></i> Gas
+                            </span>
+                            <span>
+                                <i class="rni-car-gear"></i> Auto
+                            </span>
+                            <span>
+                                <i class="rni-car-door"></i> 4 Doors
+                            </span>
+                        </div>
+                        <a class="rn-car-more-info" href="#">More Information</a>
+                    </div>
+                    <div class="rn-car-search-item-pricing">
+                        <div class="rn-car-total-price">
+                            <span>$1400</span>/total
+                        </div>
+                        <div class="rn-car-price">
+                            <span>$700</span>/day
+                        </div>
+                        <a class="btn btn-main btn-lg btn-shadow" href="#">Book Now</a>
+                    </div>
+                </div>
+                <!-- End Car Search Item-->
+                <!-- Load More Cars-->
+                <div class="text-center">
+                    <a class="btn btn-lg btn-outline-light mb-40" href="#">Load More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Car Results-->
