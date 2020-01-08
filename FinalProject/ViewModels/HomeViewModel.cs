@@ -10,7 +10,7 @@ namespace FinalProject.ViewModels
     {
         public ICollection<SliderItem> Sliders { get; set; }
 
-        public ICollection<WhyPeopleLikeUs> WhyPeopleLikeUs { get; set; }
+        public ICollection<Advantage> Advantages { get; set; }
 
         public ICollection<Car> Cars { get; set; }
 

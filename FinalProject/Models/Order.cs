@@ -15,15 +15,13 @@ namespace FinalProject.Models
         public int Id { get; set; }
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
-
         public List<OrderItem> OrderItems{ get; set; }
-
         public Payment PaymentMethod { get; set; }
-
         public DateTime PickupDate { get; set; }
         public DateTime DropDate { get; set; }
         public string PickupLocation { get; set; }
         public string DropLocation { get; set; }
+        public string OrderNote { get; set; }
 
     }
 }

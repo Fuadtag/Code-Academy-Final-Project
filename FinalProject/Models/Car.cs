@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,10 +25,9 @@ namespace FinalProject.Models
     public class Car
     {
         public int Id { get; set; }
-        public int CarModelId { get; set; }
-        public CarModel Model { get; set; }
+        public int CarBrandId { get; set; }
+        public CarBrand Brand{ get; set; }
 
-        public string Slug { get; set; }
         public Transmissions Transmission { get; set; }
 
         public FuelType Fuel { get; set; }
@@ -38,13 +39,26 @@ namespace FinalProject.Models
         public byte Door { get; set; }
 
         public string Title { get; set; }
+        [Column(TypeName = "Money")]
         public decimal DailyPrice { get; set; }
 
         public byte Discount { get; set; }
         public string Description { get; set; }
 
-        public List<Facilities> Facilities { get; set; }
+        public ICollection<CustomerReview> CustomerReviews { get; set; }
+        [NotMapped]
+        public ICollection<Facilities> Facilities { get; set; }
 
         public bool Status { get; set; }
+        [NotMapped]
+        public IFormFile PhotoFile { get; set; }
+        public string Photo { get; set; }
+        [NotMapped]
+        public IFormFile CartPhotoFile { get; set; }
+        public string CartPhoto { get; set; }
+        [NotMapped]
+        public IFormFile DetailPhotoFile { get; set; }
+
+        public string DetailPhoto { get; set; }
     }
 }

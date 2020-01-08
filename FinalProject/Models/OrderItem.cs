@@ -13,5 +13,7 @@ namespace FinalProject.Models
 
         public int CarId { get; set; }
         public Car Car { get; set; }
+        public ICollection<CarExtraService> Services { get; set; }
+
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Models
 {
-    public class WhyPeopleLikeUs
+    public class Advantage
     {
         public int Id { get; set; }
 
