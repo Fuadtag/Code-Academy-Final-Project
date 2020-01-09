@@ -27,7 +27,6 @@
     <Folder Include="Areas\Control\Data\" />
     <Folder Include="Areas\Control\Models\" />
     <Folder Include="Areas\Control\Views\" />
-    <Folder Include="ViewComponents\" />
   </ItemGroup>
 
 

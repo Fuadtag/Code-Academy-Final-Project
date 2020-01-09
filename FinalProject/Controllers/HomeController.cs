@@ -6,21 +6,33 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using FinalProject.Models;
+using FinalProject.Data;
+using FinalProject.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly RentNowContext _context;
+        public HomeController(RentNowContext context)
         {
-            _logger = logger;
+            _context = context;
         }
+
+       
 
         public IActionResult Index()
         {
-            return View();
+            HomeViewModel model = new HomeViewModel();
+            model.Advantages = _context.Advantage.ToList();
+            model.Blogs = _context.Blogs.Include("Category").Include("Author").OrderByDescending(b => b.CreatedAt).Take(3).ToList();
+            model.Sliders = _context.Sliders.Take(3).ToList();
+            model.Cartypes = _context.CarTypes.ToList();
+            model.Advantages = _context.Advantage.Take(8).ToList();
+            model.Testimonials = _context.Testimonials.Take(4).ToList();
+            return View(model);
         }
 
         

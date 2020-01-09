@@ -8,7 +8,7 @@ namespace FinalProject.ViewModels
 {
     public class HomeViewModel
     {
-        public ICollection<SliderItem> Sliders { get; set; }
+        public List<SliderItem> Sliders { get; set; }
 
         public ICollection<Advantage> Advantages { get; set; }
 

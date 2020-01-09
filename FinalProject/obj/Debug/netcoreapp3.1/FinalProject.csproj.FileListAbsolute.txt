@@ -276,3 +276,5 @@ C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\bin\Debug\netcorea
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.DotNet.Cli.Utils.resources.dll
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs

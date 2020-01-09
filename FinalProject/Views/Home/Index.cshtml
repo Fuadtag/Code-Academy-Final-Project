@@ -1,44 +1,26 @@
-﻿@{
+﻿@model HomeViewModel
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <!-- Slider-->
 <div class="rn-carousel carousel slide" id="carouselExampleControls" data-ride="carousel">
     <div class="carousel-inner">
-
-        <!-- Slider Item 1-->
-        <div class="carousel-item beactive">
-            <div class="carousel-caption">
-                <h2 class="rn-fade-bottom mb-25">#1 Car Rent Service In Your City</h2>
-                <p class="rn-fade-bottom rn-caption-item-2 mb-35">Maecenas viverra porta eros, id tincidunt lorem rhoncus eget. Aliquam erat volutpat. Sed ultricies elementum egestas.</p>
-                <a class="btn btn-main btn-lg rn-fade-bottom rn-caption-item-3" href="#">Book Now</a>
+        @{int a = 0;}
+        @foreach (var item in Model.Sliders)
+        {
+            <div class="carousel-item @(a == 0 ? ("beactive") : "")">
+                <div class="carousel-caption">
+                    <h2 class="rn-fade-bottom mb-25">@item.Title</h2>
+                    <p class="rn-fade-bottom rn-caption-item-2 mb-35">@item.Text</p>
+                    <a class="btn btn-main btn-lg rn-fade-bottom rn-caption-item-3" href="#">Book Now</a>
+                </div>
+                <div class="rn-slider-overlayer"></div>
+                <img class="d-block w-100" src="~/images/@item.Photo" alt="slide">
             </div>
-            <div class="rn-slider-overlayer"></div>
-            <img class="d-block w-100" src="~/images/slide1.jpg" alt="slide">
-        </div>
-
-        <!-- Slider Item 2-->
-        <div class="carousel-item">
-            <div class="carousel-caption">
-                <h2 class="rn-fade-bottom mb-25">Quality Cars with Unlimited Miles</h2>
-                <p class="rn-fade-bottom rn-caption-item-2 mb-35">Maecenas viverra porta eros, id tincidunt lorem rhoncus eget. Aliquam erat volutpat. Sed ultricies elementum egestas.</p>
-                <a class="btn btn-main btn-lg rn-fade-bottom rn-caption-item-3" href="#">Book Now</a>
-            </div>
-            <div class="rn-slider-overlayer"></div>
-            <img class="d-block w-100" src="~/images/slide2.jpg" alt="slide">
-        </div>
-
-        <!-- Slider Item 3-->
-        <div class="carousel-item">
-            <div class="carousel-caption">
-                <h2 class="rn-fade-bottom mb-25">24/7 Customer Support Guarantee</h2>
-                <p class="rn-fade-bottom rn-caption-item-2 mb-35">Maecenas viverra porta eros, id tincidunt lorem rhoncus eget. Aliquam erat volutpat. Sed ultricies elementum egestas.</p>
-                <a class="btn btn-main btn-lg rn-fade-bottom rn-caption-item-3" href="#">Book Now</a>
-            </div>
-            <div class="rn-slider-overlayer"></div>
-            <img class="d-block w-100" src="~/images/slide3.jpg" alt="slide">
-        </div>
-
+            a++;
+        }
     </div>
     <!-- Slider Controls -->
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
@@ -150,112 +132,24 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-3 col-md-6">
+            @foreach (var item in Model.Advantages)
+            {
+                <div class="col-lg-3 col-md-6">
 
-                <!-- Feature with dot-->
-                <div class="rn-dot-feature">
-                    <div class="rn-the-dot"></div>
-                    <div class="rn-dot-feature-info">
-                        <h3>Best Price Guarantee</h3>
-                        <p>Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.</p>
+                    <!-- Feature with dot-->
+                    <div class="rn-dot-feature">
+                        <div class="rn-the-dot"></div>
+                        <div class="rn-dot-feature-info">
+                            <h3>@item.Title</h3>
+                            <p>@item.Text</p>
+                        </div>
                     </div>
+                    <!-- End Feature with dot-->
+
                 </div>
-                <!-- End Feature with dot-->
+            }
 
-            </div>
-            <div class="col-lg-3 col-md-6">
-
-                <!-- Feature with dot-->
-                <div class="rn-dot-feature">
-                    <div class="rn-the-dot"></div>
-                    <div class="rn-dot-feature-info">
-                        <h3>No Cancellation Fees</h3>
-                        <p>Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.</p>
-                    </div>
-                </div>
-                <!-- End Feature with dot-->
-
-            </div>
-            <div class="col-lg-3 col-md-6">
-
-                <!-- Feature with dot-->
-                <div class="rn-dot-feature">
-                    <div class="rn-the-dot"></div>
-                    <div class="rn-dot-feature-info">
-                        <h3>Best Quality Cars</h3>
-                        <p>Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.</p>
-                    </div>
-                </div>
-                <!-- End Feature with dot-->
-
-            </div>
-            <div class="col-lg-3 col-md-6">
-
-                <!-- Feature with dot-->
-                <div class="rn-dot-feature">
-                    <div class="rn-the-dot"></div>
-                    <div class="rn-dot-feature-info">
-                        <h3>Reservation Anytime</h3>
-                        <p>Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.</p>
-                    </div>
-                </div>
-                <!-- End Feature with dot-->
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-3 col-md-6">
-
-                <!-- Feature with dot-->
-                <div class="rn-dot-feature">
-                    <div class="rn-the-dot"></div>
-                    <div class="rn-dot-feature-info">
-                        <h3>Personal Driver</h3>
-                        <p>Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.</p>
-                    </div>
-                </div>
-                <!-- End Feature with dot-->
-
-            </div>
-            <div class="col-lg-3 col-md-6">
-
-                <!-- Feature with dot-->
-                <div class="rn-dot-feature">
-                    <div class="rn-the-dot"></div>
-                    <div class="rn-dot-feature-info">
-                        <h3>Unlimited Miles</h3>
-                        <p>Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.</p>
-                    </div>
-                </div>
-                <!-- End Feature with dot-->
-
-            </div>
-            <div class="col-lg-3 col-md-6">
-
-                <!-- Feature with dot-->
-                <div class="rn-dot-feature">
-                    <div class="rn-the-dot"></div>
-                    <div class="rn-dot-feature-info">
-                        <h3>City to City</h3>
-                        <p>Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.</p>
-                    </div>
-                </div>
-                <!-- End Feature with dot-->
-
-            </div>
-            <div class="col-lg-3 col-md-6">
-
-                <!-- Feature with dot-->
-                <div class="rn-dot-feature">
-                    <div class="rn-the-dot"></div>
-                    <div class="rn-dot-feature-info">
-                        <h3>24/7 Customer Support</h3>
-                        <p>Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.</p>
-                    </div>
-                </div>
-                <!-- End Feature with dot-->
-
-            </div>
+            
         </div>
     </div>
 </section>
@@ -524,72 +418,22 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 col-6 col-md-4">
-                <!-- Car Category-->
-                <div class="rn-car-type">
-                    <a href="cars.html">
-                        <span class="rn-car-type-icon">
-                            <i class="rni-car-type-sedan"></i>
-                        </span>
-                        <span class="rn-car-type-title">Sedan</span>
-                    </a>
+            @foreach (var item in Model.Cartypes)
+            {
+                <div class="col-lg-2 col-6 col-md-4">
+                    <!-- Car Category-->
+                    <div class="rn-car-type">
+                        <a href="cars.html">
+                            <span class="rn-car-type-icon">
+                                <i class="rni-@(item.Icon)"></i>
+                            </span>
+                            <span class="rn-car-type-title">@item.Name</span>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-2 col-6 col-md-4">
-                <!-- Car Category-->
-                <div class="rn-car-type">
-                    <a href="cars.html">
-                        <span class="rn-car-type-icon">
-                            <i class="rni-car-type-roadster"></i>
-                        </span>
-                        <span class="rn-car-type-title">Roadster</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-6 col-md-4">
-                <!-- Car Category-->
-                <div class="rn-car-type">
-                    <a href="cars.html">
-                        <span class="rn-car-type-icon">
-                            <i class="rni-car-type-coupe"></i>
-                        </span>
-                        <span class="rn-car-type-title">Coupe</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-6 col-md-4">
-                <!-- Car Category-->
-                <div class="rn-car-type">
-                    <a href="cars.html">
-                        <span class="rn-car-type-icon">
-                            <i class="rni-car-type-minivan"></i>
-                        </span>
-                        <span class="rn-car-type-title">Minivan</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-6 col-md-4">
-                <!-- Car Category-->
-                <div class="rn-car-type">
-                    <a href="cars.html">
-                        <span class="rn-car-type-icon">
-                            <i class="rni-car-type-statio-wagon"></i>
-                        </span>
-                        <span class="rn-car-type-title">Station Wagon</span>
-                    </a>
-                </div>
-            </div>
-            <div class="col-lg-2 col-6 col-md-4">
-                <!-- Car Category-->
-                <div class="rn-car-type">
-                    <a href="cars.html">
-                        <span class="rn-car-type-icon">
-                            <i class="rni-car-type-limousine"></i>
-                        </span>
-                        <span class="rn-car-type-title">Limousine</span>
-                    </a>
-                </div>
-            </div>
+            }
+
+           
         </div>
     </div>
 </section>
@@ -611,59 +455,25 @@
                 <div class="rn-testimonials rn-testimonials2">
                     <div class="rn-testimonials-carousel carousel slide" id="rn-testimonials" data-ride="carousel">
                         <div class="carousel-inner">
+                            @{int i = 0;}
+                            @foreach (var item in Model.Testimonials)
+                            {
+                                <!-- Testimonial Item @(i+1)-->
+                                <div class="carousel-item @(i == 0 ? ("active") : "") ">
+                                    <blockquote class="rn-testimonial2-item">
+                                        <p>@item.Text</p>
+                                        <footer>
+                                            <div class="rn-testimonial-author">
+                                                <strong>@item.Name</strong>
+                                                <p>@item.Position, @item.Position</p>
+                                            </div>
+                                        </footer>
+                                    </blockquote>
+                                </div>
+                                i++;
+                            }
 
-                            <!-- Testimonial Item 1-->
-                            <div class="carousel-item active">
-                                <blockquote class="rn-testimonial2-item">
-                                    <p>Curabitur neque turpis, pellentesque vel semper ut, tempor vel arcu. Nulla facilisi. Phasellus feugiat nunc eget eros varius, et mollis magna elementum.</p>
-                                    <footer>
-                                        <div class="rn-testimonial-author">
-                                            <strong>Catherine Beck</strong>
-                                            <p>CEO, Example Inc.</p>
-                                        </div>
-                                    </footer>
-                                </blockquote>
-                            </div>
-
-                            <!-- Testimonial Item 2-->
-                            <div class="carousel-item">
-                                <blockquote class="rn-testimonial2-item">
-                                    <p>Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel.</p>
-                                    <footer>
-                                        <div class="rn-testimonial-author">
-                                            <strong>Kevin Little</strong>
-                                            <p>CEO, Example Inc.</p>
-                                        </div>
-                                    </footer>
-                                </blockquote>
-                            </div>
-
-                            <!-- Testimonial Item 3-->
-                            <div class="carousel-item">
-                                <blockquote class="rn-testimonial2-item">
-                                    <p>Suspendisse semper urna nec massa imperdiet consequat. Phasellus a hendrerit elit, vel maximus lacus. Sed eu quam laoreet, faucibus lorem non, aliquet diam.</p>
-                                    <footer>
-                                        <div class="rn-testimonial-author">
-                                            <strong>John Roberts</strong>
-                                            <p>CEO, Example Inc.</p>
-                                        </div>
-                                    </footer>
-                                </blockquote>
-                            </div>
-
-                            <!-- Testimonial Item 4-->
-                            <div class="carousel-item">
-                                <blockquote class="rn-testimonial2-item">
-                                    <p>Quisque ut arcu vitae elit egestas lobortis. Vivamus vehicula tortor molestie urna laoreet congue. Fusce iaculis eros id neque maximus tristique.</p>
-                                    <footer>
-                                        <div class="rn-testimonial-author">
-                                            <strong>Patricia Torres</strong>
-                                            <p>CEO, Example Inc.</p>
-                                        </div>
-                                    </footer>
-                                </blockquote>
-                            </div>
-
+                            
                         </div>
                         <!-- Testimonials Slider Controls-->
                         <ol class="carousel-indicators">
@@ -740,7 +550,7 @@
             <div class="col-lg-12">
 
                 <!-- Section Title-->
-                <div class="rn-section-title   ">
+                <div class="rn-section-title ">
                     <h2 class="rn-title">News &amp; Updates</h2>
                     <p>Inbecilloque elegans errorem concedo etsi electram.</p>
                     <span class="rn-title-bg">News &amp; Updates</span>
@@ -749,120 +559,49 @@
             </div>
         </div>
         <div class="row rn-post-list">
-            <div class="col-md-4">
+            @foreach (var item in Model.Blogs)
+            {
+                <div class="col-md-4">
 
-                <!-- Blog Post Item (Small Size)-->
-                <div class="rn-post-item rn-post-size-sm">
-                    <div class="rn-post-item-thumb">
-                        <a href="#">
-                            <img class="img-fluid" src="~/images/blog-item-sm-1.jpg" alt="Expanding Your Home Network’s Reach" srcset="~/images/blog-item-sm-1.jpg 1x, ~/images/blog-item-sm-1@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-post-item-header">
-                        <div class="rn-post-date">
-                            <div class="rn-post-date-inner">
-                                <div class="rn-post-date-d">15</div>
-                                <div class="rn-post-date-m-y">May, 2018</div>
-                            </div>
+                    <!-- Blog Post Item (Small Size)-->
+                    <div class="rn-post-item rn-post-size-sm">
+                        <div class="rn-post-item-thumb">
+                            <a href="#">
+                                <img class="img-fluid" src="~/images/@item.PhotoSm" alt="Expanding Your Home Network’s Reach" srcset="~/images/blog-item-sm-1.jpg 1x, ~/images/blog-item-sm-1@2x.jpg 2x" />
+                            </a>
                         </div>
-                        <div class="rn-post-item-title-meta">
-                            <div class="rn-post-item-title-meta-inner">
-                                <div class="rn-post-item-meta">
-                                    <span class="rn-post-item-categories">
-                                        In
-                                        <a href="#">News</a>
-                                    </span>
-                                    <span class="rn-post-item-author">
-                                        By
-                                        <a href="#">John Doe</a>
-                                    </span>
+                        <div class="rn-post-item-header">
+                            <div class="rn-post-date">
+                                <div class="rn-post-date-inner">
+                                    <div class="rn-post-date-d">@item.CreatedAt.ToString("dd")</div>
+                                    <div class="rn-post-date-m-y">@item.CreatedAt.ToString("MMMM") @item.CreatedAt.Year</div>
                                 </div>
-                                <h3 class="rn-post-item-title">
-                                    <a href="#">Expanding Your Home Network’s Reach</a>
-                                </h3>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog Post Item (Small Size)-->
-
-            </div>
-            <div class="col-md-4">
-
-                <!-- Blog Post Item (Small Size)-->
-                <div class="rn-post-item rn-post-size-sm">
-                    <div class="rn-post-item-thumb">
-                        <a href="#">
-                            <img class="img-fluid" src="~/images/blog-item-sm-2.jpg" alt="Hannah Bronfman: Beauty Hound" srcset="~/images/blog-item-sm-2.jpg 1x, ~/images/blog-item-sm-2@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-post-item-header">
-                        <div class="rn-post-date">
-                            <div class="rn-post-date-inner">
-                                <div class="rn-post-date-d">15</div>
-                                <div class="rn-post-date-m-y">May, 2018</div>
-                            </div>
-                        </div>
-                        <div class="rn-post-item-title-meta">
-                            <div class="rn-post-item-title-meta-inner">
-                                <div class="rn-post-item-meta">
-                                    <span class="rn-post-item-categories">
-                                        In
-                                        <a href="#">News</a>
-                                    </span>
-                                    <span class="rn-post-item-author">
-                                        By
-                                        <a href="#">John Doe</a>
-                                    </span>
+                            <div class="rn-post-item-title-meta">
+                                <div class="rn-post-item-title-meta-inner">
+                                    <div class="rn-post-item-meta">
+                                        <span class="rn-post-item-categories">
+                                            In
+                                            <a href="#">@item.Category.Name</a>
+                                        </span>
+                                        <span class="rn-post-item-author">
+                                            By
+                                            <a href="#">@item.Author.Name</a>
+                                        </span>
+                                    </div>
+                                    <h3 class="rn-post-item-title">
+                                        <a href="#">@item.Title</a>
+                                    </h3>
                                 </div>
-                                <h3 class="rn-post-item-title">
-                                    <a href="#">Hannah Bronfman: Beauty Hound</a>
-                                </h3>
                             </div>
                         </div>
                     </div>
+                    <!-- End Blog Post Item (Small Size)-->
+
                 </div>
-                <!-- End Blog Post Item (Small Size)-->
+            }
 
-            </div>
-            <div class="col-md-4">
-
-                <!-- Blog Post Item (Small Size)-->
-                <div class="rn-post-item rn-post-size-sm">
-                    <div class="rn-post-item-thumb">
-                        <a href="#">
-                            <img class="img-fluid" src="~/images/blog-item-sm-3.jpg" alt="Daily Report: A Busy Week Ahead" srcset="~/images/blog-item-sm-3.jpg 1x, ~/images/blog-item-sm-3@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-post-item-header">
-                        <div class="rn-post-date">
-                            <div class="rn-post-date-inner">
-                                <div class="rn-post-date-d">15</div>
-                                <div class="rn-post-date-m-y">May, 2018</div>
-                            </div>
-                        </div>
-                        <div class="rn-post-item-title-meta">
-                            <div class="rn-post-item-title-meta-inner">
-                                <div class="rn-post-item-meta">
-                                    <span class="rn-post-item-categories">
-                                        In
-                                        <a href="#">News</a>
-                                    </span>
-                                    <span class="rn-post-item-author">
-                                        By
-                                        <a href="#">John Doe</a>
-                                    </span>
-                                </div>
-                                <h3 class="rn-post-item-title">
-                                    <a href="#">Daily Report: A Busy Week Ahead</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog Post Item (Small Size)-->
-
-            </div>
+           
         </div>
     </div>
 </section>

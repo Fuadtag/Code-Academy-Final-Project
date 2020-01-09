@@ -14,7 +14,7 @@
  * 9. Animated CountUp
  * 10. Preloader
  */
-(function($) {
+(function ($) {
     /**
      * 1. Main Nav Menu
      */
@@ -34,8 +34,10 @@
     /**
      * 2. Custom Data for Slider
      */
-
-    $('.beactive').addClass('active').removeClass('beactive');
+    $(document.ready(function () {
+        $('.beactive').addClass('active').removeClass('beactive');
+    })
+    
     /**
      * 3. Date & Time Picker
      */

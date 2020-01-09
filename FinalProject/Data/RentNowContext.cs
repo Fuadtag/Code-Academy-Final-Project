@@ -9,10 +9,11 @@ namespace FinalProject.Data
 {
     public class RentNowContext : DbContext
     {
-        public RentNowContext(DbContextOptions<RentNowContext> options) : base(options)
+        public RentNowContext(DbContextOptions<RentNowContext> options): base(options)
         {
-
         }
+
+        
 
         public DbSet<Setting> Settings { get; set; }
         public DbSet<CarType> CarTypes { get; set; }
@@ -261,6 +262,7 @@ namespace FinalProject.Data
                     Name = "Expanding Your Home Network’s Reach",
                     Slug = "expanding-your-home-networks-reach",
                     Title = "A standard blog post with image",
+                    InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                     AuthorId = 1,
                     CreatedAt = DateTime.Now,
                     Likes = 0,
@@ -277,6 +279,7 @@ namespace FinalProject.Data
                     Name = "Expanding Your Home Network’s Reach",
                     Slug = "expanding-your-home-networks-reach",
                     Title = "A standard blog post with image",
+                    InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                     AuthorId = 2,
                     CreatedAt = DateTime.Now,
                     Likes = 0,
@@ -293,6 +296,7 @@ namespace FinalProject.Data
                     Name = "Expanding Your Home Network’s Reach",
                     Slug = "expanding-your-home-networks-reach",
                     Title = "A standard blog post with image",
+                    InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                     AuthorId = 3,
                     CreatedAt = DateTime.Now,
                     Likes = 0,
@@ -686,6 +690,8 @@ namespace FinalProject.Data
                     Email = "fuadjt@code.edu.az",
                     Password = "admin123"
                 });
+
+
 
 
         }

@@ -24,6 +24,7 @@ namespace FinalProject.Models
         public byte Age { get; set; }
 
         public ICollection<Order> Orders { get; set; }
+        public ICollection<CustomerReview> CustomerReviews { get; set; }
 
         public bool HappyClient { get; set; }
 

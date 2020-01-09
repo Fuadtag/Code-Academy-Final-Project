@@ -13,6 +13,8 @@ namespace FinalProject.Models
         public string Name { get; set; }
         public string TopText { get; set; }
         public string Text { get; set; }
+
+        public string InfoText { get; set; }
         [NotMapped]
         public IFormFile PhotoFile { get; set; }
         public string Photo { get; set; }

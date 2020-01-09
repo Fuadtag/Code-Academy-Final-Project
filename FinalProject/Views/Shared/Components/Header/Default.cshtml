@@ -1,0 +1,179 @@
+﻿@model Setting
+ <!-- Header-->
+<header class="rn-header">
+
+    <!-- Topbar-->
+    <div class="rn-topbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-12 col-sm-5 col-lg-3">
+
+                    <!-- Tobar Social-->
+                    <ul class="rn-social">
+                        <li>
+                            <a href ="@Model.FacebookLink">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href ="@Model.TwitterLink">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href ="@Model.GoogleLink">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href ="@Model.InstagramLink">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href ="@Model.LinkedInLink">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="col-12 col-sm-7 col-lg-9">
+
+                    <!-- Topbar Contact with Icon-->
+                    <div class="rn-icon-contents">
+                        <div class="rn-phone rn-icon-content">
+                            <div class="rn-icon">
+                                <i class="lnr lnr-phone"></i>
+                            </div>
+                            <div class="rn-info">
+                                <ul>
+                                    <li>@Model.Phone</li>
+                                    <li>@Model.SupPhone</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rn-email rn-icon-content">
+                            <div class="rn-icon">
+                                <i class="lnr lnr-envelope"></i>
+                            </div>
+                            <div class="rn-info">
+                                <ul>
+                                    <li>@Model.Email</li>
+                                    <li>@Model.SaleEmail</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="rn-address rn-icon-content">
+                            <div class="rn-icon">
+                                <i class="lnr lnr-map-marker"></i>
+                            </div>
+                            <div class="rn-info">
+                                <ul>
+                                    <li>@Model.MainAdress</li>
+                                    <li>@Model.Adress</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Topbar-->
+    <!-- Menubar-->
+    <div class="rn-menubar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-4">
+                    <!-- Logo-->
+                    <a class="brand-name" href="index-2.html">
+                        <img class="img-fluid" src="~/images/@Model.Logo" alt="Logo">
+                    </a>
+                </div>
+                <div class="col-8">
+                    <nav class="rn-navbar-container">
+
+                        <!-- Navbar Toggle Button for Only Tablet and Phone-->
+                        <button class="rn-navbar-toggler" id="rn-navbar-toggler">
+                            <span class="rn-navbar-toggler-bar"></span>
+                            <span class="rn-navbar-toggler-bar"></span>
+                            <span class="rn-navbar-toggler-bar"></span>
+                        </button>
+
+                        <!-- Main Nav Menu-->
+                        <ul class="rn-navbar">
+                            <li class="active">
+                                <a asp-action="Index" asp-controller="Home">Home</a>
+                            </li>
+                            <li>
+                                <a asp-action="List" asp-controller="Cars">
+                                    Cars
+                                    <i class="lnr lnr-chevron-down"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a asp-action="List" asp-controller="Cars">Cars</a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="Search" asp-controller="Cars">Search</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="checkout.html">Checkout</a>
+                                    </li>
+                                    <li>
+                                        <a href="cart.html">Cart</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a asp-action="AboutUs" asp-controller="Pages">
+                                    Pages
+                                    <i class="lnr lnr-chevron-down"></i>
+                                </a>
+                                <ul>
+                                    <li>
+                                        <a asp-action="AboutUs" asp-controller="Pages">About Us</a>
+                                    </li>
+
+                                    <li>
+                                        <a asp-action="Page" asp-controller="Pages">Page</a>
+                                    </li>
+                                    <li>
+                                        <a asp-action="Faq" asp-controller="Pages">FAQ</a>
+                                    </li>
+
+                                    <li>
+                                        <a asp-action="Gallery" asp-controller="Pages">
+                                            Gallery
+                                        </a>
+
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a asp-action="Index" asp-controller="Service">Service</a>
+                            </li>
+                            <li>
+                                <a asp-action="Blog" asp-controller="Blogs">
+                                    Blog
+
+                                </a>
+
+                            </li>
+                            <li>
+                                <a asp-action="Index" asp-controller="Contact">Contact</a>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Menubar-->
+
+</header>
+<!-- End Header-->
