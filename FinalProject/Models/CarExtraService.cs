@@ -10,6 +10,8 @@ namespace FinalProject.Models
     public class CarExtraService
     {
         public int Id { get; set; }
+        [Required]
+        [MaxLength(20,ErrorMessage ="Must not be more than 20 symbol")]
         public string Name { get; set; }
         [Column(TypeName ="Money")]
         public decimal Price { get; set; }

@@ -19,7 +19,7 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        public IActionResult Blog()
+        public IActionResult Blog(int? categoryid , int? tagid)
         {
             BlogViewModel model = new BlogViewModel
             {

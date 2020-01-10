@@ -4,14 +4,16 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(RentNowContext))]
-    partial class RentNowContextModelSnapshot : ModelSnapshot
+    [Migration("20200110122506_FaqTableCreated")]
+    partial class FaqTableCreated
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -251,7 +253,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 10, 16, 44, 57, 203, DateTimeKind.Local).AddTicks(2494),
+                            CreatedAt = new DateTime(2020, 1, 10, 16, 25, 4, 638, DateTimeKind.Local).AddTicks(7612),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -268,7 +270,7 @@ namespace FinalProject.Migrations
                             Id = 2,
                             AuthorId = 2,
                             BlogCategoryId = 2,
-                            CreatedAt = new DateTime(2020, 1, 10, 16, 44, 57, 205, DateTimeKind.Local).AddTicks(3837),
+                            CreatedAt = new DateTime(2020, 1, 10, 16, 25, 4, 640, DateTimeKind.Local).AddTicks(7962),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -285,7 +287,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 10, 16, 44, 57, 205, DateTimeKind.Local).AddTicks(3937),
+                            CreatedAt = new DateTime(2020, 1, 10, 16, 25, 4, 640, DateTimeKind.Local).AddTicks(8063),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -374,7 +376,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogId = 1,
-                            CreatedAt = new DateTime(2020, 1, 10, 16, 44, 57, 205, DateTimeKind.Local).AddTicks(7047),
+                            CreatedAt = new DateTime(2020, 1, 10, 16, 25, 4, 641, DateTimeKind.Local).AddTicks(1255),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -382,7 +384,7 @@ namespace FinalProject.Migrations
                             Id = 12,
                             AuthorId = 2,
                             BlogId = 2,
-                            CreatedAt = new DateTime(2020, 1, 10, 16, 44, 57, 205, DateTimeKind.Local).AddTicks(8359),
+                            CreatedAt = new DateTime(2020, 1, 10, 16, 25, 4, 641, DateTimeKind.Local).AddTicks(3032),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -390,7 +392,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogId = 3,
-                            CreatedAt = new DateTime(2020, 1, 10, 16, 44, 57, 205, DateTimeKind.Local).AddTicks(8384),
+                            CreatedAt = new DateTime(2020, 1, 10, 16, 25, 4, 641, DateTimeKind.Local).AddTicks(3058),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         });
                 });
@@ -891,112 +893,6 @@ namespace FinalProject.Migrations
                         });
                 });
 
-            modelBuilder.Entity("FinalProject.Models.Gallery", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Galleries");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1
-                        });
-                });
-
-            modelBuilder.Entity("FinalProject.Models.GalleryItem", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("GalleryId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Photo")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhotoSm")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GalleryId");
-
-                    b.ToTable("GalleryItems");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 7,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 8,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        },
-                        new
-                        {
-                            Id = 9,
-                            GalleryId = 1,
-                            Photo = "gallery-1.jpg",
-                            PhotoSm = "gallery-sm-1.jpg"
-                        });
-                });
-
             modelBuilder.Entity("FinalProject.Models.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -1036,10 +932,10 @@ namespace FinalProject.Migrations
                         {
                             Id = 1,
                             CustomerId = 1,
-                            DropDate = new DateTime(2020, 1, 15, 16, 44, 57, 210, DateTimeKind.Local).AddTicks(8345),
+                            DropDate = new DateTime(2020, 1, 15, 16, 25, 4, 646, DateTimeKind.Local).AddTicks(5140),
                             DropLocation = "Baku, H.A Airport",
                             PaymentMethod = 0,
-                            PickupDate = new DateTime(2020, 1, 10, 16, 44, 57, 210, DateTimeKind.Local).AddTicks(7674),
+                            PickupDate = new DateTime(2020, 1, 10, 16, 25, 4, 646, DateTimeKind.Local).AddTicks(4454),
                             PickupLocation = "Baku, H.A Airport"
                         });
                 });
@@ -1622,15 +1518,6 @@ namespace FinalProject.Migrations
                     b.HasOne("FinalProject.Models.Customer", "Customer")
                         .WithMany("CustomerReviews")
                         .HasForeignKey("CustomerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("FinalProject.Models.GalleryItem", b =>
-                {
-                    b.HasOne("FinalProject.Models.Gallery", null)
-                        .WithMany("GalleryItems")
-                        .HasForeignKey("GalleryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

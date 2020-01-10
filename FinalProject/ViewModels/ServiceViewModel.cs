@@ -10,6 +10,6 @@ namespace FinalProject.ViewModels
     {
         public ICollection<WhatWeOffer> Offers{ get; set; }
 
-        public ICollection<Testimonial> Testimonials { get; set; }
+        public List<Testimonial> Testimonials { get; set; }
     }
 }

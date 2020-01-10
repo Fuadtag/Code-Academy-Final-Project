@@ -1,4 +1,6 @@
-﻿<!-- Page Title-->
+﻿@model List<Faq>
+
+<!-- Page Title-->
 <div class="rn-page-title">
     <div class="rn-pt-overlayer"></div>
     <div class="container">
@@ -18,17 +20,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-
+                @foreach (var item in Model)
+                {
+                    <div class="rn-faq-item">
+                        <div class="rn-faq-icon">
+                            <i class="fas fa-question"></i>
+                        </div>
+                        <div class="rn-faq-content">
+                            <h2 class="rn-faq-title">@item.Question</h2>
+                            <p>@item.Answer</p>
+                        </div>
+                    </div>
+                }
                 <!-- FAQ Item-->
-                <div class="rn-faq-item">
-                    <div class="rn-faq-icon">
-                        <i class="fas fa-question"></i>
-                    </div>
-                    <div class="rn-faq-content">
-                        <h2 class="rn-faq-title">What is your favorite fruit?</h2>
-                        <p>Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia.</p>
-                    </div>
-                </div>
                 <!-- End FAQ Item-->
                 <!-- FAQ Item-->
                 <div class="rn-faq-item">

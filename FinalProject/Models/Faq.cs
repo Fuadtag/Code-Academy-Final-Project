@@ -6,17 +6,14 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Models
 {
-    public class OrderItem
+    public class Faq
     {
         public int Id { get; set; }
         [Required]
-
-        public int OrderId { get; set; }
-        public Order Order { get; set; }
+        [MaxLength(50, ErrorMessage = "Can not be more than 100 symbol")]
+        public string Question { get; set; }
         [Required]
-        public int CarId { get; set; }
-        public Car Car { get; set; }
-        public ICollection<CarExtraService> Services { get; set; }
-
+        [MaxLength(100, ErrorMessage ="Can not be more than 100 symbol")]
+        public string Answer { get; set; }
     }
 }

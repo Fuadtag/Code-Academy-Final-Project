@@ -48,7 +48,7 @@
                                 <a class="rn-car-price" asp-action="Detail" asp-controller="Cars" asp-route-id="@item.Id">
                                     <span class="rn-car-price-from">From</span>
                                     <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$@item.DailyPrice</span>
+                                        <span class="rn-car-price-amount">$@item.DailyPrice.ToString("#.00")</span>
                                         <span class="rn-car-price-per">/day</span>
                                     </span>
                                 </a>

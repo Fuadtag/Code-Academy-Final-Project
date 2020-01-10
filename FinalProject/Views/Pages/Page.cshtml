@@ -1,4 +1,7 @@
-﻿<!-- Page Title-->
+﻿@model  PageViewModel
+
+
+<!-- Page Title-->
 <div class="rn-page-title">
     <div class="rn-pt-overlayer"></div>
     <div class="container">
@@ -18,11 +21,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 order-lg-1 pb-15">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ultricies erat non augue pretium mollis. Nunc ut mauris volutpat, imperdiet nunc et, mattis erat. Sed id pretium est. Suspendisse magna diam, ultrices ac arcu ut, aliquam tincidunt est. In nisl nulla, dapibus id ante eget, interdum ultricies magna. Maecenas lectus urna, pulvinar consequat lobortis sed, sodales a libero. Pellentesque ac magna tellus. Phasellus nisl lorem, convallis vel cursus porttitor, ullamcorper nec dui.</p>
-                <p>Aenean at nibh massa. Mauris magna sapien, sollicitudin eget finibus eu, aliquet at lectus. Cras cursus eget libero id blandit. Fusce quis ligula id tellus euismod posuere. Nunc nunc ex, ultrices ac pellentesque eu, ultricies nec justo. Aenean dolor neque, tristique in lectus at, ornare bibendum ligula. Curabitur scelerisque, ligula sit amet aliquet finibus, diam erat pharetra dolor, ac vulputate nunc ex vel ante. Etiam nec efficitur sem. Suspendisse nisl velit, rutrum nec magna at, cursus egestas nunc. Maecenas laoreet quam sit amet erat pretium, vel lobortis nunc fermentum. Cras ullamcorper mi nec vehicula sagittis. Mauris ut neque orci. Nunc non ornare neque, vel vestibulum libero.</p>
-                <p>Duis gravida ante sed mi mattis hendrerit. Nullam efficitur ligula eget feugiat vehicula. Aliquam quis dui scelerisque, tempus velit posuere, sodales justo. Cras in faucibus ante. Suspendisse eget viverra nunc. Nam luctus risus diam, efficitur bibendum mauris feugiat a. Sed efficitur sit amet sapien quis porta. Cras nec nisl erat. Integer rutrum augue non pharetra placerat. Duis quis condimentum velit. Morbi placerat nec ipsum eget aliquam.</p>
-                <p>Curabitur hendrerit gravida risus, consectetur sollicitudin mauris. Praesent fringilla consequat velit, at eleifend lectus tempor at. Donec auctor pretium tempus. Donec sit amet est nec nulla sagittis malesuada. Aenean ac felis urna. Aliquam ipsum ligula, rutrum id consectetur eu, dapibus sit amet quam. Donec varius malesuada turpis. Phasellus volutpat non dolor vel lacinia. Pellentesque ultrices ut libero vel pellentesque. Curabitur in quam porta, elementum lorem nec, euismod arcu. Mauris laoreet ipsum eros, id ornare nibh varius et. Duis bibendum a purus a euismod. Sed a pretium sem, nec sollicitudin urna.</p>
-                <p>Nulla lacinia turpis non justo congue, eu tincidunt dolor pulvinar. Duis laoreet sed sem quis eleifend. Phasellus sed cursus tortor. Morbi rhoncus mi non vulputate imperdiet. Aenean sem mi, rhoncus vel rhoncus ut, sollicitudin convallis enim. Nunc malesuada pretium felis vel scelerisque. Sed vulputate, augue dictum venenatis sagittis, urna leo condimentum orci, id pellentesque ipsum tortor at dolor. Integer lobortis nulla ullamcorper commodo ullamcorper. Aliquam erat volutpat. Mauris vehicula nibh vel mauris efficitur, eu sollicitudin felis ornare. Sed nec laoreet est. Vivamus fringilla quam ex, id ultricies risus tincidunt et. In tincidunt felis tortor, et sodales magna accumsan et. Proin sit amet erat ut magna tempor posuere. Nunc eleifend dictum nisl, non condimentum purus pellentesque quis. Praesent pharetra volutpat leo, eget accumsan nisl porttitor eu.</p>
+                <p>@Model.Page.Text</p>
+                
             </div>
             <div class="col-lg-4">
 
@@ -43,21 +43,14 @@
                         <h2 class="rn-widget-title">Categories</h2>
                         <div class="rn-widget-content">
                             <ul>
-                                <li>
-                                    <a href="#">Lifestyle</a>
-                                </li>
-                                <li>
-                                    <a href="#">Travel</a>
-                                </li>
-                                <li>
-                                    <a href="#">Fashion</a>
-                                </li>
-                                <li>
-                                    <a href="#">Music</a>
-                                </li>
-                                <li>
-                                    <a href="#">Branding</a>
-                                </li>
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <li>
+                                        <a href="#">@item.Name</a>
+                                    </li>
+                                }
+
+                               
                             </ul>
                         </div>
                     </section>
@@ -67,96 +60,41 @@
                         <h2 class="rn-widget-title">Recent Posts</h2>
                         <div class="rn-widget-content">
                             <ul class="rn-recent-posts">
-                                <li>
+                                @foreach (var item in Model.Blogs)
+                                {
+                                    <li>
 
-                                    <!-- Extra Small Post-->
-                                    <div class="rn-recent-post-item">
-                                        <div class="rn-recent-post-item-thumb">
-                                            <a href="#">
-                                                <img class="img-fluid" src="~/images/blog-item-xs-1.jpg" alt="Expanding Your Home Network’s Reach" srcset="~/images/blog-item-xs-1.jpg 1x, ~/images/blog-item-xs-1@2x.jpg 2x" />
-                                            </a>
-                                        </div>
-                                        <div class="rn-recent-post-item-info">
-                                            <div class="rn-recent-post-item-meta">
-                                                <span class="rn-recent-post-item-categories">
-                                                    In
-                                                    <a href="#">News</a>
-                                                </span>
-                                                <span class="rn-recent-post-item-author">
-                                                    At
-                                                    <a href="#">15 May, 2018</a>
-                                                </span>
+                                        <!-- Extra Small Post-->
+                                        <div class="rn-recent-post-item">
+                                            <div class="rn-recent-post-item-thumb">
+                                                <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@item.Id">
+                                                    <img class="img-fluid w-100 h-100" width="80" height="80" src="~/images/@item.Photo"/>
+                                                </a>
                                             </div>
-                                            <div class="rn-recent-post-item-title">
-                                                <h3>
-                                                    <a href="#">Expanding Your Home Network’s Reach</a>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Extra Small Post-->
-
-                                </li>
-                                <li>
-
-                                    <!-- Extra Small Post-->
-                                    <div class="rn-recent-post-item">
-                                        <div class="rn-recent-post-item-thumb">
-                                            <a href="#">
-                                                <img class="img-fluid" src="~/images/blog-item-xs-2.jpg" alt="Hannah Bronfman: Beauty Hound" srcset="~/images/blog-item-xs-2.jpg 1x, ~/images/blog-item-xs-2@2x.jpg 2x" />
-                                            </a>
-                                        </div>
-                                        <div class="rn-recent-post-item-info">
-                                            <div class="rn-recent-post-item-meta">
-                                                <span class="rn-recent-post-item-categories">
-                                                    In
-                                                    <a href="#">News</a>
-                                                </span>
-                                                <span class="rn-recent-post-item-author">
-                                                    At
-                                                    <a href="#">15 May, 2018</a>
-                                                </span>
-                                            </div>
-                                            <div class="rn-recent-post-item-title">
-                                                <h3>
-                                                    <a href="#">Hannah Bronfman: Beauty Hound</a>
-                                                </h3>
+                                            <div class="rn-recent-post-item-info">
+                                                <div class="rn-recent-post-item-meta">
+                                                    <span class="rn-recent-post-item-categories">
+                                                        In
+                                                        <a href="#">@item.Category.Name</a>
+                                                    </span>
+                                                    <span class="rn-recent-post-item-author">
+                                                        At
+                                                        <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@item.Id">@item.CreatedAt.ToString("dd MMMM , yyyy")</a>
+                                                    </span>
+                                                </div>
+                                                <div class="rn-recent-post-item-title">
+                                                    <h3>
+                                                        <a href="#">@item.Title</a>
+                                                    </h3>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <!-- End Extra Small Post-->
+                                        <!-- End Extra Small Post-->
 
-                                </li>
-                                <li>
+                                    </li>
+                                }
 
-                                    <!-- Extra Small Post-->
-                                    <div class="rn-recent-post-item">
-                                        <div class="rn-recent-post-item-thumb">
-                                            <a href="#">
-                                                <img class="img-fluid" src="~/images/blog-item-xs-3.jpg" alt="Daily Report: A Busy Week Ahead" srcset="~/images/blog-item-xs-3.jpg 1x, ~/images/blog-item-xs-3@2x.jpg 2x" />
-                                            </a>
-                                        </div>
-                                        <div class="rn-recent-post-item-info">
-                                            <div class="rn-recent-post-item-meta">
-                                                <span class="rn-recent-post-item-categories">
-                                                    In
-                                                    <a href="#">News</a>
-                                                </span>
-                                                <span class="rn-recent-post-item-author">
-                                                    At
-                                                    <a href="#">15 May, 2018</a>
-                                                </span>
-                                            </div>
-                                            <div class="rn-recent-post-item-title">
-                                                <h3>
-                                                    <a href="#">Daily Report: A Busy Week Ahead</a>
-                                                </h3>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- End Extra Small Post-->
-
-                                </li>
+                               
                             </ul>
                         </div>
                     </section>
@@ -166,17 +104,12 @@
                         <h2 class="rn-widget-title">Tags</h2>
                         <div class="rn-widget-content">
                             <div class="tags">
-                                <a href="#">video</a>
-                                <a href="#">audio</a>
-                                <a href="#">images</a>
-                                <a href="#">javascript</a>
-                                <a href="#">php</a>
-                                <a href="#">wordpress</a>
-                                <a href="#">travel</a>
-                                <a href="#">music</a>
-                                <a href="#">python</a>
-                                <a href="#">ui/ux</a>
-                                <a href="#">cars</a>
+                                @foreach (var item in Model.Tags)
+                                {
+                                    <a href="#">@item.Name</a>
+
+                                }
+                                
                             </div>
                         </div>
                     </section>

@@ -7,21 +7,20 @@
 <!-- Slider-->
 <div class="rn-carousel carousel slide" id="carouselExampleControls" data-ride="carousel">
     <div class="carousel-inner">
-        @{int a = 0;}
-        @foreach (var item in Model.Sliders)
+        
+        @for (int n = 0; n < Model.Sliders.Count; n++)
         {
-            <div class="carousel-item @(a == 0 ? ("beactive") : "")">
+            <div class="carousel-item @(n == 0 ? ("beactive") : "")">
                 <div class="carousel-caption">
-                    <h2 class="rn-fade-bottom mb-25">@item.Title</h2>
-                    <p class="rn-fade-bottom rn-caption-item-2 mb-35">@item.Text</p>
+                    <h2 class="rn-fade-bottom mb-25">@Model.Sliders[n].Title</h2>
+                    <p class="rn-fade-bottom rn-caption-item-2 mb-35">@Model.Sliders[n].Text</p>
                     <a class="btn btn-main btn-lg rn-fade-bottom rn-caption-item-3" href="#">Book Now</a>
                 </div>
                 <div class="rn-slider-overlayer"></div>
-                <img class="d-block w-100" src="~/images/@item.Photo" alt="slide">
+                <img class="d-block w-100" src="~/images/@Model.Sliders[n].Photo" alt="slide">
             </div>
-            a++;
-        }
-    </div>
+        } 
+      </div>
     <!-- Slider Controls -->
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
         <span class="lnr lnr-chevron-left" aria-hidden="true"></span>
@@ -465,7 +464,7 @@
                                         <footer>
                                             <div class="rn-testimonial-author">
                                                 <strong>@item.Name</strong>
-                                                <p>@item.Position, @item.Position</p>
+                                                <p>@item.Position, @item.Company</p>
                                             </div>
                                         </footer>
                                     </blockquote>

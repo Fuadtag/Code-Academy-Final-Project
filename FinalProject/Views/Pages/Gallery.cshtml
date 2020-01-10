@@ -1,4 +1,6 @@
-﻿<!-- Page Title-->
+﻿@model Gallery
+
+<!-- Page Title-->
 <div class="rn-page-title">
     <div class="rn-pt-overlayer"></div>
     <div class="container">
@@ -17,51 +19,16 @@
 <div class="rn-section rn-lightbox-images">
     <div class="container">
         <div class="row">
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-1.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-1.jpg" alt="" srcset="~/images/gallery-sm-1.jpg 1x, ~/images/gallery-sm-1@2x.jpg 2x">
-                </a>
-            </div>
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-2.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-2.jpg" alt="" srcset="~/images/gallery-sm-2.jpg 1x, ~/images/gallery-sm-2@2x.jpg 2x">
-                </a>
-            </div>
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-3.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-3.jpg" alt="" srcset="~/images/gallery-sm-3.jpg 1x, ~/images/gallery-sm-3@2x.jpg 2x">
-                </a>
-            </div>
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-4.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-4.jpg" alt="" srcset="~/images/gallery-sm-4.jpg 1x, ~/images/gallery-sm-4@2x.jpg 2x">
-                </a>
-            </div>
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-5.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-5.jpg" alt="" srcset="~/images/gallery-sm-5.jpg 1x, ~/images/gallery-sm-5@2x.jpg 2x">
-                </a>
-            </div>
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-6.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-6.jpg" alt="" srcset="~/images/gallery-sm-6.jpg 1x, ~/images/gallery-sm-6@2x.jpg 2x">
-                </a>
-            </div>
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-7.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-7.jpg" alt="" srcset="~/images/gallery-sm-7.jpg 1x, ~/images/gallery-sm-7@2x.jpg 2x">
-                </a>
-            </div>
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-8.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-8.jpg" alt="" srcset="~/images/gallery-sm-8.jpg 1x, ~/images/gallery-sm-8@2x.jpg 2x">
-                </a>
-            </div>
-            <div class="col-6 col-sm-4">
-                <a class="rn-lightbox-image" href="~/images/gallery-9.jpg">
-                    <img class="img-fluid" src="~/images/gallery-sm-9.jpg" alt="" srcset="~/images/gallery-sm-9.jpg 1x, ~/images/gallery-sm-9@2x.jpg 2x">
-                </a>
-            </div>
+            @foreach (var item in Model.GalleryItems)
+            {
+                <div class="col-6 col-sm-4">
+                    <a class="rn-lightbox-image" href="~/images/@item.Photo">
+                        <img class="img-fluid" src="~/images/@item.PhotoSm" >
+                    </a>
+                </div>
+            }
+
+           
         </div>
     </div>
 </div>

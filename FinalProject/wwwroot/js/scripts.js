@@ -34,9 +34,7 @@
     /**
      * 2. Custom Data for Slider
      */
-    $(document.ready(function () {
-        $('.beactive').addClass('active').removeClass('beactive');
-    })
+    $('.beactive').addClass('active').removeClass('beactive');
     
     /**
      * 3. Date & Time Picker

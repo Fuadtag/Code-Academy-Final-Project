@@ -54,6 +54,10 @@ namespace FinalProject.Data
         public DbSet<Team> Teams { get; set; }
 
         public DbSet<WhatWeOffer> Offers { get; set; }
+        public DbSet<Faq> Faqs { get; set; }
+
+        public DbSet<Gallery> Galleries { get; set; }
+        public DbSet<GalleryItem> GalleryItems { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -694,6 +698,119 @@ namespace FinalProject.Data
                     Email = "fuadjt@code.edu.az",
                     Password = "admin123"
                 });
+            modelBuilder.Entity<Faq>().HasData(
+                new Faq
+                {
+                    Id = 1,
+                    Question = "What is your favorite fruit?",
+                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                },
+                new Faq
+                {
+                    Id = 2,
+                    Question = "What is your favorite fruit?",
+                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                },
+                new Faq
+                {
+                    Id = 3,
+                    Question = "What is your favorite fruit?",
+                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                },
+                new Faq
+                {
+                    Id = 4,
+                    Question = "What is your favorite fruit?",
+                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                },
+                new Faq
+                {
+                    Id = 5,
+                    Question = "What is your favorite fruit?",
+                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                },
+                new Faq
+                {
+                    Id = 6,
+                    Question = "What is your favorite fruit?",
+                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                });
+
+            modelBuilder.Entity<Gallery>().HasData(
+                new Gallery
+                {
+                    Id = 1
+                }
+                
+                );
+
+            modelBuilder.Entity<GalleryItem>().HasData(
+                new GalleryItem
+                {
+                    Id =1,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                },
+                new GalleryItem
+                {
+                    Id = 2,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                },
+                new GalleryItem
+                {
+                    Id = 3,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                },
+                new GalleryItem
+                {
+                    Id = 4,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                },
+                new GalleryItem
+                {
+                    Id = 5,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                },
+                new GalleryItem
+                {
+                    Id = 6,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                },
+                new GalleryItem
+                {
+                    Id = 7,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                },
+                new GalleryItem
+                {
+                    Id = 8,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                },
+                new GalleryItem
+                {
+                    Id = 9,
+                    GalleryId = 1,
+                    Photo = "gallery-1.jpg",
+                    PhotoSm = "gallery-sm-1.jpg"
+                }
+
+
+                );
 
 
 
