@@ -1,4 +1,6 @@
-﻿<!-- Page Title-->
+﻿@model  Setting
+
+<!-- Page Title-->
 <div class="rn-page-title">
     <div class="rn-pt-overlayer"></div>
     <div class="container">
@@ -70,8 +72,7 @@
                             <div class="rn-info-content">
                                 <h2 class="rn-contact-title">Head Office</h2>
                                 <address>
-                                    1425 Pointe Lane, Miami
-                                    <br>Florida – 33169, USA
+                                    @Model.MainAdress
                                 </address>
                             </div>
                         </div>
@@ -88,50 +89,14 @@
                             <div class="rn-info-content">
                                 <h2 class="rn-contact-title">Branch 1</h2>
                                 <address>
-                                    1425 Pointe Lane, Miami
-                                    <br>Florida – 33169, USA
+                                    @Model.Adress
                                 </address>
                             </div>
                         </div>
                         <!-- End Contact Info Item-->
 
                     </div>
-                    <div class="col-sm-6">
-
-                        <!-- Contact Info Item-->
-                        <div class="rn-contact-info">
-                            <div class="rn-info-icon">
-                                <i class="lnr lnr-map-marker"></i>
-                            </div>
-                            <div class="rn-info-content">
-                                <h2 class="rn-contact-title">Branch 2</h2>
-                                <address>
-                                    1425 Pointe Lane, Miami
-                                    <br>Florida – 33169, USA
-                                </address>
-                            </div>
-                        </div>
-                        <!-- End Contact Info Item-->
-
-                    </div>
-                    <div class="col-sm-6">
-
-                        <!-- Contact Info Item-->
-                        <div class="rn-contact-info">
-                            <div class="rn-info-icon">
-                                <i class="lnr lnr-map-marker"></i>
-                            </div>
-                            <div class="rn-info-content">
-                                <h2 class="rn-contact-title">Branch 3</h2>
-                                <address>
-                                    1425 Pointe Lane, Miami
-                                    <br>Florida – 33169, USA
-                                </address>
-                            </div>
-                        </div>
-                        <!-- End Contact Info Item-->
-
-                    </div>
+                    
                     <div class="col-sm-6">
 
                         <!-- Contact Info Item-->
@@ -142,8 +107,8 @@
                             <div class="rn-info-content">
                                 <h2 class="rn-contact-title">Phone</h2>
                                 <address>
-                                    (954)-944-1250
-                                    <br>(954)-944-1251
+                                    @Model.Phone
+                                    <br>@Model.SupPhone
                                 </address>
                             </div>
                         </div>
@@ -160,8 +125,8 @@
                             <div class="rn-info-content">
                                 <h2 class="rn-contact-title">E-mail</h2>
                                 <address>
-                                    sale@example.com
-                                    <br>support@example.com
+                                    @Model.Email
+                                    <br>@Model.SaleEmail
                                 </address>
                             </div>
                         </div>

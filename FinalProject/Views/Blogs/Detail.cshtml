@@ -1,5 +1,4 @@
 ﻿@model BlogViewModel
-
 <!-- Blog Single Post-->
 <main class="rn-blog-single">
     <article>
@@ -112,29 +111,50 @@
             <div class="col-lg-12">
                 <div class="rn-post-navs-wrap">
                     <div class="rn-post-navs">
+                        @{Blog previousblog = Model.Blogs.FirstOrDefault(b => b.Id == (Model.Blog.Id - 1)); }
+
                         <div class="rn-post-prev">
-                            <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@(Model.Blog.Id - 1)">
-                                <div class="rn-nav-post-thumb">
-                                    <img src="~/images/blog-item-xs-1.jpg" alt="Previous Post" srcset="~/images/blog-item-xs-1.jpg 1x, ~/images/blog-item-xs-1@2x.jpg 2x">
-                                </div>
-                                <div class="rn-nav-post-info">
-                                    <span>Previous Post</span>
-                                    <span class="rn-nav-post-title">A standard blog post with image</span>
-                                </div>
-                            </a>
+                            @{
+                                if (previousblog != null)
+                                {
+                                    <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@(Model.Blog.Id - 1)">
+                                        <div class="rn-nav-post-thumb">
+                                            <img width="80" height="80" src="~/images/@previousblog.Photo" alt="Previous Post">
+                                        </div>
+                                        <div class="rn-nav-post-info">
+                                            <span>Previous Post</span>
+                                            <span class="rn-nav-post-title">@previousblog.Title</span>
+                                        </div>
+                                    </a>
+                                }
+                            }
+
                         </div>
+
+
+
+                        @{Blog blog = Model.Blogs.FirstOrDefault(b => b.Id == (Model.Blog.Id + 1)); }
+
+
                         <div class="rn-post-next">
-                            <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@(Model.Blog.Id + 1)">
-                                @{Blog blog = Model.Blogs.FirstOrDefault(b => b.Id == (Model.Blog.Id - 1)); }
-                                <span class="rn-nav-post-info">
-                                    <span>Next Post</span>
-                                    <span class="rn-nav-post-title">@(blog == null?"" : blog.Title)</span>
-                                </span>
-                                <span class="rn-nav-post-thumb">
-                                    <img width="80" height="80" src="~/images/@(blog == null? "" : blog.Photo)" alt="Next Post" srcset="~/images/blog-item-xs-2.jpg 1x, ~/images/blog-item-xs-2@2x.jpg 2x">
-                                </span>
-                            </a>
+                            @{ if (blog != null)
+                                {
+                                    <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@(Model.Blog.Id + 1)">
+
+                                        <span class="rn-nav-post-info">
+                                            <span>Next Post</span>
+                                            <span class="rn-nav-post-title">@blog.Title</span>
+                                        </span>
+                                        <span class="rn-nav-post-thumb">
+                                            <img width="80" height="80" src="~/images/@blog.Photo" alt="Next Post">
+                                        </span>
+                                    </a>
+                                }
+                            }
                         </div>
+
+
+
                     </div>
                 </div>
             </div>
@@ -146,120 +166,50 @@
 <div class="rn-section">
     <div class="container">
         <div class="row rn-post-list">
-            <div class="col-md-4">
+            @foreach (var item in Model.Blogs)
+            {
+                <div class="col-md-4">
 
-                <!-- Blog Post Item (Small Size)-->
-                <div class="rn-post-item rn-post-size-sm">
-                    <div class="rn-post-item-thumb">
-                        <a href="#">
-                            <img class="img-fluid" src="~/images/blog-item-sm-1.jpg" alt="A standard blog post with image" srcset="~/images/blog-item-sm-1.jpg 1x, ~/images/blog-item-sm-1@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-post-item-header">
-                        <div class="rn-post-date">
-                            <div class="rn-post-date-inner">
-                                <div class="rn-post-date-d">15</div>
-                                <div class="rn-post-date-m-y">May, 2018</div>
-                            </div>
+                    <!-- Blog Post Item (Small Size)-->
+                    <div class="rn-post-item rn-post-size-sm">
+                        <div class="rn-post-item-thumb">
+                            <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@item.Id">
+                                <img class="img-fluid" src="~/images/@item.PhotoSm" alt="@item.Title" />
+                            </a>
                         </div>
-                        <div class="rn-post-item-title-meta">
-                            <div class="rn-post-item-title-meta-inner">
-                                <div class="rn-post-item-meta">
-                                    <span class="rn-post-item-categories">
-                                        In
-                                        <a href="#">News</a>
-                                    </span>
-                                    <span class="rn-post-item-author">
-                                        By
-                                        <a href="#">John Doe</a>
-                                    </span>
+                        <div class="rn-post-item-header">
+                            <div class="rn-post-date">
+                                <div class="rn-post-date-inner">
+                                    <div class="rn-post-date-d">@item.CreatedAt.Day</div>
+                                    <div class="rn-post-date-m-y">@item.CreatedAt.ToString("MMMM , yyyy")</div>
                                 </div>
-                                <h3 class="rn-post-item-title">
-                                    <a href="#">A standard blog post with image</a>
-                                </h3>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog Post Item (Small Size)-->
-
-            </div>
-            <div class="col-md-4">
-
-                <!-- Blog Post Item (Small Size)-->
-                <div class="rn-post-item rn-post-size-sm">
-                    <div class="rn-post-item-thumb">
-                        <a href="#">
-                            <img class="img-fluid" src="~/images/blog-item-sm-2.jpg" alt="A standard blog post with image" srcset="~/images/blog-item-sm-2.jpg 1x, ~/images/blog-item-sm-2@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-post-item-header">
-                        <div class="rn-post-date">
-                            <div class="rn-post-date-inner">
-                                <div class="rn-post-date-d">15</div>
-                                <div class="rn-post-date-m-y">May, 2018</div>
-                            </div>
-                        </div>
-                        <div class="rn-post-item-title-meta">
-                            <div class="rn-post-item-title-meta-inner">
-                                <div class="rn-post-item-meta">
-                                    <span class="rn-post-item-categories">
-                                        In
-                                        <a href="#">News</a>
-                                    </span>
-                                    <span class="rn-post-item-author">
-                                        By
-                                        <a href="#">John Doe</a>
-                                    </span>
+                            <div class="rn-post-item-title-meta">
+                                <div class="rn-post-item-title-meta-inner">
+                                    <div class="rn-post-item-meta">
+                                        <span class="rn-post-item-categories">
+                                            In
+                                            <a href="#">@item.Category.Name</a>
+                                        </span>
+                                        <span class="rn-post-item-author">
+                                            By
+                                            <a href="#">@item.Author.Name</a>
+                                        </span>
+                                    </div>
+                                    <h3 class="rn-post-item-title">
+                                        <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@item.Id">@item.Title</a>
+                                    </h3>
                                 </div>
-                                <h3 class="rn-post-item-title">
-                                    <a href="#">A standard blog post with image</a>
-                                </h3>
                             </div>
                         </div>
                     </div>
+                    <!-- End Blog Post Item (Small Size)-->
+
                 </div>
-                <!-- End Blog Post Item (Small Size)-->
 
-            </div>
-            <div class="col-md-4">
+            }
 
-                <!-- Blog Post Item (Small Size)-->
-                <div class="rn-post-item rn-post-size-sm">
-                    <div class="rn-post-item-thumb">
-                        <a href="#">
-                            <img class="img-fluid" src="~/images/blog-item-sm-3.jpg" alt="A standard blog post with image" srcset="~/images/blog-item-sm-3.jpg 1x, ~/images/blog-item-sm-3@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-post-item-header">
-                        <div class="rn-post-date">
-                            <div class="rn-post-date-inner">
-                                <div class="rn-post-date-d">15</div>
-                                <div class="rn-post-date-m-y">May, 2018</div>
-                            </div>
-                        </div>
-                        <div class="rn-post-item-title-meta">
-                            <div class="rn-post-item-title-meta-inner">
-                                <div class="rn-post-item-meta">
-                                    <span class="rn-post-item-categories">
-                                        In
-                                        <a href="#">News</a>
-                                    </span>
-                                    <span class="rn-post-item-author">
-                                        By
-                                        <a href="#">John Doe</a>
-                                    </span>
-                                </div>
-                                <h3 class="rn-post-item-title">
-                                    <a href="#">A standard blog post with image</a>
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Blog Post Item (Small Size)-->
-
-            </div>
+            
         </div>
     </div>
 </div>
@@ -282,7 +232,7 @@
                                     <!-- Comment Item-->
                                     <div class="rn-comment-item">
                                         <div class="rn-comment-thumb">
-                                            <img class="img-fluid" src="~/images/@item.Author.Photo" alt="@item.Author.Name" srcset="~/images/author-1.jpg 1x, ~/images/author-1@2x.jpg 2x" />
+                                            <img class="img-fluid" src="~/images/@item.Author.Photo" alt="@item.Author.Name"  />
                                         </div>
                                         <div class="rn-comment-info">
                                             <a class="rn-comment-reply" href="#">
@@ -303,39 +253,39 @@
 
 
 
-                            
-                        </ul>
-                            <div class="text-center">
-                                <a class="btn btn-lg btn-outline-light" href="#">Load More</a>
-                            </div>
-                        </div>
-                        <!-- End Comments-->
-                        <!-- Comment Form-->
-                        <div class="rn-comment-form">
-                            <h2 class="rn-simple-title">Leave a comment</h2>
-                            <form action="https://demo.kitthemes.com/html/rentnow/post">
-                                <div class="row">
-                                    <div class="col-lg-4">
-                                        <input type="text" placeholder="Name">
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <input type="email" placeholder="Email">
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <input type="url" placeholder="Website">
-                                    </div>
-                                </div>
-                                <textarea cols="30" rows="10" placeholder="Write your comment"></textarea>
-                                <div class="text-right">
-                                    <input class="btn btn-main btn-lg btn-shadow" type="submit" value="Submit">
-                                </div>
-                            </form>
-                        </div>
-                        <!-- End Comment Form-->
 
+                        </ul>
+                        <div class="text-center">
+                            <a class="btn btn-lg btn-outline-light" href="#">Load More</a>
+                        </div>
                     </div>
+                    <!-- End Comments-->
+                    <!-- Comment Form-->
+                    <div class="rn-comment-form">
+                        <h2 class="rn-simple-title">Leave a comment</h2>
+                        <form action="https://demo.kitthemes.com/html/rentnow/post">
+                            <div class="row">
+                                <div class="col-lg-4">
+                                    <input type="text" placeholder="Name">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="email" placeholder="Email">
+                                </div>
+                                <div class="col-lg-4">
+                                    <input type="url" placeholder="Website">
+                                </div>
+                            </div>
+                            <textarea cols="30" rows="10" placeholder="Write your comment"></textarea>
+                            <div class="text-right">
+                                <input class="btn btn-main btn-lg btn-shadow" type="submit" value="Submit">
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End Comment Form-->
+
                 </div>
             </div>
         </div>
     </div>
-    <!-- End Comments & Comment Form-->
+</div>
+<!-- End Comments & Comment Form-->

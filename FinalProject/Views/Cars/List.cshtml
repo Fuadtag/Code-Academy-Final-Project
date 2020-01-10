@@ -1,4 +1,6 @@
-﻿<!-- Page Title-->
+﻿@model ICollection<Car>
+
+<!-- Page Title-->
 <div class="rn-page-title">
     <div class="rn-pt-overlayer"></div>
     <div class="container">
@@ -17,6 +19,8 @@
 <section class="rn-section rn-car-list">
     <div class="container">
         <div class="row">
+            @foreach (var item in Model)
+            {
             <div class="col-lg-4 col-md-6">
 
                 <!-- Car Item-->
@@ -25,15 +29,15 @@
                         <div class="fas fa-star"></div> 5.0
                     </div>
                     <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-1.jpg" alt="Black Sedan" srcset="~/images/car-1.jpg 1x, ~/images/car-1@2x.jpg 2x" />
+                        <a asp-action="Detail" asp-controller="Cars" asp-route-id="@item.Id">
+                            <img class="img-fluid" src="~/images/@item.CartPhoto" alt="@item.Brand.Name" srcset="~/images/car-1.jpg 1x, ~/images/car-1@2x.jpg 2x" />
                         </a>
                     </div>
                     <div class="rn-car-item-info">
                         <h3>
-                            <a href="car-single.html">Black Sedan</a>
+                            <a href="car-single.html">@item.Brand.Name</a>
                         </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
+                        <p>@item.Title</p>
                         <div class="rn-car-list-n-price">
                             <ul>
                                 <li>Aliqua venandi mutat</li>
@@ -41,10 +45,10 @@
                                 <li>Intellegimus percurri</li>
                             </ul>
                             <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
+                                <a class="rn-car-price" asp-action="Detail" asp-controller="Cars" asp-route-id="@item.Id">
                                     <span class="rn-car-price-from">From</span>
                                     <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
+                                        <span class="rn-car-price-amount">$@item.DailyPrice</span>
                                         <span class="rn-car-price-per">/day</span>
                                     </span>
                                 </a>
@@ -52,317 +56,16 @@
                         </div>
                     </div>
                 </div>
-                <!-- End Car Item-->
-
             </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-2.jpg" alt="Toyota Etios" srcset="~/images/car-2.jpg 1x, ~/images/car-2@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Toyota Etios</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- End Car Item-->
+            }
+            
 
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-3.jpg" alt="Mercedes AMG E63" srcset="~/images/car-3.jpg 1x, ~/images/car-3@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Mercedes AMG E63</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
+            
             <div class="col-lg-12 d-none d-lg-block">
                 <a href="#">
                     <img class="img-fluid mb-50" src="~/images/big-banner.png" alt="banner" srcset="~/images/big-banner.png 1x, ~/images/big-banner@2x.png 2x">
                 </a>
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-4.jpg" alt="Red Sporty Car" srcset="~/images/car-4.jpg 1x, ~/images/car-4@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Red Sporty Car</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-5.jpg" alt="Toyta Corolla" srcset="~/images/car-5.jpg 1x, ~/images/car-5@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Toyta Corolla</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-6.jpg" alt="Toyota Avalon" srcset="~/images/car-6.jpg 1x, ~/images/car-6@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Toyota Avalon</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-7.jpg" alt="BMW X5" srcset="~/images/car-7.jpg 1x, ~/images/car-7@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">BMW X5</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-8.jpg" alt="Audi A8" srcset="~/images/car-8.jpg 1x, ~/images/car-8@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Audi A8</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-9.jpg" alt="Toyta Corolla" srcset="~/images/car-9.jpg 1x, ~/images/car-9@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Toyta Corolla</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
             </div>
         </div>
         <div class="row">

@@ -420,7 +420,8 @@ namespace FinalProject.Data
                     Text = "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel.",
                     Name = "Catherine Beck",
                     Position = "CEO",
-                    Company = "Example Inc."
+                    Company = "Example Inc.",
+                    Photo = "author-3.jpg"
                 },
                 new Testimonial
                 {
@@ -428,7 +429,8 @@ namespace FinalProject.Data
                     Text = "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel.",
                     Name = "Catherine Beck",
                     Position = "CEO",
-                    Company = "Example Inc."
+                    Company = "Example Inc.",
+                    Photo = "author-3.jpg"
                 },
                 new Testimonial
                 {
@@ -436,7 +438,8 @@ namespace FinalProject.Data
                     Text = "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel.",
                     Name = "Catherine Beck",
                     Position = "CEO",
-                    Company = "Example Inc."
+                    Company = "Example Inc.",
+                    Photo = "author-3.jpg"
                 },
                 new Testimonial
                 {
@@ -444,7 +447,8 @@ namespace FinalProject.Data
                     Text = "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel.",
                     Name = "Catherine Beck",
                     Position = "CEO",
-                    Company = "Example Inc."
+                    Company = "Example Inc.",
+                    Photo = "author-3.jpg"
                 });
             modelBuilder.Entity<Advantage>().HasData(
                 new Advantage

@@ -12,5 +12,6 @@ namespace FinalProject.Models
         public string Name { get; set; }
         public int CarBrandId { get; set; }
         public CarBrand CarBrand { get; set; }
+        public ICollection<Car> Cars { get; set; }
     }
 }

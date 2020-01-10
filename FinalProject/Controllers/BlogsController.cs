@@ -32,14 +32,28 @@ namespace FinalProject.Controllers
         }
         public IActionResult Detail(int id)
         {
+            var dbblog = _context.Blogs.FirstOrDefault(b => b.Id == id);
+            if (dbblog != null)
+            {
+                dbblog.Visited += 1;
+
+            }
+
             BlogViewModel model = new BlogViewModel
             {
+
                 Blog = _context.Blogs.Include("BlogComments").Include("Category").Include("Author").FirstOrDefault(b => b.Id == id),
                 Tags = _context.Tags.ToList(),
-                Blogs = _context.Blogs.Include("Author").Include("Category").OrderByDescending(b => b.CreatedAt).Take(3).ToList()
+                Blogs = _context.Blogs.Include("Category").Include("Author").OrderByDescending(b => b.CreatedAt).Take(3).ToList(),
+                
+                
             };
+            
+            
 
             return View(model);
         }
+
+        
     }
 }

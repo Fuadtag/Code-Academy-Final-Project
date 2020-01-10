@@ -28,6 +28,8 @@ namespace FinalProject.Models
         public int CarBrandId { get; set; }
         public CarBrand Brand{ get; set; }
 
+        
+
         public Transmissions Transmission { get; set; }
 
         public FuelType Fuel { get; set; }

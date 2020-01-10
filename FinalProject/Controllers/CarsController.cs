@@ -2,15 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FinalProject.Data;
+using FinalProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
     public class CarsController : Controller
     {
+
+        private readonly RentNowContext _context;
+
+        public CarsController(RentNowContext context)
+        {
+            _context = context;
+        }
         public IActionResult List()
         {
-            return View();
+            ICollection<Car> cars = _context.Cars.Include("Brand").ToList();
+            return View(cars);
         }
 
         public IActionResult Search()
