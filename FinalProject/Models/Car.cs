@@ -26,8 +26,8 @@ namespace FinalProject.Models
     public class Car
     {
         public int Id { get; set; }
-        public int CarBrandId { get; set; }
-        public CarBrand Brand{ get; set; }
+        public int CarModelId { get; set; }
+        public CarModel Model{ get; set; }
 
         public Transmissions Transmission { get; set; }
 
@@ -64,5 +64,6 @@ namespace FinalProject.Models
         public IFormFile DetailPhotoFile { get; set; }
 
         public string DetailPhoto { get; set; }
+
     }
 }

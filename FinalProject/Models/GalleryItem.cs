@@ -22,6 +22,5 @@ namespace FinalProject.Models
         [MaxLength(70)]
         public string PhotoSm { get; set; }
 
-        public int OrderBy { get; set; }
     }
 }

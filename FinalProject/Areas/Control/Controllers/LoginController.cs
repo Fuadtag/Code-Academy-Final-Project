@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FinalProject.Areas.Control.Controllers
 {
+    [Area("Control")]
     public class LoginController : Controller
     {
         public IActionResult Index()

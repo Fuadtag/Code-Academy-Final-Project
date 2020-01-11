@@ -1,4 +1,5 @@
 ﻿using FinalProject.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Data
 {
-    public class RentNowContext : DbContext
+    public class RentNowContext : IdentityDbContext<AppAdmin>
     {
         public RentNowContext(DbContextOptions<RentNowContext> options): base(options)
         {
@@ -68,7 +69,6 @@ namespace FinalProject.Data
                     Title = "#1 Car Rent Service In Your City",
                     Text = "Maecenas viverra porta eros,id tincidunt lorem rhoncus eget.Aliquam erat volutpat.Sed ultricies elementum egestas.",
                     Photo = "slide1.jpg",
-                    OrderBy = 1
                 },
                 new SliderItem
                 {
@@ -76,7 +76,6 @@ namespace FinalProject.Data
                     Title = "24/7 Customer Support Guarantee",
                     Text = "Maecenas viverra porta eros,id tincidunt lorem rhoncus eget.Aliquam erat volutpat.Sed ultricies elementum egestas.",
                     Photo = "slide2.jpg",
-                    OrderBy = 2
                 },
                 new SliderItem
                 {
@@ -84,7 +83,6 @@ namespace FinalProject.Data
                     Title = "Quality Cars with Unlimited Miles",
                     Text = "Maecenas viverra porta eros, id tincidunt lorem rhoncus eget. Aliquam erat volutpat. Sed ultricies elementum egestas.",
                     Photo = "slide3.jpg",
-                    OrderBy = 3
                 });
             modelBuilder.Entity<OurVision>().HasData(
                 new OurVision
@@ -369,19 +367,19 @@ namespace FinalProject.Data
                 {
                     Id = 1,
                     Name = "EQC",
-                    CarBrandId = 1
+                    CarBrandId = 1,
                 },
                 new CarModel
                 {
                     Id = 2,
                     Name = "Camry",
-                    CarBrandId = 2
+                    CarBrandId = 2,
                 },
                 new CarModel
                 {
                     Id = 3,
                     Name = "Model S",
-                    CarBrandId = 3
+                    CarBrandId = 3,
                 });
             modelBuilder.Entity<CarType>().HasData(
                 new CarType
@@ -429,7 +427,6 @@ namespace FinalProject.Data
                     Position = "CEO",
                     Company = "Example Inc.",
                     Photo = "author-3.jpg",
-                    OrderBy = 1
                 },
                 new Testimonial
                 {
@@ -439,7 +436,6 @@ namespace FinalProject.Data
                     Position = "CEO",
                     Company = "Example Inc.",
                     Photo = "author-3.jpg",
-                    OrderBy = 2
                 },
                 new Testimonial
                 {
@@ -449,7 +445,6 @@ namespace FinalProject.Data
                     Position = "CEO",
                     Company = "Example Inc.",
                     Photo = "author-3.jpg",
-                    OrderBy = 3
                 },
                 new Testimonial
                 {
@@ -459,7 +454,6 @@ namespace FinalProject.Data
                     Position = "CEO",
                     Company = "Example Inc.",
                     Photo = "author-3.jpg",
-                    OrderBy = 4
                 });
             modelBuilder.Entity<Advantage>().HasData(
                 new Advantage
@@ -515,7 +509,7 @@ namespace FinalProject.Data
                 {
                     Id = 1,
                     Transmission = Transmissions.AT,
-                    CarBrandId = 2,
+                    CarModelId = 2,
                     Fuel = FuelType.Gasoline,
                     Passsenger = 5,
                     Luggage = 4,
@@ -533,7 +527,7 @@ namespace FinalProject.Data
                 {
                     Id = 2,
                     Transmission = Transmissions.AT,
-                    CarBrandId = 1,
+                    CarModelId = 1,
                     Fuel = FuelType.Electric,
                     Passsenger = 5,
                     Luggage = 4,
@@ -551,7 +545,7 @@ namespace FinalProject.Data
                 {
                     Id = 3,
                     Transmission = Transmissions.AT,
-                    CarBrandId = 2,
+                    CarModelId = 2,
                     Fuel = FuelType.Gasoline,
                     Passsenger = 5,
                     Luggage = 4,
@@ -696,15 +690,7 @@ namespace FinalProject.Data
                     OrderId = 1,
                     CarId = 2
                 });
-            modelBuilder.Entity<AppAdmin>().HasData(
-                new AppAdmin
-                {
-                    Id = 1,
-                    Name = "Fuad",
-                    Surname = "Taghiyev",
-                    Email = "fuadjt@code.edu.az",
-                    Password = "admin123"
-                });
+            
             modelBuilder.Entity<Faq>().HasData(
                 new Faq
                 {
@@ -758,7 +744,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 1
 
                 },
                 new GalleryItem
@@ -767,7 +752,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 2
                 },
                 new GalleryItem
                 {
@@ -775,7 +759,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 3
                 },
                 new GalleryItem
                 {
@@ -783,7 +766,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 4
                 },
                 new GalleryItem
                 {
@@ -791,7 +773,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 5
                 },
                 new GalleryItem
                 {
@@ -799,7 +780,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 6
                 },
                 new GalleryItem
                 {
@@ -807,7 +787,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 7
                 },
                 new GalleryItem
                 {
@@ -815,7 +794,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 8
                 },
                 new GalleryItem
                 {
@@ -823,7 +801,6 @@ namespace FinalProject.Data
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
                     PhotoSm = "gallery-sm-1.jpg",
-                    OrderBy = 9
                 }
 
 

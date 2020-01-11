@@ -52,10 +52,10 @@ namespace FinalProject.Controllers
             return View(model);
         }
 
-        public IActionResult Checkout()
+        public IActionResult Checkout(int id)
         {
-            
-            return View();
+            Order order = _context.Orders.Include("OrderItems").FirstOrDefault(o => o.CustomerId == id);
+            return View(order);
         }
     }
 }

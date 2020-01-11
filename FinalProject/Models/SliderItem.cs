@@ -22,6 +22,5 @@ namespace FinalProject.Models
         [MaxLength(50, ErrorMessage = "Must not be more than 50 symbol")]
         public string Text { get; set; }
 
-        public int OrderBy { get; set; }
     }
 }

@@ -20,7 +20,7 @@ namespace FinalProject.Controllers
         }
         public IActionResult List()
         {
-            ICollection<Car> cars = _context.Cars.Include("Brand").ToList();
+            ICollection<Car> cars = _context.Cars.Include("Model").Include("Model.CarBrand").ToList();
             return View(cars);
         }
 
@@ -29,8 +29,9 @@ namespace FinalProject.Controllers
             return View();
         }
 
-        public IActionResult Detail()
+        public IActionResult Detail(int id)
         {
+
             return View();
         }
     }

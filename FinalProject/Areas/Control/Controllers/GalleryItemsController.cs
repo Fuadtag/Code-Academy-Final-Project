@@ -1,0 +1,154 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using FinalProject.Data;
+using FinalProject.Models;
+
+namespace FinalProject.Areas.Control.Controllers
+{
+    [Area("Control")]
+    public class GalleryItemsController : Controller
+    {
+        private readonly RentNowContext _context;
+
+        public GalleryItemsController(RentNowContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Control/GalleryItems
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.GalleryItems.ToListAsync());
+        }
+
+        // GET: Control/GalleryItems/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var galleryItem = await _context.GalleryItems
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (galleryItem == null)
+            {
+                return NotFound();
+            }
+
+            return View(galleryItem);
+        }
+
+        // GET: Control/GalleryItems/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: Control/GalleryItems/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("Id,GalleryId,Photo,PhotoSm")] GalleryItem galleryItem)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(galleryItem);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(galleryItem);
+        }
+
+        // GET: Control/GalleryItems/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var galleryItem = await _context.GalleryItems.FindAsync(id);
+            if (galleryItem == null)
+            {
+                return NotFound();
+            }
+            return View(galleryItem);
+        }
+
+        // POST: Control/GalleryItems/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, [Bind("Id,GalleryId,Photo,PhotoSm")] GalleryItem galleryItem)
+        {
+            if (id != galleryItem.Id)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(galleryItem);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!GalleryItemExists(galleryItem.Id))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(galleryItem);
+        }
+
+        // GET: Control/GalleryItems/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var galleryItem = await _context.GalleryItems
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (galleryItem == null)
+            {
+                return NotFound();
+            }
+
+            return View(galleryItem);
+        }
+
+        // POST: Control/GalleryItems/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var galleryItem = await _context.GalleryItems.FindAsync(id);
+            _context.GalleryItems.Remove(galleryItem);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+
+        private bool GalleryItemExists(int id)
+        {
+            return _context.GalleryItems.Any(e => e.Id == id);
+        }
+    }
+}
