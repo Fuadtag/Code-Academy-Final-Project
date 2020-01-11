@@ -21,5 +21,7 @@ namespace FinalProject.Models
         public IFormFile PhotoSmFile { get; set; }
         [MaxLength(70)]
         public string PhotoSm { get; set; }
+
+        public int OrderBy { get; set; }
     }
 }

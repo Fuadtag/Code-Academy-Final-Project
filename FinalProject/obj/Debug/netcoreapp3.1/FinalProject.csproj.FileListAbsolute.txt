@@ -278,3 +278,8 @@ C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcorea
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.csprojAssemblyReference.cache
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Shared\Layout.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Home\Index.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\_ViewImports.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\_ViewStart.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Login\Index.cshtml.g.cs

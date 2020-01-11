@@ -68,20 +68,23 @@ namespace FinalProject.Data
                     Title = "#1 Car Rent Service In Your City",
                     Text = "Maecenas viverra porta eros,id tincidunt lorem rhoncus eget.Aliquam erat volutpat.Sed ultricies elementum egestas.",
                     Photo = "slide1.jpg",
+                    OrderBy = 1
                 },
                 new SliderItem
                 {
                     Id = 2,
                     Title = "24/7 Customer Support Guarantee",
                     Text = "Maecenas viverra porta eros,id tincidunt lorem rhoncus eget.Aliquam erat volutpat.Sed ultricies elementum egestas.",
-                    Photo = "slide2.jpg"
+                    Photo = "slide2.jpg",
+                    OrderBy = 2
                 },
                 new SliderItem
                 {
                     Id = 3,
                     Title = "Quality Cars with Unlimited Miles",
                     Text = "Maecenas viverra porta eros, id tincidunt lorem rhoncus eget. Aliquam erat volutpat. Sed ultricies elementum egestas.",
-                    Photo = "slide3.jpg"
+                    Photo = "slide3.jpg",
+                    OrderBy = 3
                 });
             modelBuilder.Entity<OurVision>().HasData(
                 new OurVision
@@ -425,7 +428,8 @@ namespace FinalProject.Data
                     Name = "Catherine Beck",
                     Position = "CEO",
                     Company = "Example Inc.",
-                    Photo = "author-3.jpg"
+                    Photo = "author-3.jpg",
+                    OrderBy = 1
                 },
                 new Testimonial
                 {
@@ -434,7 +438,8 @@ namespace FinalProject.Data
                     Name = "Catherine Beck",
                     Position = "CEO",
                     Company = "Example Inc.",
-                    Photo = "author-3.jpg"
+                    Photo = "author-3.jpg",
+                    OrderBy = 2
                 },
                 new Testimonial
                 {
@@ -443,7 +448,8 @@ namespace FinalProject.Data
                     Name = "Catherine Beck",
                     Position = "CEO",
                     Company = "Example Inc.",
-                    Photo = "author-3.jpg"
+                    Photo = "author-3.jpg",
+                    OrderBy = 3
                 },
                 new Testimonial
                 {
@@ -452,7 +458,8 @@ namespace FinalProject.Data
                     Name = "Catherine Beck",
                     Position = "CEO",
                     Company = "Example Inc.",
-                    Photo = "author-3.jpg"
+                    Photo = "author-3.jpg",
+                    OrderBy = 4
                 });
             modelBuilder.Entity<Advantage>().HasData(
                 new Advantage
@@ -750,63 +757,73 @@ namespace FinalProject.Data
                     Id =1,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 1
+
                 },
                 new GalleryItem
                 {
                     Id = 2,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 2
                 },
                 new GalleryItem
                 {
                     Id = 3,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 3
                 },
                 new GalleryItem
                 {
                     Id = 4,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 4
                 },
                 new GalleryItem
                 {
                     Id = 5,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 5
                 },
                 new GalleryItem
                 {
                     Id = 6,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 6
                 },
                 new GalleryItem
                 {
                     Id = 7,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 7
                 },
                 new GalleryItem
                 {
                     Id = 8,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 8
                 },
                 new GalleryItem
                 {
                     Id = 9,
                     GalleryId = 1,
                     Photo = "gallery-1.jpg",
-                    PhotoSm = "gallery-sm-1.jpg"
+                    PhotoSm = "gallery-sm-1.jpg",
+                    OrderBy = 9
                 }
 
 

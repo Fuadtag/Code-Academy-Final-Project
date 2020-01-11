@@ -51,5 +51,11 @@ namespace FinalProject.Controllers
             Gallery model = _context.Galleries.Include("GalleryItems").FirstOrDefault();
             return View(model);
         }
+
+        public IActionResult Checkout()
+        {
+            
+            return View();
+        }
     }
 }

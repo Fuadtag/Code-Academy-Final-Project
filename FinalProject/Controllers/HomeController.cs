@@ -28,10 +28,10 @@ namespace FinalProject.Controllers
             HomeViewModel model = new HomeViewModel();
             model.Advantages = _context.Advantage.ToList();
             model.Blogs = _context.Blogs.Include("Category").Include("Author").OrderByDescending(b => b.CreatedAt).Take(3).ToList();
-            model.Sliders = _context.Sliders.Take(3).ToList();
+            model.Sliders = _context.Sliders.OrderBy(s => s.OrderBy).Take(3).ToList();
             model.Cartypes = _context.CarTypes.ToList();
             model.Advantages = _context.Advantage.Take(8).ToList();
-            model.Testimonials = _context.Testimonials.Take(4).ToList();
+            model.Testimonials = _context.Testimonials.OrderBy(t => t.OrderBy).Take(4).ToList();
             return View(model);
         }
 

@@ -22,11 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
-    <Folder Include="Areas\Control\Controllers\" />
     <Folder Include="Areas\Control\Data\" />
     <Folder Include="Areas\Control\Models\" />
-    <Folder Include="Areas\Control\Views\" />
   </ItemGroup>
 
 

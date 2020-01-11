@@ -28,5 +28,7 @@ namespace FinalProject.Models
         [MaxLength(70)]
         public string Photo { get; set; }
 
+        public int OrderBy { get; set; }
+
     }
 }
