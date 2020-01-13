@@ -27,12 +27,12 @@ namespace FinalProject.Models
         [Column(TypeName = "Date")]
         public DateTime DropDate { get; set; }
         [Required]
-        [MaxLength(70)]
+        [MaxLength(200)]
         public string PickupLocation { get; set; }
         [Required]
-        [MaxLength(70)]
+        [MaxLength(200)]
         public string DropLocation { get; set; }
-        [MaxLength(100)]
+        [MaxLength(200)]
         public string OrderNote { get; set; }
 
     }

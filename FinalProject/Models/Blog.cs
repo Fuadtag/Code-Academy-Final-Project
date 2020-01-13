@@ -12,7 +12,7 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Name { get; set; }
         [Required]
         [Column(TypeName ="ntext")]
@@ -21,7 +21,7 @@ namespace FinalProject.Models
         [Column(TypeName = "ntext")]
         public string Text { get; set; }
         [Required]
-        [MaxLength(30)]
+        [Column(TypeName ="ntext")]
         public string InfoText { get; set; }
         [NotMapped]
         public IFormFile PhotoFile { get; set; }
@@ -30,10 +30,10 @@ namespace FinalProject.Models
         public IFormFile PhotoSmFile { get; set; }
         public string PhotoSm { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Slug { get; set; }
         [Required]
-        [MaxLength(30)]
+        [MaxLength(200)]
         public string Title { get; set; }
         public int AuthorId { get; set; }
         public Author Author { get; set; }

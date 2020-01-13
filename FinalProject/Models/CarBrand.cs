@@ -10,7 +10,7 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(30, ErrorMessage ="Must not be more than 30 symbol")]
+        [MaxLength(200, ErrorMessage ="Must not be more than 30 symbol")]
         public string Name { get; set; }
         public ICollection<CarModel> CarModels { get; set; }
 

@@ -31,8 +31,12 @@ namespace FinalProject.Controllers
 
         public IActionResult Detail(int id)
         {
-
-            return View();
+            Car car = _context.Cars.Include("CustomerReviews").Include("CustomerReviews.Customer").Include("Model").Include("Model.CarBrand").FirstOrDefault(c => c.Id == id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            return View(car);
         }
     }
 }

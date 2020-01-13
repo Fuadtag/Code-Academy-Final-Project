@@ -10,7 +10,7 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Name { get; set; }
 
         public bool Status { get; set; }

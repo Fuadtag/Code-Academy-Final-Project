@@ -11,9 +11,9 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(50, ErrorMessage ="Must not be more than 50 symbol")]
+        [MaxLength(200, ErrorMessage ="Must not be more than 50 symbol")]
         public string Icon { get; set; }
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Name { get; set; }
     }
 }

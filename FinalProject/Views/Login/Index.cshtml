@@ -1,6 +1,7 @@
-﻿@{
+﻿@model  Admin
+@{
+    ViewData["Title"] = "Index";
     Layout = null;
-
 }
 
 <!DOCTYPE html>
@@ -37,29 +38,30 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-t-85 p-b-20">
-                <form class="login100-form validate-form">
+                <form class="login100-form validate-form" asp-action="Index" asp-controller="Login" method="post">
+                    <div asp-validation-summary="ModelOnly"></div>
                     <span class="login100-form-title p-b-70">
                         Welcome
                     </span>
                     
 
                     <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Enter username">
-                        <input class="input100" type="text" name="username">
-                        <span class="focus-input100" data-placeholder="Username"></span>
+                        
+                        <input class="input100" type="email" asp-validation-for="Email" asp-for="Email" >
+                        <span class="focus-input100" data-placeholder="email" ></span>
                     </div>
 
-                    <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
-                        <input class="input100" type="password" name="pass">
+                    <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password" >
+                        <input class="input100" type="password"  asp-validation-for ="Password" asp-for="Password" >
                         <span class="focus-input100" data-placeholder="Password"></span>
                     </div>
 
                     <div class="container-login100-form-btn">
-                        <button class="login100-form-btn">
+                        <button class="login100-form-btn" type ="submit" >
                             Login
                         </button>
                     </div>
 
-                    
                     
                 </form>
             </div>
@@ -67,7 +69,6 @@
     </div>
 
 
-    <div id="dropDownSelect1"></div>
 
     <!--===============================================================================================-->
     <script src="~/AdminDashboard/Login/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -88,3 +89,4 @@
 
 </body>
 </html>
+

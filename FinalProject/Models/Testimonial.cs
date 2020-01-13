@@ -12,20 +12,20 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(80, ErrorMessage = "Must not be more than 80 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 80 symbol")]
         public string Text { get; set; }
         [Required]
-        [MaxLength(20, ErrorMessage = "Must not be more than 20 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 20 symbol")]
         public string Name { get; set; }
         [Required]
-        [MaxLength(20, ErrorMessage = "Must not be more than 20 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 20 symbol")]
         public string Position { get; set; }
         [Required]
-        [MaxLength(20, ErrorMessage = "Must not be more than 20 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 20 symbol")]
         public string Company { get; set; }
         [NotMapped]
         public IFormFile PhotoFile{ get; set; }
-        [MaxLength(70)]
+        [MaxLength(200)]
         public string Photo { get; set; }
 
 

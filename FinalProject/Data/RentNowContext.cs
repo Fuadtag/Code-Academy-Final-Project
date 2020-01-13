@@ -1,5 +1,4 @@
 ﻿using FinalProject.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Data
 {
-    public class RentNowContext : IdentityDbContext<AppAdmin>
+    public class RentNowContext : DbContext
     {
         public RentNowContext(DbContextOptions<RentNowContext> options): base(options)
         {
@@ -20,7 +19,7 @@ namespace FinalProject.Data
         public DbSet<CarType> CarTypes { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Advantage> Advantage { get; set; }
-
+        public DbSet<Admin> Admin{ get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Blog> Blogs { get; set; }
@@ -62,7 +61,6 @@ namespace FinalProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder); 
             modelBuilder.Entity<SliderItem>().HasData(
                 new SliderItem
                 {
@@ -85,6 +83,17 @@ namespace FinalProject.Data
                     Text = "Maecenas viverra porta eros, id tincidunt lorem rhoncus eget. Aliquam erat volutpat. Sed ultricies elementum egestas.",
                     Photo = "slide3.jpg",
                 });
+
+            modelBuilder.Entity<Admin>().HasData(
+                new Admin
+                {
+                    Id = 1,
+                    Email = "admin@gmail.com",
+                    Password = "AQAAAAEAACcQAAAAEJKLTgltGNl7MgJw0/kOSnppZLe/L61cYjIiZo1Ttmbke5Cj2GraYMr97MKftgbJuQ=="
+                }
+
+
+                );
             modelBuilder.Entity<OurVision>().HasData(
                 new OurVision
                 {
@@ -664,7 +673,8 @@ namespace FinalProject.Data
                     DrivingStars = 4,
                     PriceStars = 3,
                     PositiveReview = false,
-                    CarId = 1
+                    CarId = 1,
+                    CreatedAt = DateTime.Now
 
                 });
             modelBuilder.Entity<Order>().HasData(
@@ -697,37 +707,37 @@ namespace FinalProject.Data
                 {
                     Id = 1,
                     Question = "What is your favorite fruit?",
-                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                    Answer = " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
                 },
                 new Faq
                 {
                     Id = 2,
                     Question = "What is your favorite fruit?",
-                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                    Answer = " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
                 },
                 new Faq
                 {
                     Id = 3,
                     Question = "What is your favorite fruit?",
-                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                    Answer = " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
                 },
                 new Faq
                 {
                     Id = 4,
                     Question = "What is your favorite fruit?",
-                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                    Answer = " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
                 },
                 new Faq
                 {
                     Id = 5,
                     Question = "What is your favorite fruit?",
-                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                    Answer = " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
                 },
                 new Faq
                 {
                     Id = 6,
                     Question = "What is your favorite fruit?",
-                    Answer = "Mauris ornare cursus urna vel tincidunt. Mauris sit amet molestie lacus, at blandit sapien. Nullam ac ipsum eget dui feugiat commodo. Quisque facilisis sem finibus eros pellentesque, cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
+                    Answer = " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia."
                 });
 
             modelBuilder.Entity<Gallery>().HasData(

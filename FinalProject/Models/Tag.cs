@@ -10,7 +10,7 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(20, ErrorMessage ="Must not be more than 20 symbol")]
+        [MaxLength(200, ErrorMessage ="Must not be more than 20 symbol")]
         public string Name { get; set; }
         [Required]
         public int BlogId { get; set; }

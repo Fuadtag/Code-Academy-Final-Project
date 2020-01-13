@@ -133,7 +133,7 @@
                                 @foreach (var item in Model.Categories)
                                 {
                                     <li>
-                                        <a href="#">@item.Name</a>
+                                        <a asp-action="blog" asp-controller="Blogs" asp-route-categoryId ="@item.Id">@item.Name</a>
                                     </li>
                                 }
 

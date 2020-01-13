@@ -10,7 +10,7 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(40, ErrorMessage ="Must not be more than 40 symbol")]
+        [MaxLength(200, ErrorMessage ="Must not be more than 40 symbol")]
         public string Name { get; set; }
         public int CarBrandId { get; set; }
         public CarBrand CarBrand { get; set; }

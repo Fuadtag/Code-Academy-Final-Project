@@ -14,15 +14,15 @@ namespace FinalProject.Models
         public int Id { get; set; }
         [NotMapped]
         public IFormFile PhotoFile { get; set; }
-        [MaxLength(70)]
+        [MaxLength(200)]
         public string Photo { get; set; }
         [Required]
-        [MaxLength(20, ErrorMessage = "Must not be more than 20 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 20 symbol")]
         public string SubTitle { get; set; }
-        [MaxLength(20, ErrorMessage = "Must not be more than 20 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 20 symbol")]
         public string Title { get; set; }
         [Required]
-        [MaxLength(100, ErrorMessage ="Must not be more than 100 symbol")]
+        [Column(TypeName ="ntext")]
         public string Text { get; set; }
 
     }

@@ -10,13 +10,13 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(40)]
+        [MaxLength(200)]
         public string Icon { get; set; }
         [Required]
-        [MaxLength(50, ErrorMessage ="Must not be more than 50 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 200 symbol")]
         public string Title { get; set; }
         [Required]
-        [MaxLength(100, ErrorMessage = "Must not be more than 100 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 200 symbol")]
         public string Text { get; set; }
     }
 }

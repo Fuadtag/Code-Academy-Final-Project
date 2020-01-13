@@ -30,6 +30,7 @@ namespace FinalProject.Controllers
                     Categories = _context.BlogCategories.ToList()
 
                 };
+                return View(searchbycategory);
             }
             
             BlogViewModel model = new BlogViewModel

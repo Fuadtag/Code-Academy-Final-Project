@@ -11,7 +11,7 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(50)]
+        [MaxLength(200)]
         public string Title { get; set; }
         [Required]
         [Column(TypeName ="ntext")]

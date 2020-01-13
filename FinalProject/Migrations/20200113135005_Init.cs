@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FinalProject.Migrations
 {
-    public partial class TablesCreated1 : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,8 +13,8 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(maxLength: 50, nullable: false),
-                    Text = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(maxLength: 200, nullable: false),
+                    Text = table.Column<string>(type: "ntext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,10 +27,8 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true)
+                    Email = table.Column<string>(nullable: true),
+                    Password = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -43,8 +41,8 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    Text = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(maxLength: 200, nullable: false),
+                    Text = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,7 +71,7 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -86,7 +84,7 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -99,8 +97,8 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Icon = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
+                    Icon = table.Column<string>(maxLength: 200, nullable: false),
+                    Name = table.Column<string>(maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -113,7 +111,7 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 200, nullable: false),
                     Status = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
@@ -127,13 +125,13 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    Surname = table.Column<string>(nullable: true),
-                    Email = table.Column<string>(nullable: true),
-                    Password = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 200, nullable: false),
+                    Surname = table.Column<string>(maxLength: 200, nullable: false),
+                    Email = table.Column<string>(maxLength: 200, nullable: false),
+                    Password = table.Column<string>(maxLength: 200, nullable: false),
                     Country = table.Column<int>(nullable: false),
-                    StreetAdress = table.Column<string>(nullable: true),
-                    Postalcode = table.Column<string>(nullable: true),
+                    StreetAdress = table.Column<string>(maxLength: 200, nullable: false),
+                    Postalcode = table.Column<string>(maxLength: 200, nullable: false),
                     Age = table.Column<byte>(nullable: false),
                     HappyClient = table.Column<bool>(nullable: false)
                 },
@@ -143,14 +141,40 @@ namespace FinalProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Faqs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Question = table.Column<string>(maxLength: 200, nullable: false),
+                    Answer = table.Column<string>(maxLength: 200, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Faqs", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Galleries",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Galleries", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Offers",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Icon = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Text = table.Column<string>(nullable: true)
+                    Icon = table.Column<string>(maxLength: 200, nullable: false),
+                    Title = table.Column<string>(maxLength: 200, nullable: false),
+                    Text = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -163,8 +187,8 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(nullable: true),
-                    Text = table.Column<string>(nullable: true)
+                    Title = table.Column<string>(maxLength: 200, nullable: false),
+                    Text = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -177,7 +201,7 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Text = table.Column<string>(nullable: true)
+                    Text = table.Column<string>(type: "ntext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -190,8 +214,8 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Photo = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true)
+                    Photo = table.Column<string>(maxLength: 200, nullable: true),
+                    Name = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -204,10 +228,10 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Photo = table.Column<string>(nullable: true),
-                    SubTitle = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Text = table.Column<string>(nullable: true)
+                    Photo = table.Column<string>(maxLength: 200, nullable: true),
+                    SubTitle = table.Column<string>(maxLength: 200, nullable: false),
+                    Title = table.Column<string>(maxLength: 200, nullable: true),
+                    Text = table.Column<string>(type: "ntext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -225,16 +249,16 @@ namespace FinalProject.Migrations
                     InstagramLink = table.Column<string>(nullable: true),
                     GoogleLink = table.Column<string>(nullable: true),
                     LinkedInLink = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true),
-                    SupPhone = table.Column<string>(nullable: true),
+                    Phone = table.Column<string>(maxLength: 200, nullable: false),
+                    SupPhone = table.Column<string>(maxLength: 200, nullable: true),
                     Email = table.Column<string>(nullable: true),
                     SaleEmail = table.Column<string>(nullable: true),
-                    MainAdress = table.Column<string>(nullable: true),
-                    Adress = table.Column<string>(nullable: true),
-                    Logo = table.Column<string>(nullable: true),
-                    FooterLogo = table.Column<string>(nullable: true),
-                    FooterText = table.Column<string>(nullable: true),
-                    Payment = table.Column<string>(nullable: true)
+                    MainAdress = table.Column<string>(maxLength: 200, nullable: false),
+                    Adress = table.Column<string>(maxLength: 200, nullable: false),
+                    Logo = table.Column<string>(maxLength: 200, nullable: false),
+                    FooterLogo = table.Column<string>(maxLength: 200, nullable: false),
+                    FooterText = table.Column<string>(maxLength: 200, nullable: false),
+                    Payment = table.Column<string>(maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -247,9 +271,9 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Photo = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
-                    Text = table.Column<string>(nullable: true)
+                    Photo = table.Column<string>(maxLength: 200, nullable: true),
+                    Title = table.Column<string>(maxLength: 200, nullable: false),
+                    Text = table.Column<string>(maxLength: 200, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -263,12 +287,12 @@ namespace FinalProject.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Photo = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    Position = table.Column<string>(nullable: true),
-                    FacebookLink = table.Column<string>(nullable: true),
-                    TwitterLink = table.Column<string>(nullable: true),
-                    InstagramLink = table.Column<string>(nullable: true),
-                    LinkedInLink = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(maxLength: 200, nullable: false),
+                    Position = table.Column<string>(maxLength: 200, nullable: false),
+                    FacebookLink = table.Column<string>(maxLength: 200, nullable: true),
+                    TwitterLink = table.Column<string>(maxLength: 200, nullable: true),
+                    InstagramLink = table.Column<string>(maxLength: 200, nullable: true),
+                    LinkedInLink = table.Column<string>(maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -281,10 +305,11 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Text = table.Column<string>(nullable: true),
-                    Name = table.Column<string>(nullable: true),
-                    Position = table.Column<string>(nullable: true),
-                    Company = table.Column<string>(nullable: true)
+                    Text = table.Column<string>(maxLength: 200, nullable: false),
+                    Name = table.Column<string>(maxLength: 200, nullable: false),
+                    Position = table.Column<string>(maxLength: 200, nullable: false),
+                    Company = table.Column<string>(maxLength: 200, nullable: false),
+                    Photo = table.Column<string>(maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -297,15 +322,16 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
-                    TopText = table.Column<string>(nullable: true),
-                    Text = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 200, nullable: false),
+                    TopText = table.Column<string>(type: "ntext", nullable: false),
+                    Text = table.Column<string>(type: "ntext", nullable: false),
+                    InfoText = table.Column<string>(type: "ntext", nullable: false),
                     Photo = table.Column<string>(nullable: true),
                     PhotoSm = table.Column<string>(nullable: true),
-                    Slug = table.Column<string>(nullable: true),
-                    Title = table.Column<string>(nullable: true),
+                    Slug = table.Column<string>(maxLength: 200, nullable: false),
+                    Title = table.Column<string>(maxLength: 200, nullable: false),
                     AuthorId = table.Column<int>(nullable: false),
-                    CreatedAt = table.Column<DateTime>(nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "date", nullable: false),
                     Likes = table.Column<int>(nullable: false),
                     Visited = table.Column<int>(nullable: false),
                     BlogCategoryId = table.Column<int>(nullable: false)
@@ -333,7 +359,7 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 200, nullable: false),
                     CarBrandId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -348,38 +374,6 @@ namespace FinalProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cars",
-                columns: table => new
-                {
-                    Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    CarBrandId = table.Column<int>(nullable: false),
-                    Transmission = table.Column<int>(nullable: false),
-                    Fuel = table.Column<int>(nullable: false),
-                    Passsenger = table.Column<byte>(nullable: false),
-                    Luggage = table.Column<byte>(nullable: false),
-                    Door = table.Column<byte>(nullable: false),
-                    Title = table.Column<string>(nullable: true),
-                    DailyPrice = table.Column<decimal>(type: "Money", nullable: false),
-                    Discount = table.Column<byte>(nullable: false),
-                    Description = table.Column<string>(nullable: true),
-                    Status = table.Column<bool>(nullable: false),
-                    Photo = table.Column<string>(nullable: true),
-                    CartPhoto = table.Column<string>(nullable: true),
-                    DetailPhoto = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Cars", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_Cars_CarBrands_CarBrandId",
-                        column: x => x.CarBrandId,
-                        principalTable: "CarBrands",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.NoAction);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Orders",
                 columns: table => new
                 {
@@ -387,11 +381,11 @@ namespace FinalProject.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<int>(nullable: false),
                     PaymentMethod = table.Column<int>(nullable: false),
-                    PickupDate = table.Column<DateTime>(nullable: false),
-                    DropDate = table.Column<DateTime>(nullable: false),
-                    PickupLocation = table.Column<string>(nullable: true),
-                    DropLocation = table.Column<string>(nullable: true),
-                    OrderNote = table.Column<string>(nullable: true)
+                    PickupDate = table.Column<DateTime>(type: "Date", nullable: false),
+                    DropDate = table.Column<DateTime>(type: "Date", nullable: false),
+                    PickupLocation = table.Column<string>(maxLength: 200, nullable: false),
+                    DropLocation = table.Column<string>(maxLength: 200, nullable: false),
+                    OrderNote = table.Column<string>(maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -405,6 +399,27 @@ namespace FinalProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "GalleryItems",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    GalleryId = table.Column<int>(nullable: false),
+                    Photo = table.Column<string>(maxLength: 200, nullable: true),
+                    PhotoSm = table.Column<string>(maxLength: 200, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_GalleryItems", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_GalleryItems_Galleries_GalleryId",
+                        column: x => x.GalleryId,
+                        principalTable: "Galleries",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "BlogComments",
                 columns: table => new
                 {
@@ -413,7 +428,7 @@ namespace FinalProject.Migrations
                     BlogId = table.Column<int>(nullable: false),
                     CreatedAt = table.Column<DateTime>(nullable: false),
                     AuthorId = table.Column<int>(nullable: false),
-                    Text = table.Column<string>(nullable: true)
+                    Text = table.Column<string>(type: "ntext", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -438,7 +453,7 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 200, nullable: false),
                     BlogId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -453,6 +468,38 @@ namespace FinalProject.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Cars",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CarModelId = table.Column<int>(nullable: false),
+                    Transmission = table.Column<int>(nullable: false),
+                    Fuel = table.Column<int>(nullable: false),
+                    Passsenger = table.Column<byte>(nullable: false),
+                    Luggage = table.Column<byte>(nullable: false),
+                    Door = table.Column<byte>(nullable: false),
+                    Title = table.Column<string>(maxLength: 70, nullable: false),
+                    DailyPrice = table.Column<decimal>(type: "Money", nullable: false),
+                    Discount = table.Column<byte>(nullable: false),
+                    Description = table.Column<string>(type: "ntext", nullable: false),
+                    Status = table.Column<bool>(nullable: false),
+                    Photo = table.Column<string>(nullable: true),
+                    CartPhoto = table.Column<string>(nullable: true),
+                    DetailPhoto = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Cars", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Cars_CarModels_CarModelId",
+                        column: x => x.CarModelId,
+                        principalTable: "CarModels",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.NoAction);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "CustomerReviews",
                 columns: table => new
                 {
@@ -460,7 +507,7 @@ namespace FinalProject.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CustomerId = table.Column<int>(nullable: false),
                     CarId = table.Column<int>(nullable: false),
-                    Text = table.Column<string>(nullable: true),
+                    Text = table.Column<string>(maxLength: 200, nullable: false),
                     QualityStars = table.Column<byte>(nullable: false),
                     PriceStars = table.Column<byte>(nullable: false),
                     ComfortStars = table.Column<byte>(nullable: false),
@@ -516,7 +563,7 @@ namespace FinalProject.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(maxLength: 200, nullable: false),
                     Price = table.Column<decimal>(type: "Money", nullable: false),
                     OrderItemId = table.Column<int>(nullable: true)
                 },
@@ -533,8 +580,8 @@ namespace FinalProject.Migrations
 
             migrationBuilder.InsertData(
                 table: "Admin",
-                columns: new[] { "Id", "Email", "Name", "Password", "Surname" },
-                values: new object[] { 1, "fuadjt@code.edu.az", "Fuad", "admin123", "Taghiyev" });
+                columns: new[] { "Id", "Email", "Password" },
+                values: new object[] { 1, "admin@gmail.com", "admin123" });
 
             migrationBuilder.InsertData(
                 table: "Advantage",
@@ -556,9 +603,9 @@ namespace FinalProject.Migrations
                 columns: new[] { "Id", "Email", "Name", "Password", "Photo" },
                 values: new object[,]
                 {
+                    { 1, "johndoe@mail.com", "John Doe", "john123", "author-1.jpg" },
                     { 2, "johndoe1@mail.com", "John Doe1", "john123", "author-1.jpg" },
-                    { 3, "johndoe2@mail.com", "John Doe2", "john123", "author-1.jpg" },
-                    { 1, "johndoe@mail.com", "John Doe", "john123", "author-1.jpg" }
+                    { 3, "johndoe2@mail.com", "John Doe2", "john123", "author-1.jpg" }
                 });
 
             migrationBuilder.InsertData(
@@ -566,11 +613,11 @@ namespace FinalProject.Migrations
                 columns: new[] { "Id", "Name" },
                 values: new object[,]
                 {
-                    { 1, "Lifestyle" },
-                    { 2, "Travel" },
-                    { 3, "Fashion" },
+                    { 5, "Branding" },
                     { 4, "Music" },
-                    { 5, "Branding" }
+                    { 3, "Fashion" },
+                    { 2, "Travel" },
+                    { 1, "Lifestyle" }
                 });
 
             migrationBuilder.InsertData(
@@ -597,12 +644,12 @@ namespace FinalProject.Migrations
                 columns: new[] { "Id", "Icon", "Name" },
                 values: new object[,]
                 {
-                    { 5, "car-type-statio-wagon", "Station Wagon" },
-                    { 4, "car-type-minivan", "Minivan" },
-                    { 6, "car-type-limousine", "Limousine" },
-                    { 2, "car-type-roadster", "Roadster" },
                     { 1, "car-type-sedan", "Sedan" },
-                    { 3, "car-type-coupe", "Coupe" }
+                    { 2, "car-type-roadster", "Roadster" },
+                    { 3, "car-type-coupe", "Coupe" },
+                    { 4, "car-type-minivan", "Minivan" },
+                    { 5, "car-type-statio-wagon", "Station Wagon" },
+                    { 6, "car-type-limousine", "Limousine" }
                 });
 
             migrationBuilder.InsertData(
@@ -610,17 +657,35 @@ namespace FinalProject.Migrations
                 columns: new[] { "Id", "Name", "Status" },
                 values: new object[,]
                 {
-                    { 1, "Coupon1", true },
-                    { 2, "Coupon2", true },
-                    { 3, "Coupon3", true },
+                    { 5, "Coupon5", true },
                     { 4, "Coupon4", true },
-                    { 5, "Coupon5", true }
+                    { 3, "Coupon3", true },
+                    { 2, "Coupon2", true },
+                    { 1, "Coupon1", true }
                 });
 
             migrationBuilder.InsertData(
                 table: "Customers",
                 columns: new[] { "Id", "Age", "Country", "Email", "HappyClient", "Name", "Password", "Postalcode", "StreetAdress", "Surname" },
                 values: new object[] { 1, (byte)21, 0, "fuadjt@code.edu.az", false, "Fuad", "Fuad123", "AZ1021", "Nizami Street", "Taghiyev" });
+
+            migrationBuilder.InsertData(
+                table: "Faqs",
+                columns: new[] { "Id", "Answer", "Question" },
+                values: new object[,]
+                {
+                    { 5, " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia.", "What is your favorite fruit?" },
+                    { 4, " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia.", "What is your favorite fruit?" },
+                    { 6, " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia.", "What is your favorite fruit?" },
+                    { 2, " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia.", "What is your favorite fruit?" },
+                    { 1, " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia.", "What is your favorite fruit?" },
+                    { 3, " cursus elementum massa accumsan. Donec cursus, felis non molestie tincidunt, nulla mi faucibus quam, ut aliquet orci ante volutpat arcu. Praesent sed ex non leo sodales lacinia.", "What is your favorite fruit?" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Galleries",
+                column: "Id",
+                value: 1);
 
             migrationBuilder.InsertData(
                 table: "OurVisions",
@@ -681,23 +746,23 @@ namespace FinalProject.Migrations
 
             migrationBuilder.InsertData(
                 table: "Testimonials",
-                columns: new[] { "Id", "Company", "Name", "Position", "Text" },
+                columns: new[] { "Id", "Company", "Name", "Photo", "Position", "Text" },
                 values: new object[,]
                 {
-                    { 3, "Example Inc.", "Catherine Beck", "CEO", "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel." },
-                    { 1, "Example Inc.", "Catherine Beck", "CEO", "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel." },
-                    { 2, "Example Inc.", "Catherine Beck", "CEO", "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel." },
-                    { 4, "Example Inc.", "Catherine Beck", "CEO", "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel." }
+                    { 3, "Example Inc.", "Catherine Beck", "author-3.jpg", "CEO", "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel." },
+                    { 1, "Example Inc.", "Catherine Beck", "author-3.jpg", "CEO", "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel." },
+                    { 2, "Example Inc.", "Catherine Beck", "author-3.jpg", "CEO", "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel." },
+                    { 4, "Example Inc.", "Catherine Beck", "author-3.jpg", "CEO", "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel." }
                 });
 
             migrationBuilder.InsertData(
                 table: "Blogs",
-                columns: new[] { "Id", "AuthorId", "BlogCategoryId", "CreatedAt", "Likes", "Name", "Photo", "PhotoSm", "Slug", "Text", "Title", "TopText", "Visited" },
+                columns: new[] { "Id", "AuthorId", "BlogCategoryId", "CreatedAt", "InfoText", "Likes", "Name", "Photo", "PhotoSm", "Slug", "Text", "Title", "TopText", "Visited" },
                 values: new object[,]
                 {
-                    { 1, 1, 1, new DateTime(2020, 1, 8, 15, 39, 54, 426, DateTimeKind.Local).AddTicks(7649), 0, "Expanding Your Home Network’s Reach", "post-item-1.jpg", "blog-item-sm-1.jpg", "expanding-your-home-networks-reach", "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.", "A standard blog post with image", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.", 0 },
-                    { 2, 2, 2, new DateTime(2020, 1, 8, 15, 39, 54, 429, DateTimeKind.Local).AddTicks(3224), 0, "Expanding Your Home Network’s Reach", "post-item-2.jpg", "blog-item-sm-2.jpg", "expanding-your-home-networks-reach", "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.", "A standard blog post with image", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.", 0 },
-                    { 3, 3, 4, new DateTime(2020, 1, 8, 15, 39, 54, 429, DateTimeKind.Local).AddTicks(3331), 0, "Expanding Your Home Network’s Reach", "post-item-1.jpg", "blog-item-sm-1.jpg", "expanding-your-home-networks-reach", "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.", "A standard blog post with image", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.", 0 }
+                    { 1, 1, 1, new DateTime(2020, 1, 13, 17, 50, 5, 107, DateTimeKind.Local).AddTicks(2446), "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.", 0, "Expanding Your Home Network’s Reach", "post-item-1.jpg", "blog-item-sm-1.jpg", "expanding-your-home-networks-reach", "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.", "A standard blog post with image", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.", 0 },
+                    { 2, 2, 2, new DateTime(2020, 1, 13, 17, 50, 5, 108, DateTimeKind.Local).AddTicks(9991), "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.", 0, "Expanding Your Home Network’s Reach", "post-item-2.jpg", "blog-item-sm-2.jpg", "expanding-your-home-networks-reach", "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.", "A standard blog post with image", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.", 0 },
+                    { 3, 3, 4, new DateTime(2020, 1, 13, 17, 50, 5, 109, DateTimeKind.Local).AddTicks(79), "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.", 0, "Expanding Your Home Network’s Reach", "post-item-1.jpg", "blog-item-sm-1.jpg", "expanding-your-home-networks-reach", "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.", "A standard blog post with image", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -711,32 +776,44 @@ namespace FinalProject.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Cars",
-                columns: new[] { "Id", "CarBrandId", "CartPhoto", "DailyPrice", "Description", "DetailPhoto", "Discount", "Door", "Fuel", "Luggage", "Passsenger", "Photo", "Status", "Title", "Transmission" },
+                table: "GalleryItems",
+                columns: new[] { "Id", "GalleryId", "Photo", "PhotoSm" },
                 values: new object[,]
                 {
-                    { 2, 1, "cart-item-1.jpg", 300m, "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.", "single-car-thumb.jpg", (byte)0, (byte)5, 3, (byte)4, (byte)5, "car-1.jpg", true, "Mauris semper nisl a massa convallis", 0 },
-                    { 1, 2, "cart-item-1.jpg", 150m, "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.", "single-car-thumb.jpg", (byte)0, (byte)5, 0, (byte)4, (byte)5, "car-1.jpg", true, "Mauris semper nisl a massa convallis", 0 },
-                    { 3, 2, "cart-item-1.jpg", 200m, "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.", "single-car-thumb.jpg", (byte)0, (byte)5, 0, (byte)4, (byte)5, "car-1.jpg", true, "Mauris semper nisl a massa convallis", 0 }
+                    { 1, 1, "gallery-1.jpg", "gallery-sm-1.jpg" },
+                    { 2, 1, "gallery-1.jpg", "gallery-sm-1.jpg" },
+                    { 3, 1, "gallery-1.jpg", "gallery-sm-1.jpg" },
+                    { 4, 1, "gallery-1.jpg", "gallery-sm-1.jpg" },
+                    { 5, 1, "gallery-1.jpg", "gallery-sm-1.jpg" },
+                    { 6, 1, "gallery-1.jpg", "gallery-sm-1.jpg" },
+                    { 7, 1, "gallery-1.jpg", "gallery-sm-1.jpg" },
+                    { 8, 1, "gallery-1.jpg", "gallery-sm-1.jpg" },
+                    { 9, 1, "gallery-1.jpg", "gallery-sm-1.jpg" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Orders",
                 columns: new[] { "Id", "CustomerId", "DropDate", "DropLocation", "OrderNote", "PaymentMethod", "PickupDate", "PickupLocation" },
-                values: new object[] { 1, 1, new DateTime(2020, 1, 13, 15, 39, 54, 434, DateTimeKind.Local).AddTicks(9677), "Baku, H.A Airport", null, 0, new DateTime(2020, 1, 8, 15, 39, 54, 434, DateTimeKind.Local).AddTicks(8894), "Baku, H.A Airport" });
+                values: new object[] { 1, 1, new DateTime(2020, 1, 18, 17, 50, 5, 114, DateTimeKind.Local).AddTicks(6976), "Baku, H.A Airport", null, 0, new DateTime(2020, 1, 13, 17, 50, 5, 114, DateTimeKind.Local).AddTicks(6251), "Baku, H.A Airport" });
 
             migrationBuilder.InsertData(
-                table: "CustomerReviews",
-                columns: new[] { "Id", "CarId", "ComfortStars", "CustomerId", "DrivingStars", "PositiveReview", "PriceStars", "QualityStars", "Text" },
-                values: new object[] { 1, 1, (byte)4, 1, (byte)4, false, (byte)3, (byte)2, "Mauris quis sollicitudin ipsum. Morbi venenatis sem eros, quis pulvinar lacus pharetra nec. Vestibulum odio ante, venenatis ut volutpat nec, scelerisque vel purus. Nunc tempor eros a interdum blandit." });
-
-            migrationBuilder.InsertData(
-                table: "OrderItems",
-                columns: new[] { "Id", "CarId", "OrderId" },
+                table: "BlogComments",
+                columns: new[] { "Id", "AuthorId", "BlogId", "CreatedAt", "Text" },
                 values: new object[,]
                 {
-                    { 1, 1, 1 },
-                    { 2, 2, 1 }
+                    { 1, 1, 1, new DateTime(2020, 1, 13, 17, 50, 5, 109, DateTimeKind.Local).AddTicks(2358), "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus." },
+                    { 12, 2, 2, new DateTime(2020, 1, 13, 17, 50, 5, 109, DateTimeKind.Local).AddTicks(3325), "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus." },
+                    { 3, 3, 3, new DateTime(2020, 1, 13, 17, 50, 5, 109, DateTimeKind.Local).AddTicks(3345), "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus." }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Cars",
+                columns: new[] { "Id", "CarModelId", "CartPhoto", "DailyPrice", "Description", "DetailPhoto", "Discount", "Door", "Fuel", "Luggage", "Passsenger", "Photo", "Status", "Title", "Transmission" },
+                values: new object[,]
+                {
+                    { 2, 1, "cart-item-1.jpg", 300m, "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.", "single-car-thumb.jpg", (byte)0, (byte)5, 3, (byte)4, (byte)5, "car-1.jpg", true, "Mauris semper nisl a massa convallis", 0 },
+                    { 1, 2, "cart-item-1.jpg", 150m, "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.", "single-car-thumb.jpg", (byte)0, (byte)5, 0, (byte)4, (byte)5, "car-1.jpg", true, "Mauris semper nisl a massa convallis", 0 },
+                    { 3, 2, "cart-item-1.jpg", 200m, "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.", "single-car-thumb.jpg", (byte)0, (byte)5, 0, (byte)4, (byte)5, "car-1.jpg", true, "Mauris semper nisl a massa convallis", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -750,6 +827,21 @@ namespace FinalProject.Migrations
                     { 3, 2, "Car" },
                     { 4, 2, "Images" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "CustomerReviews",
+                columns: new[] { "Id", "CarId", "ComfortStars", "CustomerId", "DrivingStars", "PositiveReview", "PriceStars", "QualityStars", "Text" },
+                values: new object[] { 1, 1, (byte)4, 1, (byte)4, false, (byte)3, (byte)2, "Mauris quis sollicitudin ipsum. Morbi venenatis sem eros, quis pulvinar lacus pharetra nec. Vestibulum odio ante, venenatis ut volutpat nec, scelerisque vel purus. Nunc tempor eros a interdum blandit." });
+
+            migrationBuilder.InsertData(
+                table: "OrderItems",
+                columns: new[] { "Id", "CarId", "OrderId" },
+                values: new object[] { 2, 2, 1 });
+
+            migrationBuilder.InsertData(
+                table: "OrderItems",
+                columns: new[] { "Id", "CarId", "OrderId" },
+                values: new object[] { 1, 1, 1 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_BlogComments_AuthorId",
@@ -782,9 +874,9 @@ namespace FinalProject.Migrations
                 column: "CarBrandId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Cars_CarBrandId",
+                name: "IX_Cars_CarModelId",
                 table: "Cars",
-                column: "CarBrandId");
+                column: "CarModelId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CustomerReviews_CarId",
@@ -795,6 +887,11 @@ namespace FinalProject.Migrations
                 name: "IX_CustomerReviews_CustomerId",
                 table: "CustomerReviews",
                 column: "CustomerId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_GalleryItems_GalleryId",
+                table: "GalleryItems",
+                column: "GalleryId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_OrderItems_CarId",
@@ -835,9 +932,6 @@ namespace FinalProject.Migrations
                 name: "CarExtraServices");
 
             migrationBuilder.DropTable(
-                name: "CarModels");
-
-            migrationBuilder.DropTable(
                 name: "CarTypes");
 
             migrationBuilder.DropTable(
@@ -845,6 +939,12 @@ namespace FinalProject.Migrations
 
             migrationBuilder.DropTable(
                 name: "CustomerReviews");
+
+            migrationBuilder.DropTable(
+                name: "Faqs");
+
+            migrationBuilder.DropTable(
+                name: "GalleryItems");
 
             migrationBuilder.DropTable(
                 name: "Offers");
@@ -880,6 +980,9 @@ namespace FinalProject.Migrations
                 name: "OrderItems");
 
             migrationBuilder.DropTable(
+                name: "Galleries");
+
+            migrationBuilder.DropTable(
                 name: "Blogs");
 
             migrationBuilder.DropTable(
@@ -895,10 +998,13 @@ namespace FinalProject.Migrations
                 name: "BlogCategories");
 
             migrationBuilder.DropTable(
-                name: "CarBrands");
+                name: "CarModels");
 
             migrationBuilder.DropTable(
                 name: "Customers");
+
+            migrationBuilder.DropTable(
+                name: "CarBrands");
         }
     }
 }

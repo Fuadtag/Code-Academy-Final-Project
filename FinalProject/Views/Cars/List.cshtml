@@ -35,7 +35,7 @@
                     </div>
                     <div class="rn-car-item-info">
                         <h3>
-                            <a href="car-single.html">@item.Model.CarBrand.Name @item.Model.Name</a>
+                            <a asp-action="Detail" asp-controller="Cars" asp-route-id="@item.Id">@item.Model.CarBrand.Name @item.Model.Name</a>
                         </h3>
                         <p>@item.Title</p>
                         <div class="rn-car-list-n-price">

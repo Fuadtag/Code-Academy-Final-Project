@@ -1,34 +1,37 @@
-﻿<!-- Single Car Header-->
+﻿@model  Car
+
+<!-- Single Car Header-->
 <div class="rn-single-car-header">
     <div class="rn-overlayer"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
                 <div class="rn-car-single-info">
-                    <h1>Toyta Corrola</h1>
-                    <p>Mauris semper nisl a massa convallis</p>
+                    <h1>@Model.Model.CarBrand.Name @Model.Model.Name</h1>
+
+                    <p>@Model.Title</p>
                 </div>
                 <div class="rn-car-single-meta">
                     <span>
-                        <i class="rni-car-seat"></i> 3 Passengers
+                        <i class="rni-car-seat"></i> @Model.Passsenger Passengers
                     </span>
                     <span>
-                        <i class="rni-suitcase"></i> 2 Luggages
+                        <i class="rni-suitcase"></i> @Model.Luggage Luggages
                     </span>
                     <span>
-                        <i class="rni-petrol-station"></i> Gas
+                        <i class="rni-petrol-station"></i> @Model.Fuel
                     </span>
                     <span>
-                        <i class="rni-car-gear"></i> Auto
+                        <i class="rni-car-gear"></i> @Model.Transmission
                     </span>
                     <span>
-                        <i class="rni-car-door"></i> 4 Doors
+                        <i class="rni-car-door"></i> @Model.Door Doors
                     </span>
                 </div>
                 <div class="rn-car-single-price">
                     <span class="rn-car-price-from">From</span>
                     <span class="rn-car-price-format">
-                        <span class="rn-car-price-amount">$900</span>
+                        <span class="rn-car-price-amount">$@Model.DailyPrice.ToString("#.00")</span>
                         <span class="rn-car-price-per">/day</span>
                     </span>
                 </div>
@@ -42,9 +45,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <p>Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.</p>
-                <p>Integer pellentesque fermentum mi in accumsan. Phasellus congue risus urna, eget maximus ante ullamcorper et. Aenean malesuada, magna a ultrices hendrerit, ante lectus semper odio, quis imperdiet odio tellus at ex. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc eu tellus quam. Cras sit amet sapien at est lacinia consectetur in efficitur ante. Nulla pellentesque metus et rutrum placerat. Aliquam erat volutpat.</p>
-                <p>Donec pellentesque neque mi, ac tristique purus vestibulum et. Donec sagittis laoreet mauris, eget interdum tortor gravida nec. Maecenas suscipit nisi ex, eu dictum enim accumsan ut. Pellentesque vel sagittis ex. Duis vitae est ut diam blandit consectetur in eget risus. Donec faucibus ex consectetur, sodales quam ac, feugiat mi. Sed ultrices mi ac ultricies egestas. In varius ligula a ipsum facilisis, quis ornare neque euismod.</p>
+                <p>@Model.Description</p>
+                
             </div>
             <div class="col-lg-4">
 
@@ -131,65 +133,7 @@
             </div>
         </div>
 
-        <!-- Car Facilities-->
-        <div class="row rn-facilities">
-            <div class="col-lg-12">
-                <h2 class="rn-simple-title">Facilities</h2>
-            </div>
-            <div class="col-md-3 col-6">
-                <ul>
-                    <li>
-                        <i class="fas fa-check"></i> Audio input
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i> Bluetooth
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i> Heated seats
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-3 col-6">
-                <ul>
-                    <li>
-                        <i class="fas fa-check"></i> All Wheel drive
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i> USB input
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i> FM Radio
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-3 col-6">
-                <ul>
-                    <li>
-                        <i class="fas fa-check"></i> GPS Navigation
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i> Safe
-                    </li>
-                    <li>
-                        <i class="fas fa-check"></i> Air Conditioner
-                    </li>
-                </ul>
-            </div>
-            <div class="col-md-3 col-6">
-                <ul>
-                    <li>
-                        <i class="fas fa-times"></i> Parking Sensors
-                    </li>
-                    <li>
-                        <i class="fas fa-times"></i> WI-FI
-                    </li>
-                    <li>
-                        <i class="fas fa-times"></i> Sunroof
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- End Car Facilities-->
+        
 
     </div>
 </section>
@@ -203,181 +147,73 @@
                 <!-- Car Reviews-->
                 <div class="rn-reviews mb-50">
                     <h2 class="rn-simple-title">Customer Reviews</h2>
+                    @foreach (var item in Model.CustomerReviews)
+                    {
+                        <!-- Review Item-->
+                        <div class="rn-review-item">
+                            <div class="rn-review-meta">
+                                <div class="rn-reviewer-info">
+                                    <div class="rn-reviewer-name">@item.Customer.Name</div>
+                                    <div class="rn-review-time">@item.CreatedAt.ToString("MMMM dd yyyy 'at' hh:mm")</div>
+                                </div>
+                            </div>
+                            <div class="rn-review-content">
+                                <div class="rn-review-ratings">
+                                    <div class="rn-review-rating">
+                                        <div class="rn-review-rating-title">Quality:</div>
+                                        <div class="rn-review-rating-stars">
+                                            @for (int i = 0; i < @item.QualityStars; i++)
+                                            {
+                                                <i class="fas fa-star"></i>
 
-                    <!-- Review Item-->
-                    <div class="rn-review-item">
-                        <div class="rn-review-meta">
-                            <img src="~/images/author-1.jpg" alt="Barbara Miller" srcset="~/images/author-1.jpg 1x, ~/images/author-1@2x.jpg 2x" />
-                            <div class="rn-reviewer-info">
-                                <div class="rn-reviewer-name">Barbara Miller</div>
-                                <div class="rn-review-time">May 13, 2018 at 8:21 PM</div>
+                                            }
+
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="rn-review-rating">
+                                        <div class="rn-review-rating-title">Price:</div>
+                                        <div class="rn-review-rating-stars">
+                                            @for (int i = 0; i < @item.PriceStars; i++)
+                                            {
+                                                <i class="fas fa-star"></i>
+
+                                            }
+                                          
+                                        </div>
+                                    </div>
+                                    <div class="rn-review-rating">
+                                        <div class="rn-review-rating-title">Comfort:</div>
+                                        <div class="rn-review-rating-stars">
+                                            @for (int i = 0; i < @item.ComfortStars; i++)
+                                            {
+                                                <i class="fas fa-star"></i>
+
+                                            }
+                                           
+                                        </div>
+                                    </div>
+                                    <div class="rn-review-rating">
+                                        <div class="rn-review-rating-title">Driving:</div>
+                                        <div class="rn-review-rating-stars">
+                                            @for (int i = 0; i < @item.DrivingStars; i++)
+                                            {
+                                                <i class="fas fa-star"></i>
+
+                                            }
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rn-review-body">
+                                    <p>@item.Text</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="rn-review-content">
-                            <div class="rn-review-ratings">
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Quality:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Price:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Comfort:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Driving:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rn-review-body">
-                                <p>Mauris quis sollicitudin ipsum. Morbi venenatis sem eros, quis pulvinar lacus pharetra nec. Vestibulum odio ante, venenatis ut volutpat nec, scelerisque vel purus. Nunc tempor eros a interdum blandit.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Review Item-->
-                    <!-- Review Item-->
-                    <div class="rn-review-item">
-                        <div class="rn-review-meta">
-                            <img src="~/images/author-2.jpg" alt="Joe Shaw" srcset="~/images/author-2.jpg 1x, ~/images/author-2@2x.jpg 2x" />
-                            <div class="rn-reviewer-info">
-                                <div class="rn-reviewer-name">Joe Shaw</div>
-                                <div class="rn-review-time">May 13, 2018 at 8:21 PM</div>
-                            </div>
-                        </div>
-                        <div class="rn-review-content">
-                            <div class="rn-review-ratings">
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Quality:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Price:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Comfort:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Driving:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rn-review-body">
-                                <p>Mauris quis sollicitudin ipsum. Morbi venenatis sem eros, quis pulvinar lacus pharetra nec. Vestibulum odio ante, venenatis ut volutpat nec, scelerisque vel purus. Nunc tempor eros a interdum blandit.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Review Item-->
-                    <!-- Review Item-->
-                    <div class="rn-review-item">
-                        <div class="rn-review-meta">
-                            <img src="~/images/author-3.jpg" alt="Kimberly Jenkins" srcset="~/images/author-3.jpg 1x, ~/images/author-3@2x.jpg 2x" />
-                            <div class="rn-reviewer-info">
-                                <div class="rn-reviewer-name">Kimberly Jenkins</div>
-                                <div class="rn-review-time">May 13, 2018 at 8:21 PM</div>
-                            </div>
-                        </div>
-                        <div class="rn-review-content">
-                            <div class="rn-review-ratings">
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Quality:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Price:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="far fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Comfort:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                                <div class="rn-review-rating">
-                                    <div class="rn-review-rating-title">Driving:</div>
-                                    <div class="rn-review-rating-stars">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="rn-review-body">
-                                <p>Mauris quis sollicitudin ipsum. Morbi venenatis sem eros, quis pulvinar lacus pharetra nec. Vestibulum odio ante, venenatis ut volutpat nec, scelerisque vel purus. Nunc tempor eros a interdum blandit.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- End Review Item-->
+                        <!-- End Review Item-->
+                    }
+
+                    
 
                     <div class="text-center">
                         <a class="btn btn-lg btn-outline-light" href="#">Load More</a>
@@ -450,135 +286,3 @@
     </div>
 </div>
 <!-- End Car Reviews-->
-<!-- Similar Cars-->
-<section class="rn-car-list rn-section">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-
-                <!-- Section Title-->
-                <div class="rn-section-title   ">
-                    <h2 class="rn-title">Similar cars</h2>
-                    <p>Inbecilloque elegans errorem concedo etsi electram.</p>
-                    <span class="rn-title-bg">Similar cars</span>
-                </div>
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-1.jpg" alt="Toyta Corrola" srcset="~/images/car-1.jpg 1x, ~/images/car-1@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Toyta Corrola</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-2.jpg" alt="Toyta Corrola" srcset="~/images/car-2.jpg 1x, ~/images/car-2@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Toyta Corrola</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
-            <div class="col-lg-4 col-md-6">
-
-                <!-- Car Item-->
-                <div class="rn-car-item">
-                    <div class="rn-car-item-review">
-                        <div class="fas fa-star"></div> 5.0
-                    </div>
-                    <div class="rn-car-item-thumb">
-                        <a href="car-single.html">
-                            <img class="img-fluid" src="~/images/car-3.jpg" alt="Toyta Corrola" srcset="~/images/car-3.jpg 1x, ~/images/car-3@2x.jpg 2x" />
-                        </a>
-                    </div>
-                    <div class="rn-car-item-info">
-                        <h3>
-                            <a href="car-single.html">Toyta Corrola</a>
-                        </h3>
-                        <p>Mauris semper nisl a massa convallis</p>
-                        <div class="rn-car-list-n-price">
-                            <ul>
-                                <li>Aliqua venandi mutat</li>
-                                <li>Plerisque nostrum</li>
-                                <li>Intellegimus percurri</li>
-                            </ul>
-                            <div class="rn-car-price-wrap">
-                                <a class="rn-car-price" href="car-single.html">
-                                    <span class="rn-car-price-from">From</span>
-                                    <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$900</span>
-                                        <span class="rn-car-price-per">/day</span>
-                                    </span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Car Item-->
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- End Similar Cars-->

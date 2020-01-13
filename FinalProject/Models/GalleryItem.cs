@@ -15,11 +15,11 @@ namespace FinalProject.Models
         public int GalleryId { get; set; }
         [NotMapped]
         public IFormFile PhotoFile { get; set; }
-        [MaxLength(70)]
+        [MaxLength(200)]
         public string Photo { get; set; }
         [NotMapped]
         public IFormFile PhotoSmFile { get; set; }
-        [MaxLength(70)]
+        [MaxLength(200)]
         public string PhotoSm { get; set; }
 
     }

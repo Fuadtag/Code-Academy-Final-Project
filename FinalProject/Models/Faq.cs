@@ -10,10 +10,10 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(50, ErrorMessage = "Can not be more than 100 symbol")]
+        [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
         public string Question { get; set; }
         [Required]
-        [MaxLength(100, ErrorMessage ="Can not be more than 100 symbol")]
+        [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
         public string Answer { get; set; }
     }
 }

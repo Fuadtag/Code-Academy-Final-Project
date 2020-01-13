@@ -16,21 +16,21 @@ namespace FinalProject.Models
         [MaxLength]
         public string Photo { get; set; }
         [Required]
-        [MaxLength(30, ErrorMessage = "Must not be more than 30 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 200 symbol")]
         public string Name { get; set; }
         [Required]
-        [MaxLength(30, ErrorMessage = "Must not be more than 30 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 200 symbol")]
 
         public string Position { get; set; }
-        [MaxLength(30, ErrorMessage = "Must not be more than 60 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 200 symbol")]
 
         public string FacebookLink { get; set; }
-        [MaxLength(30, ErrorMessage = "Must not be more than 60 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 200 symbol")]
 
         public string TwitterLink { get; set; }
-        [MaxLength(30, ErrorMessage = "Must not be more than 60 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 200 symbol")]
         public string InstagramLink { get; set; }
-        [MaxLength(30, ErrorMessage = "Must not be more than 60 symbol")]
+        [MaxLength(200, ErrorMessage = "Must not be more than 200 symbol")]
         public string LinkedInLink { get; set; }
     }
 }

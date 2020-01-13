@@ -11,10 +11,10 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(30)]
+        [MaxLength(200)]
         public string Title { get; set; }
         [Required]
-        [MaxLength(70)]
+        [MaxLength(200)]
         public string Text { get; set; }
     }
 }

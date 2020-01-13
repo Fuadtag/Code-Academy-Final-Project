@@ -14,23 +14,23 @@ namespace FinalProject.Models
     {
         public int Id { get; set; }
         [Required]
-        [MaxLength(50, ErrorMessage ="Can not be more than 50 symbol")]
+        [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
         public string Name { get; set; }
         [Required]
-        [MaxLength(50, ErrorMessage = "Can not be more than 50 symbol")]
+        [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
         public string Surname { get; set; }
         [Required]
-        [MaxLength(70, ErrorMessage = "Can not be more than 70 symbol")]
+        [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
         public string Email { get; set; }
         [Required]
-        [MaxLength(80, ErrorMessage = "Can not be more than 80 symbol")]
+        [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
         public string Password { get; set; }
         public Country Country { get; set; }
         [Required]
-        [MaxLength(70, ErrorMessage = "Can not be more than 70 symbol")]
+        [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
         public string StreetAdress { get; set; }
         [Required]
-        [MaxLength(15, ErrorMessage = "Can not be more than 15 symbol")]
+        [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
 
         public string Postalcode { get; set; }
 
