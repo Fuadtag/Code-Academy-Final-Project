@@ -31,7 +31,7 @@ namespace FinalProject
             services.AddControllersWithViews();
             services.AddDbContext<RentNowContext>(options =>
                 options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-            
+            services.AddIdentity<AppAdmin, IdentityRole>().AddEntityFrameworkStores<RentNowContext>().AddDefaultTokenProviders();
 
         }
 

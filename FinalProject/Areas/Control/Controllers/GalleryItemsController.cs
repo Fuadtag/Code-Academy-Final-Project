@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
 using FinalProject.Models;
+using Microsoft.AspNetCore.Hosting;
+using FinalProject.Helpers;
 
 namespace FinalProject.Areas.Control.Controllers
 {
@@ -14,10 +16,12 @@ namespace FinalProject.Areas.Control.Controllers
     public class GalleryItemsController : Controller
     {
         private readonly RentNowContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public GalleryItemsController(RentNowContext context)
+        public GalleryItemsController(RentNowContext context, IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Control/GalleryItems
@@ -47,6 +51,7 @@ namespace FinalProject.Areas.Control.Controllers
         // GET: Control/GalleryItems/Create
         public IActionResult Create()
         {
+            ViewData["GalleryId"] = new SelectList(_context.Galleries, "Id", "Id");
             return View();
         }
 
@@ -57,6 +62,18 @@ namespace FinalProject.Areas.Control.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,GalleryId,Photo,PhotoSm")] GalleryItem galleryItem)
         {
+            if (galleryItem.PhotoFile != null)
+            {
+                try
+                {
+                    FileManager fileManager = new FileManager(_webHostEnvironment);
+                    galleryItem.Photo = fileManager.Upload(galleryItem.PhotoFile);
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("PhotoFile", e.Message);
+                }
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(galleryItem);
@@ -68,13 +85,16 @@ namespace FinalProject.Areas.Control.Controllers
 
         // GET: Control/GalleryItems/Edit/5
         public async Task<IActionResult> Edit(int? id)
+
         {
+
             if (id == null)
             {
                 return NotFound();
             }
 
             var galleryItem = await _context.GalleryItems.FindAsync(id);
+
             if (galleryItem == null)
             {
                 return NotFound();
@@ -112,7 +132,19 @@ namespace FinalProject.Areas.Control.Controllers
                         throw;
                     }
                 }
-                return RedirectToAction(nameof(Index));
+                if (galleryItem.PhotoSmFile != null)
+                {
+                    try
+                    {
+                        FileManager fileManager = new FileManager(_webHostEnvironment);
+                        galleryItem.PhotoSm = fileManager.Upload(galleryItem.PhotoSmFile);
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("PhotoSmFile", e.Message);
+                    }
+                }
+                return RedirectToAction(nameof(Index), "Galleries");
             }
             return View(galleryItem);
         }
@@ -143,7 +175,7 @@ namespace FinalProject.Areas.Control.Controllers
             var galleryItem = await _context.GalleryItems.FindAsync(id);
             _context.GalleryItems.Remove(galleryItem);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction(nameof(Index), "Galleries");
         }
 
         private bool GalleryItemExists(int id)

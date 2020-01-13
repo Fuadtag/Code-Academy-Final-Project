@@ -21,6 +21,17 @@ namespace FinalProject.Controllers
 
         public IActionResult Blog(int? categoryid , int? tagid)
         {
+            if (categoryid != null)
+            {
+                BlogViewModel searchbycategory = new BlogViewModel
+                {
+                    Tags = _context.Tags.ToList(),
+                    Blogs = _context.Blogs.Include("Category").Include("Author").Where(b => b.BlogCategoryId == categoryid).ToList(),
+                    Categories = _context.BlogCategories.ToList()
+
+                };
+            }
+            
             BlogViewModel model = new BlogViewModel
             {
                 Tags = _context.Tags.ToList(),

@@ -62,6 +62,7 @@ namespace FinalProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder); 
             modelBuilder.Entity<SliderItem>().HasData(
                 new SliderItem
                 {

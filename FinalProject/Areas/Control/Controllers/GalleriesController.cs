@@ -22,8 +22,11 @@ namespace FinalProject.Areas.Control.Controllers
 
         // GET: Control/Galleries
         public async Task<IActionResult> Index()
+            
         {
-            return View(await _context.Galleries.ToListAsync());
+
+            Gallery model = await _context.Galleries.Include("GalleryItems").FirstOrDefaultAsync();
+            return View(model);
         }
 
         // GET: Control/Galleries/Details/5

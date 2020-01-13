@@ -8,5 +8,7 @@ namespace FinalProject.Models
 {
     public class AppAdmin : IdentityUser
     {
+        public string Occupation { get; set; }
+
     }
 }

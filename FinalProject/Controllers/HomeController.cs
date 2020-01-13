@@ -32,6 +32,7 @@ namespace FinalProject.Controllers
             model.Cartypes = _context.CarTypes.ToList();
             model.Advantages = _context.Advantage.Take(8).ToList();
             model.Testimonials = _context.Testimonials.Take(4).ToList();
+            model.Cars = _context.Cars.Include("Model").Include("Model.CarBrand").ToList();
             return View(model);
         }
 

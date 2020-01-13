@@ -17,7 +17,7 @@ namespace FinalProject.Helpers
         }
         public string Upload(IFormFile file, string allowedTypes = "image/png|image/jpeg|image/gif", int maxSize = 4096)
         {
-            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "images");
+            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
             if (file == null)
             {
                 string fileName = "noimage.png";
@@ -41,7 +41,7 @@ namespace FinalProject.Helpers
         }
         public void Delete(string filename)
         {
-            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "images");
+            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
             if (string.IsNullOrEmpty(filename))
             {
                 throw new NullReferenceException("Filename cannot be null");
@@ -58,7 +58,7 @@ namespace FinalProject.Helpers
         }
         private string CreatePath()
         {
-            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "images");
+            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
 
 
 

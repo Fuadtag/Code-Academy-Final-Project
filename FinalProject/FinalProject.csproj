@@ -5,7 +5,118 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Identity.EntityFrameworkCore" Version="1.2.7" />
+    <Compile Remove="Areas\Control\Data\**" />
+    <Compile Remove="Areas\Control\Models\**" />
+    <Content Remove="Areas\Control\Data\**" />
+    <Content Remove="Areas\Control\Models\**" />
+    <EmbeddedResource Remove="Areas\Control\Data\**" />
+    <EmbeddedResource Remove="Areas\Control\Models\**" />
+    <None Remove="Areas\Control\Data\**" />
+    <None Remove="Areas\Control\Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Uploads\404.svg" />
+    <None Include="wwwroot\Uploads\about-bg-1.jpg" />
+    <None Include="wwwroot\Uploads\about-img.jpg" />
+    <None Include="wwwroot\Uploads\author-1.jpg" />
+    <None Include="wwwroot\Uploads\author-2.jpg" />
+    <None Include="wwwroot\Uploads\author-3.jpg" />
+    <None Include="wwwroot\Uploads\banner.png" />
+    <None Include="wwwroot\Uploads\big-banner.png" />
+    <None Include="wwwroot\Uploads\blog-item-sm-1.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-10.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-11.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-12.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-2.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-3.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-4.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-5.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-6.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-7.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-8.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-sm-9.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-xs-1.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-xs-2.jpg" />
+    <None Include="wwwroot\Uploads\blog-item-xs-3.jpg" />
+    <None Include="wwwroot\Uploads\blog-single.jpg" />
+    <None Include="wwwroot\Uploads\c2a-bg.jpg" />
+    <None Include="wwwroot\Uploads\car-1.jpg" />
+    <None Include="wwwroot\Uploads\car-2.jpg" />
+    <None Include="wwwroot\Uploads\car-3.jpg" />
+    <None Include="wwwroot\Uploads\car-4.jpg" />
+    <None Include="wwwroot\Uploads\car-5.jpg" />
+    <None Include="wwwroot\Uploads\car-6.jpg" />
+    <None Include="wwwroot\Uploads\car-7.jpg" />
+    <None Include="wwwroot\Uploads\car-8.jpg" />
+    <None Include="wwwroot\Uploads\car-9.jpg" />
+    <None Include="wwwroot\Uploads\car-search-item-1.jpg" />
+    <None Include="wwwroot\Uploads\car-search-item-2.jpg" />
+    <None Include="wwwroot\Uploads\car-search-item-3.jpg" />
+    <None Include="wwwroot\Uploads\car-search-item-4.jpg" />
+    <None Include="wwwroot\Uploads\cart-item-1.jpg" />
+    <None Include="wwwroot\Uploads\cart-item-2.jpg" />
+    <None Include="wwwroot\Uploads\funfact-bg.jpg" />
+    <None Include="wwwroot\Uploads\gallery-1.jpg" />
+    <None Include="wwwroot\Uploads\gallery-10.jpg" />
+    <None Include="wwwroot\Uploads\gallery-11.jpg" />
+    <None Include="wwwroot\Uploads\gallery-12.jpg" />
+    <None Include="wwwroot\Uploads\gallery-2.jpg" />
+    <None Include="wwwroot\Uploads\gallery-3.jpg" />
+    <None Include="wwwroot\Uploads\gallery-4.jpg" />
+    <None Include="wwwroot\Uploads\gallery-5.jpg" />
+    <None Include="wwwroot\Uploads\gallery-6.jpg" />
+    <None Include="wwwroot\Uploads\gallery-7.jpg" />
+    <None Include="wwwroot\Uploads\gallery-8.jpg" />
+    <None Include="wwwroot\Uploads\gallery-9.jpg" />
+    <None Include="wwwroot\Uploads\gallery-md-1.jpg" />
+    <None Include="wwwroot\Uploads\gallery-md-2.jpg" />
+    <None Include="wwwroot\Uploads\gallery-md-3.jpg" />
+    <None Include="wwwroot\Uploads\gallery-md-4.jpg" />
+    <None Include="wwwroot\Uploads\gallery-md-5.jpg" />
+    <None Include="wwwroot\Uploads\gallery-md-6.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-1.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-2.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-3.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-4.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-5.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-6.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-7.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-8.jpg" />
+    <None Include="wwwroot\Uploads\gallery-sm-9.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-1.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-10.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-11.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-12.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-2.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-3.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-4.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-5.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-6.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-7.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-8.jpg" />
+    <None Include="wwwroot\Uploads\gallery-xs-9.jpg" />
+    <None Include="wwwroot\Uploads\logo.svg" />
+    <None Include="wwwroot\Uploads\page-titlebar.jpg" />
+    <None Include="wwwroot\Uploads\partner-1.png" />
+    <None Include="wwwroot\Uploads\partner-2.png" />
+    <None Include="wwwroot\Uploads\partner-3.png" />
+    <None Include="wwwroot\Uploads\partner-4.png" />
+    <None Include="wwwroot\Uploads\payments.png" />
+    <None Include="wwwroot\Uploads\post-item-1.jpg" />
+    <None Include="wwwroot\Uploads\post-item-2.jpg" />
+    <None Include="wwwroot\Uploads\quote.svg" />
+    <None Include="wwwroot\Uploads\single-car-thumb.jpg" />
+    <None Include="wwwroot\Uploads\slide1.jpg" />
+    <None Include="wwwroot\Uploads\slide2.jpg" />
+    <None Include="wwwroot\Uploads\slide3.jpg" />
+    <None Include="wwwroot\Uploads\team-member-1.jpg" />
+    <None Include="wwwroot\Uploads\team-member-2.jpg" />
+    <None Include="wwwroot\Uploads\team-member-3.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.DotNet.Cli.Utils" Version="2.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.0">
@@ -21,11 +132,6 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
     <PackageReference Include="Npm" Version="3.5.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\Control\Data\" />
-    <Folder Include="Areas\Control\Models\" />
   </ItemGroup>
 
 

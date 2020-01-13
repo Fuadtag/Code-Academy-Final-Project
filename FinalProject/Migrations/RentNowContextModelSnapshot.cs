@@ -114,36 +114,73 @@ namespace FinalProject.Migrations
 
             modelBuilder.Entity("FinalProject.Models.AppAdmin", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("AppAdminId")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Occupation")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Surname")
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppAdmin");
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
 
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "fuadjt@code.edu.az",
-                            Name = "Fuad",
-                            Password = "admin123",
-                            Surname = "Taghiyev"
-                        });
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Author", b =>
@@ -266,7 +303,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 11, 14, 32, 6, 427, DateTimeKind.Local).AddTicks(8304),
+                            CreatedAt = new DateTime(2020, 1, 12, 15, 28, 24, 446, DateTimeKind.Local).AddTicks(3621),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -283,7 +320,7 @@ namespace FinalProject.Migrations
                             Id = 2,
                             AuthorId = 2,
                             BlogCategoryId = 2,
-                            CreatedAt = new DateTime(2020, 1, 11, 14, 32, 6, 430, DateTimeKind.Local).AddTicks(256),
+                            CreatedAt = new DateTime(2020, 1, 12, 15, 28, 24, 448, DateTimeKind.Local).AddTicks(360),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -300,7 +337,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 11, 14, 32, 6, 430, DateTimeKind.Local).AddTicks(374),
+                            CreatedAt = new DateTime(2020, 1, 12, 15, 28, 24, 448, DateTimeKind.Local).AddTicks(579),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -393,7 +430,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogId = 1,
-                            CreatedAt = new DateTime(2020, 1, 11, 14, 32, 6, 430, DateTimeKind.Local).AddTicks(3464),
+                            CreatedAt = new DateTime(2020, 1, 12, 15, 28, 24, 448, DateTimeKind.Local).AddTicks(3019),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -401,7 +438,7 @@ namespace FinalProject.Migrations
                             Id = 12,
                             AuthorId = 2,
                             BlogId = 2,
-                            CreatedAt = new DateTime(2020, 1, 11, 14, 32, 6, 430, DateTimeKind.Local).AddTicks(4792),
+                            CreatedAt = new DateTime(2020, 1, 12, 15, 28, 24, 448, DateTimeKind.Local).AddTicks(4105),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -409,7 +446,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogId = 3,
-                            CreatedAt = new DateTime(2020, 1, 11, 14, 32, 6, 430, DateTimeKind.Local).AddTicks(4823),
+                            CreatedAt = new DateTime(2020, 1, 12, 15, 28, 24, 448, DateTimeKind.Local).AddTicks(4124),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         });
                 });
@@ -965,9 +1002,6 @@ namespace FinalProject.Migrations
                     b.Property<int>("GalleryId")
                         .HasColumnType("int");
 
-                    b.Property<int>("OrderBy")
-                        .HasColumnType("int");
-
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(70)")
                         .HasMaxLength(70);
@@ -987,7 +1021,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 1,
                             GalleryId = 1,
-                            OrderBy = 1,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         },
@@ -995,7 +1028,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 2,
                             GalleryId = 1,
-                            OrderBy = 2,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         },
@@ -1003,7 +1035,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 3,
                             GalleryId = 1,
-                            OrderBy = 3,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         },
@@ -1011,7 +1042,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 4,
                             GalleryId = 1,
-                            OrderBy = 4,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         },
@@ -1019,7 +1049,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 5,
                             GalleryId = 1,
-                            OrderBy = 5,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         },
@@ -1027,7 +1056,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 6,
                             GalleryId = 1,
-                            OrderBy = 6,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         },
@@ -1035,7 +1063,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 7,
                             GalleryId = 1,
-                            OrderBy = 7,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         },
@@ -1043,7 +1070,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 8,
                             GalleryId = 1,
-                            OrderBy = 8,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         },
@@ -1051,7 +1077,6 @@ namespace FinalProject.Migrations
                         {
                             Id = 9,
                             GalleryId = 1,
-                            OrderBy = 9,
                             Photo = "gallery-1.jpg",
                             PhotoSm = "gallery-sm-1.jpg"
                         });
@@ -1101,10 +1126,10 @@ namespace FinalProject.Migrations
                         {
                             Id = 1,
                             CustomerId = 1,
-                            DropDate = new DateTime(2020, 1, 16, 14, 32, 6, 435, DateTimeKind.Local).AddTicks(4630),
+                            DropDate = new DateTime(2020, 1, 17, 15, 28, 24, 452, DateTimeKind.Local).AddTicks(279),
                             DropLocation = "Baku, H.A Airport",
                             PaymentMethod = 0,
-                            PickupDate = new DateTime(2020, 1, 11, 14, 32, 6, 435, DateTimeKind.Local).AddTicks(3950),
+                            PickupDate = new DateTime(2020, 1, 12, 15, 28, 24, 451, DateTimeKind.Local).AddTicks(9823),
                             PickupLocation = "Baku, H.A Airport"
                         });
                 });
@@ -1402,9 +1427,6 @@ namespace FinalProject.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("OrderBy")
-                        .HasColumnType("int");
-
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(70)")
                         .HasMaxLength(70);
@@ -1427,7 +1449,6 @@ namespace FinalProject.Migrations
                         new
                         {
                             Id = 1,
-                            OrderBy = 1,
                             Photo = "slide1.jpg",
                             Text = "Maecenas viverra porta eros,id tincidunt lorem rhoncus eget.Aliquam erat volutpat.Sed ultricies elementum egestas.",
                             Title = "#1 Car Rent Service In Your City"
@@ -1435,7 +1456,6 @@ namespace FinalProject.Migrations
                         new
                         {
                             Id = 2,
-                            OrderBy = 2,
                             Photo = "slide2.jpg",
                             Text = "Maecenas viverra porta eros,id tincidunt lorem rhoncus eget.Aliquam erat volutpat.Sed ultricies elementum egestas.",
                             Title = "24/7 Customer Support Guarantee"
@@ -1443,7 +1463,6 @@ namespace FinalProject.Migrations
                         new
                         {
                             Id = 3,
-                            OrderBy = 3,
                             Photo = "slide3.jpg",
                             Text = "Maecenas viverra porta eros, id tincidunt lorem rhoncus eget. Aliquam erat volutpat. Sed ultricies elementum egestas.",
                             Title = "Quality Cars with Unlimited Miles"
@@ -1597,9 +1616,6 @@ namespace FinalProject.Migrations
                         .HasColumnType("nvarchar(20)")
                         .HasMaxLength(20);
 
-                    b.Property<int>("OrderBy")
-                        .HasColumnType("int");
-
                     b.Property<string>("Photo")
                         .HasColumnType("nvarchar(70)")
                         .HasMaxLength(70);
@@ -1624,7 +1640,6 @@ namespace FinalProject.Migrations
                             Id = 1,
                             Company = "Example Inc.",
                             Name = "Catherine Beck",
-                            OrderBy = 1,
                             Photo = "author-3.jpg",
                             Position = "CEO",
                             Text = "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel."
@@ -1634,7 +1649,6 @@ namespace FinalProject.Migrations
                             Id = 2,
                             Company = "Example Inc.",
                             Name = "Catherine Beck",
-                            OrderBy = 2,
                             Photo = "author-3.jpg",
                             Position = "CEO",
                             Text = "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel."
@@ -1644,7 +1658,6 @@ namespace FinalProject.Migrations
                             Id = 3,
                             Company = "Example Inc.",
                             Name = "Catherine Beck",
-                            OrderBy = 3,
                             Photo = "author-3.jpg",
                             Position = "CEO",
                             Text = "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel."
@@ -1654,7 +1667,6 @@ namespace FinalProject.Migrations
                             Id = 4,
                             Company = "Example Inc.",
                             Name = "Catherine Beck",
-                            OrderBy = 4,
                             Photo = "author-3.jpg",
                             Position = "CEO",
                             Text = "Integer aliquam velit ut nibh mattis, et suscipit erat ultrices. Cras aliquam ante vel arcu suscipit, sit amet lobortis elit dignissim tempor vel."
@@ -1686,6 +1698,137 @@ namespace FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Offers");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Blog", b =>
@@ -1796,6 +1939,57 @@ namespace FinalProject.Migrations
                     b.HasOne("FinalProject.Models.Blog", "Blog")
                         .WithMany("Tags")
                         .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("FinalProject.Models.AppAdmin", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("FinalProject.Models.AppAdmin", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FinalProject.Models.AppAdmin", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("FinalProject.Models.AppAdmin", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
