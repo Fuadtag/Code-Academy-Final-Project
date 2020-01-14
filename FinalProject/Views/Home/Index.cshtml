@@ -197,7 +197,7 @@
                                     <a class="rn-car-price" asp-action="Detail" asp-controller="Cars" asp-route-id="@item.Id">
                                         <span class="rn-car-price-from">From</span>
                                         <span class="rn-car-price-format">
-                                            <span class="rn-car-price-amount">$@item.DailyPrice.ToString("#.00")</span>
+                                            <span class="rn-car-price-amount">$@item.DailyPrice.ToString("#.")</span>
                                             <span class="rn-car-price-per">/day</span>
                                         </span>
                                     </a>
@@ -400,7 +400,7 @@
                                     <div class="rn-post-item-meta">
                                         <span class="rn-post-item-categories">
                                             In
-                                            <a href="#">@item.Category.Name</a>
+                                            <a asp-action="Blog" asp-controller="Blogs" asp-route-categoryid ="@item.Id">@item.Category.Name</a>
                                         </span>
                                         <span class="rn-post-item-author">
                                             By
@@ -408,7 +408,7 @@
                                         </span>
                                     </div>
                                     <h3 class="rn-post-item-title">
-                                        <a href="#">@item.Title</a>
+                                        <a asp-action="Blog" asp-controller="Blogs" asp-route-categoryid ="@item.Id">@item.Title</a>
                                     </h3>
                                 </div>
                             </div>

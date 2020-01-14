@@ -4,14 +4,16 @@ using FinalProject.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinalProject.Migrations
 {
     [DbContext(typeof(RentNowContext))]
-    partial class RentNowContextModelSnapshot : ModelSnapshot
+    [Migration("20200114083312_Blogs")]
+    partial class Blogs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -260,7 +262,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 945, DateTimeKind.Local).AddTicks(3585),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 669, DateTimeKind.Local).AddTicks(605),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -277,7 +279,7 @@ namespace FinalProject.Migrations
                             Id = 2,
                             AuthorId = 2,
                             BlogCategoryId = 2,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2734),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 670, DateTimeKind.Local).AddTicks(5596),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -294,7 +296,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2819),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 670, DateTimeKind.Local).AddTicks(5669),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -311,7 +313,7 @@ namespace FinalProject.Migrations
                             Id = 4,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2823),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 670, DateTimeKind.Local).AddTicks(5672),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach4",
@@ -319,7 +321,7 @@ namespace FinalProject.Migrations
                             PhotoSm = "blog-item-sm-1.jpg",
                             Slug = "expanding-your-home-networks-reach",
                             Text = "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.",
-                            Title = "A standard blog post with image4",
+                            Title = "A standard blog post with image",
                             TopText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.",
                             Visited = 0
                         },
@@ -328,7 +330,7 @@ namespace FinalProject.Migrations
                             Id = 5,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2825),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 670, DateTimeKind.Local).AddTicks(5674),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach5",
@@ -336,7 +338,7 @@ namespace FinalProject.Migrations
                             PhotoSm = "blog-item-sm-1.jpg",
                             Slug = "expanding-your-home-networks-reach",
                             Text = "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.",
-                            Title = "A standard blog post with image5",
+                            Title = "A standard blog post with image",
                             TopText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.",
                             Visited = 0
                         },
@@ -345,7 +347,7 @@ namespace FinalProject.Migrations
                             Id = 6,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2827),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 670, DateTimeKind.Local).AddTicks(5676),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach6",
@@ -353,7 +355,7 @@ namespace FinalProject.Migrations
                             PhotoSm = "blog-item-sm-1.jpg",
                             Slug = "expanding-your-home-networks-reach",
                             Text = "Aliquam non sodales felis. Fusce luctus porta tincidunt. Etiam aliquet varius est vestibulum consectetur. Donec arcu justo, fringilla sit amet nisi eu, hendrerit facilisis justo. Donec nisl risus, tincidunt at augue eget, ultrices varius orci. Fusce hendrerit lacus in volutpat malesuada. Vestibulum mattis tellus at purus pretium ullamcorper. In hac habitasse platea dictumst.Integer consectetur condimentum dolor eu consequat.Suspendisse dictum,tellus id semper pretium,velit lorem iaculis felis,sit amet ullamcorper mauris nisl at urna.Proin vel nibh ligula.Integer id ipsum quis eros sodales consectetur vel elementum urna.Morbi facilisis interdum nunc eu commodo.Maecenas magna tellus,dictum at dolor non,rutrum lacinia tellus.Integer accumsan velit est,ac bibendum ante fringilla sit amet.Mauris faucibus pellentesque elementum.Proin in convallis erat.Maecenas tincidunt cursus euismod.Maecenas quis felis diam.Suspendisse imperdiet tellus eget nunc fringilla fermentum.Fusce nisl neque,lobortis sed turpis ac,faucibus mattis nibh.Vivamus posuere dolor in euismod maximus.Donec velit nisi,rutrum iaculis libero sollicitudin,aliquam congue arcu.",
-                            Title = "A standard blog post with image6",
+                            Title = "A standard blog post with image",
                             TopText = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in tortor sed eros consequat rutrum eget iaculis lacus. Aenean ac sapien risus. Nullam eget lobortis odio. Nulla ac lacus in nunc sagittis pretium ut ac nulla. In mollis hendrerit metus, eu posuere dolor hendrerit vel. Duis sit amet tortor imperdiet nisl aliquam scelerisque. Suspendisse lobortis condimentum fermentum. In volutpat est libero, a facilisis ipsum pharetra eu. Fusce condimentum metus id ante auctor pellentesque. Donec placerat ornare risus ut sodales. In accumsan risus nec sodales ultrices. Vestibulum auctor auctor sodales. Donec varius volutpat tellus dapibus fringilla.Duis id leo gravida,convallis lorem ac,tincidunt tortor.Fusce in mollis eros,ac tempor purus.Nulla facilisi.Nam dictum neque quis felis iaculis,ut condimentum ex feugiat.Sed tincidunt velit sem,non elementum nibh dapibus eget.Cras at sagittis tellus.Donec vitae ullamcorper mi.Donec in ornare lacus.Cras elementum mi eget vestibulum pulvinar.Sed accumsan vel lorem ut ultricies.",
                             Visited = 0
                         });
@@ -437,7 +439,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogId = 1,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(5234),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 670, DateTimeKind.Local).AddTicks(7726),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -445,7 +447,7 @@ namespace FinalProject.Migrations
                             Id = 12,
                             AuthorId = 2,
                             BlogId = 2,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(6208),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 670, DateTimeKind.Local).AddTicks(8661),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -453,7 +455,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogId = 3,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(6227),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 670, DateTimeKind.Local).AddTicks(8682),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         });
                 });
@@ -569,114 +571,6 @@ namespace FinalProject.Migrations
                             Photo = "car-1.jpg",
                             Status = true,
                             Title = "Mauris semper nisl a massa convallis",
-                            Transmission = 0
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CarModelId = 2,
-                            CartPhoto = "cart-item-1.jpg",
-                            DailyPrice = 200m,
-                            Description = "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.",
-                            DetailPhoto = "single-car-thumb.jpg",
-                            Discount = (byte)0,
-                            Door = (byte)5,
-                            Fuel = 0,
-                            Luggage = (byte)4,
-                            Passsenger = (byte)5,
-                            Photo = "car-1.jpg",
-                            Status = true,
-                            Title = "Mauris semper nisl a massa convallis",
-                            Transmission = 0
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CarModelId = 2,
-                            CartPhoto = "cart-item-1.jpg",
-                            DailyPrice = 200m,
-                            Description = "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.",
-                            DetailPhoto = "single-car-thumb.jpg",
-                            Discount = (byte)0,
-                            Door = (byte)5,
-                            Fuel = 0,
-                            Luggage = (byte)4,
-                            Passsenger = (byte)5,
-                            Photo = "car-1.jpg",
-                            Status = true,
-                            Title = "Mauris semper nisl a massa convallis",
-                            Transmission = 0
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CarModelId = 2,
-                            CartPhoto = "cart-item-1.jpg",
-                            DailyPrice = 200m,
-                            Description = "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.",
-                            DetailPhoto = "single-car-thumb.jpg",
-                            Discount = (byte)0,
-                            Door = (byte)5,
-                            Fuel = 0,
-                            Luggage = (byte)4,
-                            Passsenger = (byte)5,
-                            Photo = "car-1.jpg",
-                            Status = true,
-                            Title = "Mauris semper nisl a massa convallis5",
-                            Transmission = 0
-                        },
-                        new
-                        {
-                            Id = 7,
-                            CarModelId = 2,
-                            CartPhoto = "cart-item-1.jpg",
-                            DailyPrice = 200m,
-                            Description = "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.",
-                            DetailPhoto = "single-car-thumb.jpg",
-                            Discount = (byte)0,
-                            Door = (byte)5,
-                            Fuel = 0,
-                            Luggage = (byte)4,
-                            Passsenger = (byte)5,
-                            Photo = "car-1.jpg",
-                            Status = true,
-                            Title = "Mauris semper nisl a massa convallis6",
-                            Transmission = 0
-                        },
-                        new
-                        {
-                            Id = 8,
-                            CarModelId = 2,
-                            CartPhoto = "cart-item-1.jpg",
-                            DailyPrice = 200m,
-                            Description = "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.",
-                            DetailPhoto = "single-car-thumb.jpg",
-                            Discount = (byte)0,
-                            Door = (byte)5,
-                            Fuel = 0,
-                            Luggage = (byte)4,
-                            Passsenger = (byte)5,
-                            Photo = "car-1.jpg",
-                            Status = true,
-                            Title = "Mauris semper nisl a massa convallis7",
-                            Transmission = 0
-                        },
-                        new
-                        {
-                            Id = 9,
-                            CarModelId = 2,
-                            CartPhoto = "cart-item-1.jpg",
-                            DailyPrice = 200m,
-                            Description = "Praesent quis risus maximus arcu luctus egestas. Aliquam rhoncus metus eu dui aliquet, ut imperdiet metus fringilla. Nulla non purus et odio varius condimentum. Maecenas et elit eu lectus feugiat congue. Aenean dictum ligula vitae orci congue, eu rutrum ex tempus. Donec vel ex a neque congue volutpat. Mauris nec purus eget velit elementum posuere. Donec libero nisi, blandit non turpis sed, hendrerit suscipit metus. Aliquam ornare tincidunt dictum. Sed laoreet, arcu fringilla fermentum rutrum, quam urna dictum tellus, et rutrum dui lectus ac turpis. Donec eu sem in libero euismod tristique vel sit amet nibh.Integer pellentesque fermentum mi in accumsan.Phasellus congue risus urna,eget maximus ante ullamcorper et.Aenean malesuada,magna a ultrices hendrerit,ante lectus semper odio,quis imperdiet odio tellus at ex.Interdum et malesuada fames ac ante ipsum primis in faucibus.Nunc eu tellus quam.Cras sit amet sapien at est lacinia consectetur in efficitur ante.Nulla pellentesque metus et rutrum placerat.Aliquam erat volutpat.Donec pellentesque neque mi,ac tristique purus vestibulum et.Donec sagittis laoreet mauris,eget interdum tortor gravida nec.Maecenas suscipit nisi exeu dictum enim accumsan ut.Pellentesque vel sagittis ex.Duis vitae est ut diam blandit consectetur in eget risus.Donec faucibus ex consectetur,sodales quam ac,feugiat mi.Sed ultrices mi ac ultricies egestas.In varius ligula a ipsum facilisis,quis ornare neque euismod.",
-                            DetailPhoto = "single-car-thumb.jpg",
-                            Discount = (byte)0,
-                            Door = (byte)5,
-                            Fuel = 0,
-                            Luggage = (byte)4,
-                            Passsenger = (byte)5,
-                            Photo = "car-1.jpg",
-                            Status = true,
-                            Title = "Mauris semper nisl a massa convallis8",
                             Transmission = 0
                         });
                 });
@@ -1023,7 +917,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             CarId = 1,
                             ComfortStars = (byte)4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 951, DateTimeKind.Local).AddTicks(4564),
+                            CreatedAt = new DateTime(2020, 1, 14, 12, 33, 11, 674, DateTimeKind.Local).AddTicks(3091),
                             CustomerId = 1,
                             DrivingStars = (byte)4,
                             PositiveReview = false,
@@ -1245,10 +1139,10 @@ namespace FinalProject.Migrations
                         {
                             Id = 1,
                             CustomerId = 1,
-                            DropDate = new DateTime(2020, 1, 19, 13, 8, 20, 951, DateTimeKind.Local).AddTicks(7547),
+                            DropDate = new DateTime(2020, 1, 19, 12, 33, 11, 674, DateTimeKind.Local).AddTicks(5917),
                             DropLocation = "Baku, H.A Airport",
                             PaymentMethod = 0,
-                            PickupDate = new DateTime(2020, 1, 14, 13, 8, 20, 951, DateTimeKind.Local).AddTicks(7064),
+                            PickupDate = new DateTime(2020, 1, 14, 12, 33, 11, 674, DateTimeKind.Local).AddTicks(5456),
                             PickupLocation = "Baku, H.A Airport"
                         });
                 });

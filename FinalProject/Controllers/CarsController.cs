@@ -18,20 +18,24 @@ namespace FinalProject.Controllers
         {
             _context = context;
         }
-        public IActionResult List()
+        public async Task<IActionResult> List(int p = 1)
         {
-            ICollection<Car> cars = _context.Cars.Include("Model").Include("Model.CarBrand").ToList();
+            int pagesize = 6;
+
+            ICollection<Car> cars = await _context.Cars.Include("Model").Include("Model.CarBrand").Skip((p - 1)* pagesize).Take(pagesize).ToListAsync();
+            decimal pagecount = Math.Ceiling((decimal)(cars.Count / pagesize));
+            ViewData["Pagecount"] = pagecount;
             return View(cars);
         }
 
-        public IActionResult Search()
+        public IActionResult Search(string brand, string model)
         {
             return View();
         }
 
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            Car car = _context.Cars.Include("CustomerReviews").Include("CustomerReviews.Customer").Include("Model").Include("Model.CarBrand").FirstOrDefault(c => c.Id == id);
+            Car car = await _context.Cars.Include("CustomerReviews").Include("CustomerReviews.Customer").Include("Model").Include("Model.CarBrand").FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)
             {
                 return NotFound();

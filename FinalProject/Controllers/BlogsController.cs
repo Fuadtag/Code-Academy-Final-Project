@@ -19,15 +19,19 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        public IActionResult Blog(int? categoryid , int? tagid)
+        public async Task<IActionResult> Blog(int? categoryid , int? tagid, int p =1)
         {
+
+            int pagesize = 3;
             if (categoryid != null)
             {
+
                 BlogViewModel searchbycategory = new BlogViewModel
                 {
-                    Tags = _context.Tags.ToList(),
-                    Blogs = _context.Blogs.Include("Category").Include("Author").Where(b => b.BlogCategoryId == categoryid).ToList(),
-                    Categories = _context.BlogCategories.ToList()
+                    Tags = await _context.Tags.ToListAsync(),
+                    Blogs = await _context.Blogs.Include("Category").Include("Author").Where(b => b.BlogCategoryId == categoryid).Skip((p - 1) * pagesize).Take(pagesize).ToListAsync(),
+                    Categories = await _context.BlogCategories.ToListAsync()
+                    
 
                 };
                 return View(searchbycategory);
@@ -35,16 +39,19 @@ namespace FinalProject.Controllers
             
             BlogViewModel model = new BlogViewModel
             {
-                Tags = _context.Tags.ToList(),
-                Blogs = _context.Blogs.Include("Category").Include("Author").ToList(),
-                Categories = _context.BlogCategories.ToList()
+                Tags = await _context.Tags.ToListAsync(),
+                Blogs = await _context.Blogs.Include("Category").Include("Author").Skip((p - 1) * pagesize).Take(pagesize).ToListAsync(),
+                Categories = await _context.BlogCategories.ToListAsync()
 
             };
+
+            decimal pagecount = Math.Ceiling((decimal)(model.Blogs.Count / pagesize));
+            ViewData["Pagecount"] = pagecount;
             return View(model);
         }
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
-            var dbblog = _context.Blogs.FirstOrDefault(b => b.Id == id);
+            var dbblog = await _context.Blogs.FirstOrDefaultAsync(b => b.Id == id);
             if (dbblog != null)
             {
                 dbblog.Visited += 1;

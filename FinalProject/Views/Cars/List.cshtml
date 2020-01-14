@@ -48,7 +48,7 @@
                                 <a class="rn-car-price" asp-action="Detail" asp-controller="Cars" asp-route-id="@item.Id">
                                     <span class="rn-car-price-from">From</span>
                                     <span class="rn-car-price-format">
-                                        <span class="rn-car-price-amount">$@item.DailyPrice.ToString("#.00")</span>
+                                        <span class="rn-car-price-amount">$@item.DailyPrice.ToString("#.")</span>
                                         <span class="rn-car-price-per">/day</span>
                                     </span>
                                 </a>
@@ -74,28 +74,13 @@
                 <!-- Cars Pagination-->
                 <nav class="rn-pagination rn-pagination-center">
                     <ul>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-angle-left"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="rn-active" href="#">1</a>
-                        </li>
-                        <li>
-                            <a href="#">2</a>
-                        </li>
-                        <li>
-                            <a href="#">3</a>
-                        </li>
-                        <li>
-                            <a href="#">4</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-angle-right"></i>
-                            </a>
-                        </li>
+                        @for (int i = 0; i <= (decimal)ViewData["Pagecount"]; i++)
+                        {
+                            <li>
+                                <a class="" asp-action="list" asp-controller="cars" asp-route-p="@(i + 1)">@(i + 1)</a>
+                            </li>
+                        }
+                        
                     </ul>
                 </nav>
                 <!-- End Cars Pagination-->
