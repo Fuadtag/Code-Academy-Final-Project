@@ -1,4 +1,5 @@
 ﻿using FinalProject.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,24 +8,22 @@ using System.Threading.Tasks;
 
 namespace FinalProject.Data
 {
-    public class RentNowContext : DbContext
+    public class RentNowContext : IdentityDbContext<AppAdmin>
     {
         public RentNowContext(DbContextOptions<RentNowContext> options): base(options)
         {
         }
 
-        
 
         public DbSet<Setting> Settings { get; set; }
         public DbSet<CarType> CarTypes { get; set; }
         public DbSet<Testimonial> Testimonials { get; set; }
         public DbSet<Advantage> Advantage { get; set; }
-        public DbSet<Admin> Admin{ get; set; }
         public DbSet<AboutUs> AboutUs { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Blog> Blogs { get; set; }
         public DbSet<BlogCategory> BlogCategories { get; set; }
-        public DbSet<BlogComment> BlogComments { get; set; }
+        public DbSet<BlogComment> Comments { get; set; }
         //public DbSet<BlogCommentReply> BlogCommentReplies { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<CarBrand> CarBrands { get; set; }
@@ -61,6 +60,9 @@ namespace FinalProject.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+            
+            
             modelBuilder.Entity<SliderItem>().HasData(
                 new SliderItem
                 {
@@ -84,16 +86,58 @@ namespace FinalProject.Data
                     Photo = "slide3.jpg",
                 });
 
-            modelBuilder.Entity<Admin>().HasData(
-                new Admin
+            
+            modelBuilder.Entity<WhatWeOffer>().HasData(
+                
+                new WhatWeOffer
                 {
                     Id = 1,
-                    Email = "admin@gmail.com",
-                    Password = "AQAAAAEAACcQAAAAEJKLTgltGNl7MgJw0/kOSnppZLe/L61cYjIiZo1Ttmbke5Cj2GraYMr97MKftgbJuQ=="
-                }
-
-
-                );
+                    Title = "Best Price Guarantee",
+                    Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                    Icon = "lnr-star"
+                },
+                new WhatWeOffer
+                {
+                    Id = 2,
+                    Title = "Best Price Guarantee",
+                    Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                    Icon = "lnr-star"
+                },
+                new WhatWeOffer
+                {
+                    Id = 3,
+                    Title = "Best Price Guarantee",
+                    Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                    Icon = "lnr-star"
+                },
+                new WhatWeOffer
+                {
+                    Id = 4,
+                    Title = "Best Price Guarantee",
+                    Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                    Icon = "lnr-star"
+                },
+                new WhatWeOffer
+                {
+                    Id = 5,
+                    Title = "Best Price Guarantee",
+                    Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                    Icon = "lnr-star"
+                },
+                new WhatWeOffer
+                {
+                    Id = 6,
+                    Title = "Best Price Guarantee",
+                    Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                    Icon = "lnr-star"
+                },
+                new WhatWeOffer
+                {
+                    Id = 7,
+                    Title = "Best Price Guarantee",
+                    Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                    Icon = "lnr-star"
+                });
             modelBuilder.Entity<OurVision>().HasData(
                 new OurVision
                 {

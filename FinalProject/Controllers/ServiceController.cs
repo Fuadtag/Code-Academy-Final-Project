@@ -19,8 +19,8 @@ namespace FinalProject.Controllers
         {
             ServiceViewModel model = new ServiceViewModel
             {
-                Testimonials = _context.Testimonials.ToList(),
-                Offers = _context.Offers.ToList()
+                Testimonials = _context.Testimonials.Take(3).ToList(),
+                Offers = _context.Offers.Take(6).ToList()
             };
             return View(model);
         }

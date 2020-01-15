@@ -31,7 +31,7 @@ namespace FinalProject
             services.AddControllersWithViews();
             services.AddDbContext<RentNowContext>(options =>
                 options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
-
+            services.AddIdentity<AppAdmin, IdentityRole>().AddEntityFrameworkStores<RentNowContext>().AddDefaultTokenProviders();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,8 +52,9 @@ namespace FinalProject
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            app.UseAuthentication();
 
+            app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

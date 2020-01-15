@@ -3,13 +3,13 @@
 @{
     ViewData["Title"] = "Index";
 }
-    <div class="pl-4">
+    <div class="pl-4 pr-4">
         <h1>Index</h1>
 
         <p>
             <a asp-action="Create">Create New</a>
         </p>
-        <table class="table">
+        <table class="table table_id">
             <thead>
                 <tr>
                     <th>
@@ -21,39 +21,24 @@
                     <th>
                         @Html.DisplayNameFor(model => model.InstagramLink)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.GoogleLink)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.LinkedInLink)
-                    </th>
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.Phone)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SupPhone)
-                    </th>
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.Email)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.SaleEmail)
-                    </th>
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.MainAdress)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Adress)
-                    </th>
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.Logo)
                     </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FooterLogo)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.FooterText)
-                    </th>
+                    
+                    
                     <th>
                         @Html.DisplayNameFor(model => model.Payment)
                     </th>
@@ -73,46 +58,30 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.InstagramLink)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.GoogleLink)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LinkedInLink)
-                        </td>
+                        
                         <td>
                             @Html.DisplayFor(modelItem => item.Phone)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SupPhone)
-                        </td>
+                        
                         <td>
                             @Html.DisplayFor(modelItem => item.Email)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.SaleEmail)
-                        </td>
+                        
                         <td>
                             @Html.DisplayFor(modelItem => item.MainAdress)
                         </td>
+                       
                         <td>
-                            @Html.DisplayFor(modelItem => item.Adress)
+                            <img  src="~/Uploads/@item.Logo"/>
+                        </td>
+                        
+                        <td>
+                            <img src="~/Uploads/@item.Payment"  />
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Logo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FooterLogo)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.FooterText)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Payment)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> 
+                            <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> 
+                            <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
                         </td>
                     </tr>
                 }

@@ -15,7 +15,7 @@ namespace FinalProject.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "3.1.0")
+                .HasAnnotation("ProductVersion", "3.1.1")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
@@ -38,35 +38,6 @@ namespace FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("AboutUs");
-                });
-
-            modelBuilder.Entity("FinalProject.Models.Admin", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Token")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Admin");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Email = "admin@gmail.com",
-                            Password = "AQAAAAEAACcQAAAAEJKLTgltGNl7MgJw0/kOSnppZLe/L61cYjIiZo1Ttmbke5Cj2GraYMr97MKftgbJuQ=="
-                        });
                 });
 
             modelBuilder.Entity("FinalProject.Models.Advantage", b =>
@@ -139,6 +110,74 @@ namespace FinalProject.Migrations
                             Text = "Duis placerat tempus odio vel pretium. Vestibulum mattis viverra justo vel consequat.",
                             Title = "24/7 Customer Support"
                         });
+                });
+
+            modelBuilder.Entity("FinalProject.Models.AppAdmin", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("Occupation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Author", b =>
@@ -260,7 +299,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 945, DateTimeKind.Local).AddTicks(3585),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 641, DateTimeKind.Local).AddTicks(1940),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -277,7 +316,7 @@ namespace FinalProject.Migrations
                             Id = 2,
                             AuthorId = 2,
                             BlogCategoryId = 2,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2734),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 642, DateTimeKind.Local).AddTicks(9757),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -294,7 +333,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2819),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 642, DateTimeKind.Local).AddTicks(9837),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -311,7 +350,7 @@ namespace FinalProject.Migrations
                             Id = 4,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2823),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 642, DateTimeKind.Local).AddTicks(9935),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach4",
@@ -328,7 +367,7 @@ namespace FinalProject.Migrations
                             Id = 5,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2825),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 642, DateTimeKind.Local).AddTicks(9938),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach5",
@@ -345,7 +384,7 @@ namespace FinalProject.Migrations
                             Id = 6,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(2827),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 642, DateTimeKind.Local).AddTicks(9940),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach6",
@@ -429,7 +468,7 @@ namespace FinalProject.Migrations
 
                     b.HasIndex("BlogId");
 
-                    b.ToTable("BlogComments");
+                    b.ToTable("Comments");
 
                     b.HasData(
                         new
@@ -437,7 +476,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogId = 1,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(5234),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 643, DateTimeKind.Local).AddTicks(2224),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -445,7 +484,7 @@ namespace FinalProject.Migrations
                             Id = 12,
                             AuthorId = 2,
                             BlogId = 2,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(6208),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 643, DateTimeKind.Local).AddTicks(3544),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -453,7 +492,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogId = 3,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 947, DateTimeKind.Local).AddTicks(6227),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 643, DateTimeKind.Local).AddTicks(3563),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         });
                 });
@@ -953,6 +992,9 @@ namespace FinalProject.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
+                    b.Property<string>("Token")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
@@ -1023,7 +1065,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             CarId = 1,
                             ComfortStars = (byte)4,
-                            CreatedAt = new DateTime(2020, 1, 14, 13, 8, 20, 951, DateTimeKind.Local).AddTicks(4564),
+                            CreatedAt = new DateTime(2020, 1, 15, 12, 37, 25, 647, DateTimeKind.Local).AddTicks(800),
                             CustomerId = 1,
                             DrivingStars = (byte)4,
                             PositiveReview = false,
@@ -1245,10 +1287,10 @@ namespace FinalProject.Migrations
                         {
                             Id = 1,
                             CustomerId = 1,
-                            DropDate = new DateTime(2020, 1, 19, 13, 8, 20, 951, DateTimeKind.Local).AddTicks(7547),
+                            DropDate = new DateTime(2020, 1, 20, 12, 37, 25, 647, DateTimeKind.Local).AddTicks(4509),
                             DropLocation = "Baku, H.A Airport",
                             PaymentMethod = 0,
-                            PickupDate = new DateTime(2020, 1, 14, 13, 8, 20, 951, DateTimeKind.Local).AddTicks(7064),
+                            PickupDate = new DateTime(2020, 1, 15, 12, 37, 25, 647, DateTimeKind.Local).AddTicks(3812),
                             PickupLocation = "Baku, H.A Airport"
                         });
                 });
@@ -1816,6 +1858,188 @@ namespace FinalProject.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Offers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Icon = "lnr-star",
+                            Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                            Title = "Best Price Guarantee"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Icon = "lnr-star",
+                            Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                            Title = "Best Price Guarantee"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Icon = "lnr-star",
+                            Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                            Title = "Best Price Guarantee"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Icon = "lnr-star",
+                            Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                            Title = "Best Price Guarantee"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Icon = "lnr-star",
+                            Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                            Title = "Best Price Guarantee"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Icon = "lnr-star",
+                            Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                            Title = "Best Price Guarantee"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Icon = "lnr-star",
+                            Text = "Fusce blandit at tortor vitae ultricies. Praesent efficitur feugiat leo id tempus. Sed pulvinar gravida sodales.",
+                            Title = "Best Price Guarantee"
+                        });
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(256)")
+                        .HasMaxLength(256);
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedName")
+                        .IsUnique()
+                        .HasName("RoleNameIndex")
+                        .HasFilter("[NormalizedName] IS NOT NULL");
+
+                    b.ToTable("AspNetRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RoleId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetRoleClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserClaims");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("LoginProvider", "ProviderKey");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("AspNetUserLogins");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("RoleId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.HasIndex("RoleId");
+
+                    b.ToTable("AspNetUserRoles");
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "LoginProvider", "Name");
+
+                    b.ToTable("AspNetUserTokens");
                 });
 
             modelBuilder.Entity("FinalProject.Models.Blog", b =>
@@ -1926,6 +2150,57 @@ namespace FinalProject.Migrations
                     b.HasOne("FinalProject.Models.Blog", "Blog")
                         .WithMany("Tags")
                         .HasForeignKey("BlogId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
+                {
+                    b.HasOne("FinalProject.Models.AppAdmin", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
+                {
+                    b.HasOne("FinalProject.Models.AppAdmin", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<string>", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
+                        .WithMany()
+                        .HasForeignKey("RoleId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FinalProject.Models.AppAdmin", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
+                {
+                    b.HasOne("FinalProject.Models.AppAdmin", null)
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

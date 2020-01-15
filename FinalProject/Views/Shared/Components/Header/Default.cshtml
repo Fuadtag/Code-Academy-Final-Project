@@ -88,7 +88,7 @@
             <div class="row align-items-center">
                 <div class="col-4">
                     <!-- Logo-->
-                    <a class="brand-name" href="index-2.html">
+                    <a class="brand-name" asp-action="index" asp-controller="home">
                         <img class="img-fluid" src="~/images/@Model.Logo" alt="Logo">
                     </a>
                 </div>
@@ -160,6 +160,12 @@
                                     <li>
                                         <a asp-action="Gallery" asp-controller="Pages">
                                             Author Login
+                                        </a>
+
+                                    </li>
+                                    <li>
+                                        <a asp-action="Create" asp-controller="Customers">
+                                            Customer Registration
                                         </a>
 
                                     </li>

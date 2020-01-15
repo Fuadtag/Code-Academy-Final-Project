@@ -15,7 +15,7 @@ namespace FinalProject.Helpers
         {
             webHostEnvironment = _webHostEnvironment;
         }
-        public string Upload(IFormFile file, string allowedTypes = "image/png|image/jpeg|image/gif", int maxSize = 4096)
+        public string Upload(IFormFile file, string allowedTypes = "image/png|image/jpeg|image/gif|image/jpg", int maxSize = 4096)
         {
             string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
             if (file == null)
@@ -31,7 +31,7 @@ namespace FinalProject.Helpers
             {
                 throw new Exception("File type is not acceptable");
             }
-            string filename = "Uploads/" + CreatePath() + "/" + Guid.NewGuid().ToString() + "-" + file.FileName;
+            string filename = "~/Uploads/" + CreatePath() + "/" + Guid.NewGuid().ToString() + "-" + file.FileName;
             string filePath = Path.Combine(UploadPath, filename);
             FileStream fs = new FileStream(filePath, FileMode.Create);
             file.CopyToAsync(fs);

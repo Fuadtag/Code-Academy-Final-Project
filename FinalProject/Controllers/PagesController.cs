@@ -57,5 +57,9 @@ namespace FinalProject.Controllers
             Order order = _context.Orders.Include("OrderItems").FirstOrDefault(o => o.CustomerId == id);
             return View(order);
         }
+
+
+
+        
     }
 }

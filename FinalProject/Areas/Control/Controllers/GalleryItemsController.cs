@@ -9,9 +9,11 @@ using FinalProject.Data;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Hosting;
 using FinalProject.Helpers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Areas.Control.Controllers
 {
+    [Authorize]
     [Area("Control")]
     public class GalleryItemsController : Controller
     {

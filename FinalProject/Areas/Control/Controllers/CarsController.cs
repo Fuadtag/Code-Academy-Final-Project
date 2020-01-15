@@ -7,17 +7,24 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
 using FinalProject.Models;
+using FinalProject.Helpers;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Areas.Control.Controllers
 {
+    [Authorize]
     [Area("Control")]
     public class CarsController : Controller
     {
         private readonly RentNowContext _context;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public CarsController(RentNowContext context)
+        public CarsController(RentNowContext context, IWebHostEnvironment webHost)
         {
             _context = context;
+            _webHostEnvironment = webHost;
         }
 
         // GET: Control/Cars
@@ -62,6 +69,21 @@ namespace FinalProject.Areas.Control.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (car.PhotoFile != null && car.DetailPhotoFile != null && car.CartPhotoFile != null)
+                {
+                    try
+                    {
+                        FileManager manager = new FileManager(_webHostEnvironment);
+                        car.Photo = manager.Upload(car.PhotoFile);
+                        car.CartPhoto = manager.Upload(car.CartPhotoFile);
+                        car.DetailPhoto = manager.Upload(car.DetailPhotoFile);
+                    }
+                    catch (Exception e)
+                    {
+                        ModelState.AddModelError("PhotoUplaod", e.Message);
+                        throw;
+                    }
+                }
                 _context.Add(car);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -138,7 +160,7 @@ namespace FinalProject.Areas.Control.Controllers
             {
                 return NotFound();
             }
-
+            
             return View(car);
         }
 
@@ -147,8 +169,10 @@ namespace FinalProject.Areas.Control.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
+
             var car = await _context.Cars.FindAsync(id);
             _context.Cars.Remove(car);
+            
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

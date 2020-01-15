@@ -55,6 +55,7 @@ namespace FinalProject.Controllers
             if (dbblog != null)
             {
                 dbblog.Visited += 1;
+                _context.SaveChanges();
 
             }
 

@@ -3,13 +3,13 @@
 @{
     ViewData["Title"] = "Index";
 }
-<div class="pl-4">
+<div class="pl-4 pr-4">
 <h1>Advantages</h1>
 
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
-<table class="table">
+<table class="table table_id">
     <thead>
         <tr>
             <th>
@@ -33,7 +33,7 @@
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> 
                 <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info"></i></a> 
-                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash-alt"></a>
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
             </td>
         </tr>
 }

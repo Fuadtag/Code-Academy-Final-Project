@@ -25,6 +25,8 @@ namespace FinalProject.Models
         [Required]
         [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
         public string Password { get; set; }
+
+        public string Token { get; set; }
         public Country Country { get; set; }
         [Required]
         [MaxLength(200, ErrorMessage = "Can not be more than 200 symbol")]
