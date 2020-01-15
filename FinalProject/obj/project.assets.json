@@ -14173,11 +14173,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\Desktop\\Code-Academy-Final-Project\\Code-Academy-Final-Project\\FinalProject\\FinalProject.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\Desktop\\Code-Academy-Final-Project\\FinalProject\\FinalProject.csproj",
       "projectName": "FinalProject",
-      "projectPath": "C:\\Users\\USER\\Desktop\\Code-Academy-Final-Project\\Code-Academy-Final-Project\\FinalProject\\FinalProject.csproj",
+      "projectPath": "C:\\Users\\USER\\Desktop\\Code-Academy-Final-Project\\FinalProject\\FinalProject.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USER\\Desktop\\Code-Academy-Final-Project\\Code-Academy-Final-Project\\FinalProject\\obj\\",
+      "outputPath": "C:\\Users\\USER\\Desktop\\Code-Academy-Final-Project\\FinalProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

@@ -19,34 +19,36 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Blog(int? categoryid , int? tagid, int p =1)
+        public async Task<IActionResult> Blog(int? categoryid , int? tagid, int p = 1)
         {
-
+            BlogViewModel model;
             int pagesize = 3;
             if (categoryid != null)
             {
 
-                BlogViewModel searchbycategory = new BlogViewModel
+                model = new BlogViewModel
                 {
                     Tags = await _context.Tags.ToListAsync(),
                     Blogs = await _context.Blogs.Include("Category").Include("Author").Where(b => b.BlogCategoryId == categoryid).Skip((p - 1) * pagesize).Take(pagesize).ToListAsync(),
                     Categories = await _context.BlogCategories.ToListAsync()
-                    
+
 
                 };
-                return View(searchbycategory);
+                
             }
-            
-            BlogViewModel model = new BlogViewModel
+            else
             {
-                Tags = await _context.Tags.ToListAsync(),
-                Blogs = await _context.Blogs.Include("Category").Include("Author").Skip((p - 1) * pagesize).Take(pagesize).ToListAsync(),
-                Categories = await _context.BlogCategories.ToListAsync()
+                model = new BlogViewModel
+                {
+                    Tags = await _context.Tags.ToListAsync(),
+                    Blogs = await _context.Blogs.Include("Category").Include("Author").Skip((p - 1) * pagesize).Take(pagesize).ToListAsync(),
+                    Categories = await _context.BlogCategories.ToListAsync()
 
-            };
-
+                };
+            }
             decimal pagecount = Math.Ceiling((decimal)(model.Blogs.Count / pagesize));
             ViewData["Pagecount"] = pagecount;
+
             return View(model);
         }
         public async Task<IActionResult> Detail(int id)
