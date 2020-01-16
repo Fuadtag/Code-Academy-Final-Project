@@ -9,6 +9,8 @@ using FinalProject.Data;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FinalProject.Controllers
 {
@@ -21,37 +23,77 @@ namespace FinalProject.Controllers
             _context = context;
         }
 
-        
-        // GET: Customers/Details/5
-        public async Task<IActionResult> Details(int? id)
+        [HttpGet]
+       public IActionResult Login()
         {
-            if (id == null)
+            var token = Request.Cookies["Token"];
+            if (token != null)
             {
-                return NotFound();
+                Customer loginedcustomer = _context.Customers.FirstOrDefault(c => c.Token == token);
+                if (loginedcustomer != null)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
             }
 
-            var customer = await _context.Customers
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (customer == null)
-            {
-                return NotFound();
-            }
+            Customer customer = new Customer();
 
             return View(customer);
         }
 
-        // GET: Customers/Create
-        public IActionResult Create()
+        [HttpPost]
+
+        public async Task<IActionResult> Login( Customer customer)
         {
-            
-            return View();
+            if (!string.IsNullOrEmpty(customer.Email) && !string.IsNullOrEmpty(customer.Password))
+            {
+                Customer lgncustomer = await _context.Customers.FirstOrDefaultAsync(c => c.Email == customer.Email);
+                PasswordHasher<Customer> hasher = new PasswordHasher<Customer>(
+                       new OptionsWrapper<PasswordHasherOptions>(
+                           new PasswordHasherOptions()
+                           {
+                               CompatibilityMode = PasswordHasherCompatibilityMode.IdentityV2
+                           })
+                   );
+                var result = hasher.VerifyHashedPassword(lgncustomer, lgncustomer.Password, customer.Password);
+                if (lgncustomer != null && result == PasswordVerificationResult.Success)
+                {
+                    customer.Token = Guid.NewGuid().ToString();
+                    await _context.SaveChangesAsync();
+                    var option = new CookieOptions
+                    {
+                        Expires = DateTime.Now.AddHours(1),
+                        IsEssential = true
+
+                    };
+                    Response.Cookies.Append("Token", customer.Token, option);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            return View(customer);
+
+
+        }
+
+        // GET: Customers/Create
+        [HttpGet]
+        public IActionResult Create()
+
+        {
+            var token = Request.Cookies["Token"];
+            if (token != null)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            Customer customer = new Customer();
+            return View(customer);
         }
 
         // POST: Customers/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Surname,Email,Password,Country,StreetAdress,Postalcode,Age")] Customer customer)
         {
             if (ModelState.IsValid)
@@ -64,9 +106,18 @@ namespace FinalProject.Controllers
                            })
                    );
                 customer.Password = hasher.HashPassword(customer, customer.Password);
-                _context.Add(customer);
+                customer.Token = Guid.NewGuid().ToString();
+                customer.HappyClient = false;
+                await _context.Customers.AddAsync(customer);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var option = new CookieOptions
+                {
+                    Expires = DateTime.Now.AddMinutes(60),
+                    IsEssential = true
+
+                };
+                Response.Cookies.Append("Token", customer.Token, option);
+                return RedirectToAction("Index", "Home");
             }
             return View(customer);
         }
@@ -77,7 +128,6 @@ namespace FinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         
 
-        // GET: Customers/Delete/5
         
 
         private bool CustomerExists(int id)

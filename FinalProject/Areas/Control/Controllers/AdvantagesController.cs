@@ -145,7 +145,7 @@ namespace FinalProject.Areas.Control.Controllers
             var advantage = await _context.Advantage.FindAsync(id);
             _context.Advantage.Remove(advantage);
             await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("index");
         }
 
         private bool AdvantageExists(int id)

@@ -16,6 +16,9 @@
                         @Html.DisplayNameFor(model => model.Model)
                     </th>
                     <th>
+                        @Html.DisplayNameFor(c => c.Model.CarBrand)
+                    </th>
+                    <th>
                         @Html.DisplayNameFor(model => model.Transmission)
                     </th>
                     <th>
@@ -30,67 +33,70 @@
                     <th>
                         @Html.DisplayNameFor(model => model.Door)
                     </th>
-                    
+
                     <th>
                         @Html.DisplayNameFor(model => model.DailyPrice)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Discount)
                     </th>
-                    
+
                     <th>
                         @Html.DisplayNameFor(model => model.Status)
                     </th>
                     <th>
                         @Html.DisplayNameFor(model => model.Photo)
                     </th>
-                    
+
                     <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Model.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Transmission)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Fuel)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Passsenger)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Luggage)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Door)
-                        </td>
-                        
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DailyPrice)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Discount)
-                        </td>
-                        
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Status)
-                        </td>
-                        <td>
-                            <img src="~/Uploads/@item.Photo" width="150" height="150" style="object-fit:contain"/>
-                        </td>
-                        
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
-                            <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Model.CarBrand.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Transmission)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fuel)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Passsenger)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Luggage)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Door)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DailyPrice)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Discount)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        <img src="~/Uploads/@item.Photo" width="150" height="150" style="object-fit:contain" />
+                    </td>
+
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
+                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

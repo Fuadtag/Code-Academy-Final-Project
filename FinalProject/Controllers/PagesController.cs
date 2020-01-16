@@ -52,6 +52,20 @@ namespace FinalProject.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> Cart()
+        {
+            var cookie = Request.Cookies["Token"];
+            Customer customer = await _context.Customers.FirstOrDefaultAsync(c => c.Token == cookie);
+            if (customer == null)
+            {
+                return RedirectToAction("Login", "Customers");
+            }
+            Order order = await _context.Orders.Include("Customer").Include("OrderIems").FirstOrDefaultAsync(o => o.CustomerId == customer.Id);
+
+            return View(order);
+            
+        }
+
         public IActionResult Checkout(int id)
         {
             Order order = _context.Orders.Include("OrderItems").FirstOrDefault(o => o.CustomerId == id);

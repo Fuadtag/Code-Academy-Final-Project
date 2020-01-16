@@ -30,7 +30,7 @@ namespace FinalProject.Areas.Control.Controllers
         // GET: Control/Cars
         public async Task<IActionResult> Index()
         {
-            var rentNowContext = _context.Cars.Include(c => c.Model);
+            var rentNowContext = _context.Cars.Include(c => c.Model).Include(c => c.Model.CarBrand);
             return View(await rentNowContext.ToListAsync());
         }
 
@@ -44,6 +44,7 @@ namespace FinalProject.Areas.Control.Controllers
 
             var car = await _context.Cars
                 .Include(c => c.Model)
+                .Include(c => c.Model.CarBrand)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (car == null)
             {
@@ -171,8 +172,8 @@ namespace FinalProject.Areas.Control.Controllers
         {
 
             var car = await _context.Cars.FindAsync(id);
-            _context.Cars.Remove(car);
-            
+
+            car.Status = false;
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

@@ -29,6 +29,8 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(Admin admin)
         {
+            
+            
             if (ModelState.IsValid)
             {
                 AppAdmin appAdmin = new AppAdmin()

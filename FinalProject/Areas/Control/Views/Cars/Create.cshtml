@@ -3,105 +3,115 @@
 @{
     ViewData["Title"] = "Create";
 }
-    <div class="pl-4">
-        <h1>Create</h1>
+<div class="pl-4">
+    <h1>Create</h1>
 
-        <h4>Car</h4>
-        <hr />
-        <div class="row">
-            <div class="col-md-4">
-                <form asp-action="Create">
-                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
-                        <label asp-for="CarModelId" class="control-label"></label>
-                        <select asp-for="CarModelId" class="form-control" asp-items="ViewBag.CarModelId"></select>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Transmission" class="control-label"></label>
-                        <select asp-for="Transmission" class="form-control">
-                            <option value="0">Automatic Transmission</option>
-                            <option value="1">Manual Transmission</option>
-                            <option value="2">CVT</option>
-                            <option value="3">DSG</option>
-                            
-                        </select>
-                        <span asp-validation-for="Transmission" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Fuel" class="control-label"></label>
-                        <select asp-for="Fuel" class="form-control">
-                            <option value="0">Gasoline</option>
-                            <option value="1">Hybrid</option>
-                            <option value="2">Diesel</option>
-                            <option value="0">Electric</option>
-                            <option value="0">NaturalGas</option>
-                        </select>
-                        <span asp-validation-for="Fuel" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Passsenger" class="control-label"></label>
-                        <input asp-for="Passsenger" class="form-control" />
-                        <span asp-validation-for="Passsenger" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Luggage" class="control-label"></label>
-                        <input asp-for="Luggage" class="form-control" />
-                        <span asp-validation-for="Luggage" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Door" class="control-label"></label>
-                        <input asp-for="Door" class="form-control" />
-                        <span asp-validation-for="Door" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Title" class="control-label"></label>
-                        <input asp-for="Title" class="form-control" />
-                        <span asp-validation-for="Title" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="DailyPrice" class="control-label"></label>
-                        <input asp-for="DailyPrice" class="form-control" />
-                        <span asp-validation-for="DailyPrice" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Discount" class="control-label"></label>
-                        <input asp-for="Discount" class="form-control" />
-                        <span asp-validation-for="Discount" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Description" class="control-label"></label>
-                        <input asp-for="Description" class="form-control" />
-                        <span asp-validation-for="Description" class="text-danger"></span>
-                    </div>
-                    <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="Photo"  class="control-label"></label>
-                        <input asp-for="Photo" type ="file" class="form-control" />
-                        <span asp-validation-for="Photo" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="CartPhoto" class="control-label"></label>
-                        <input asp-for="CartPhoto" type="file" class="form-control" />
-                        <span asp-validation-for="CartPhoto" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <label asp-for="DetailPhoto" class="control-label"></label>
-                        <input asp-for="DetailPhoto" type="file" class="form-control" />
-                        <span asp-validation-for="DetailPhoto" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
-                    </div>
-                </form>
-            </div>
-        </div>
+    <h4>Car</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="CarModelId" class="control-label"></label>
+                    <select asp-for="CarModelId" class="form-control" asp-items="ViewBag.CarModelId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Transmission" class="control-label"></label>
+                    <select asp-for="Transmission" class="form-control">
+                        <option value="0">Automatic Transmission</option>
+                        <option value="1">Manual Transmission</option>
+                        <option value="2">CVT</option>
+                        <option value="3">DSG</option>
 
-        <div>
-            <a asp-action="Index">Back to List</a>
+                    </select>
+                    <span asp-validation-for="Transmission" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fuel" class="control-label"></label>
+                    <select asp-for="Fuel" class="form-control">
+                        <option value="0">Gasoline</option>
+                        <option value="1">Hybrid</option>
+                        <option value="2">Diesel</option>
+                        <option value="0">Electric</option>
+                        <option value="0">NaturalGas</option>
+                    </select>
+                    <span asp-validation-for="Fuel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Passsenger" class="control-label"></label>
+                    <input asp-for="Passsenger" class="form-control" />
+                    <span asp-validation-for="Passsenger" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Luggage" class="control-label"></label>
+                    <input asp-for="Luggage" class="form-control" />
+                    <span asp-validation-for="Luggage" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Door" class="control-label"></label>
+                    <input asp-for="Door" class="form-control" />
+                    <span asp-validation-for="Door" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Title" class="control-label"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DailyPrice" class="control-label"></label>
+                    <input asp-for="DailyPrice" class="form-control" />
+                    <span asp-validation-for="DailyPrice" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Discount" class="control-label"></label>
+                    <input asp-for="Discount" class="form-control" />
+                    <span asp-validation-for="Discount" class="text-danger"></span>
+                </div>
+                <div class="form-group" id="editor" style="height:200px">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input  asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                        <input class="form-check-input" asp-for="Status" /> @Html.DisplayNameFor(model => model.Status)
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo" class="control-label"></label>
+                    <input asp-for="Photo" type="file" class="form-control" />
+                    <span asp-validation-for="Photo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CartPhoto" class="control-label"></label>
+                    <input asp-for="CartPhoto" type="file" class="form-control" />
+                    <span asp-validation-for="CartPhoto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DetailPhoto" class="control-label"></label>
+                    <input asp-for="DetailPhoto" type="file" class="form-control" />
+                    <span asp-validation-for="DetailPhoto" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
         </div>
-        </div>
+    </div>
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+<script>
+
+    ClassicEditor
+    .create( document.querySelector( '#editor' ) )
+    .catch( error => {
+    console.error( error );
+    } );
+    </script>
+
+
 
