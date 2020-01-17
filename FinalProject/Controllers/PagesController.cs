@@ -66,9 +66,25 @@ namespace FinalProject.Controllers
             
         }
 
-        public IActionResult Checkout(int id)
+        public IActionResult Checkout(int? id)
         {
-            Order order = _context.Orders.Include("OrderItems").FirstOrDefault(o => o.CustomerId == id);
+            if (id == null)
+            {
+                var token = Request.Cookies["Token"];
+                Customer customer = _context.Customers.FirstOrDefault(c => c.Token == token);
+                Order model = _context.Orders.Include("OrderItems").Include("OrderItems.Car").Include("OrderItems.Car.Model").FirstOrDefault(o => o.CustomerId == customer.Id);
+                decimal total = 0;
+                var days = (model.DropDate - model.PickupDate).Days;
+                foreach (var item in model.OrderItems)
+                {
+                    total = item.Car.DailyPrice * days;
+                }
+                model.Total = total;
+                _context.SaveChanges();
+                return View(model);
+
+            }
+            Order order = _context.Orders.Include("OrderItems").Include("OrderItems.Car").FirstOrDefault(o => o.CustomerId == id);
             return View(order);
         }
 

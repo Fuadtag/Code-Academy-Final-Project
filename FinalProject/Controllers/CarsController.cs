@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using FinalProject.Data;
 using FinalProject.Models;
+using FinalProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -38,9 +39,16 @@ namespace FinalProject.Controllers
             Car car = await _context.Cars.Include("CustomerReviews").Include("CustomerReviews.Customer").Include("Model").Include("Model.CarBrand").FirstOrDefaultAsync(c => c.Id == id);
             if (car == null)
             {
+                
                 return NotFound();
             }
-            return View(car);
+            CarDetailViewModel model = new CarDetailViewModel
+            {
+                Car = car,
+                Order = new Order()
+
+            };
+            return View(model);
         }
     }
 }

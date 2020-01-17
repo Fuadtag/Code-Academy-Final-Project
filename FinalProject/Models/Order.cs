@@ -34,6 +34,8 @@ namespace FinalProject.Models
         public string DropLocation { get; set; }
         [MaxLength(200)]
         public string OrderNote { get; set; }
+        [Column(TypeName ="money")]
+        public decimal Total { get; set; }
 
     }
 }

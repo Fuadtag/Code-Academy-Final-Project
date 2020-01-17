@@ -1060,3 +1060,4 @@ C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcorea
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Edit.cshtml.g.cs
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Index.cshtml.g.cs
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Customers\Login.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Views\Pages\Cart.cshtml.g.cs

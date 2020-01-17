@@ -1,5 +1,4 @@
-﻿@model  Car
-
+﻿@model CarDetailViewModel
 <!-- Single Car Header-->
 <div class="rn-single-car-header">
     <div class="rn-overlayer"></div>
@@ -7,31 +6,31 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="rn-car-single-info">
-                    <h1>@Model.Model.CarBrand.Name @Model.Model.Name</h1>
+                    <h1>@Model.Car.Model.CarBrand.Name @Model.Car.Model.Name</h1>
 
-                    <p>@Model.Title</p>
+                    <p>@Model.Car.Title</p>
                 </div>
                 <div class="rn-car-single-meta">
                     <span>
-                        <i class="rni-car-seat"></i> @Model.Passsenger Passengers
+                        <i class="rni-car-seat"></i> @Model.Car.Passsenger Passengers
                     </span>
                     <span>
-                        <i class="rni-suitcase"></i> @Model.Luggage Luggages
+                        <i class="rni-suitcase"></i> @Model.Car.Luggage Luggages
                     </span>
                     <span>
-                        <i class="rni-petrol-station"></i> @Model.Fuel
+                        <i class="rni-petrol-station"></i> @Model.Car.Fuel
                     </span>
                     <span>
-                        <i class="rni-car-gear"></i> @Model.Transmission
+                        <i class="rni-car-gear"></i> @Model.Car.Transmission
                     </span>
                     <span>
-                        <i class="rni-car-door"></i> @Model.Door Doors
+                        <i class="rni-car-door"></i> @Model.Car.Door Doors
                     </span>
                 </div>
                 <div class="rn-car-single-price">
                     <span class="rn-car-price-from">From</span>
                     <span class="rn-car-price-format">
-                        <span class="rn-car-price-amount">$@Model.DailyPrice.ToString("#.")</span>
+                        <span class="rn-car-price-amount">$@Model.Car.DailyPrice.ToString("#.")</span>
                         <span class="rn-car-price-per">/day</span>
                     </span>
                 </div>
@@ -45,8 +44,8 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
-                <p>@Model.Description</p>
-                
+                <p>@Model.Car.Description</p>
+
             </div>
             <div class="col-lg-4">
 
@@ -55,45 +54,30 @@
                     <div class="rn-small-search-form-title">
                         <h2>Check Availability</h2>
                     </div>
-                    <form action="https://demo.kitthemes.com/html/rentnow/car-single.html">
+                    <form asp-action="Create" asp-controller="Orders" method="post" asp-route-carid ="@Model.Car.Id">
                         <div class="rn-icon-input">
                             <i class="fas fa-map-marker-alt"></i>
-                            <input type="text" placeholder="Pickup Location">
+                            <input type="text" placeholder="Pickup Location" asp-for="Order.PickupLocation">
                         </div>
                         <div class="rn-icon-input">
                             <i class="fas fa-map-marker-alt"></i>
-                            <input type="text" placeholder="Drop Location">
+                            <input type="text" placeholder="Drop Location" asp-for="Order.DropLocation">
                         </div>
                         <div class="rn-date-time-input">
                             <div class="row">
-                                <div class="col-7">
-                                    <div class="rn-icon-input">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <input type="text" placeholder="Pickup Date" id="pickup-date">
-                                    </div>
-                                </div>
-                                <div class="col-5">
-                                    <div class="rn-icon-input">
-                                        <i class="far fa-clock"></i>
-                                        <input type="text" placeholder="Time" id="pickup-time">
-                                    </div>
+                                <div class="rn-icon-input">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <input type="text" placeholder="Pickup Date" id="pickup-date" asp-for="Order.PickupDate">
                                 </div>
                             </div>
                         </div>
                         <div class="rn-date-time-input">
                             <div class="row">
-                                <div class="col-7">
-                                    <div class="rn-icon-input">
-                                        <i class="far fa-calendar-alt"></i>
-                                        <input type="text" placeholder="Drop Date" id="drop-date">
-                                    </div>
+                                <div class="rn-icon-input">
+                                    <i class="far fa-calendar-alt"></i>
+                                    <input type="text" placeholder="Drop Date" id="drop-date" asp-for="Order.DropDate">
                                 </div>
-                                <div class="col-5">
-                                    <div class="rn-icon-input">
-                                        <i class="far fa-clock"></i>
-                                        <input type="text" placeholder="Time" id="drop-time">
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                         <button class="btn btn-main btn-lg btn-shadow btn-block" type="submit">
@@ -133,7 +117,7 @@
             </div>
         </div>
 
-        
+
 
     </div>
 </section>
@@ -147,7 +131,7 @@
                 <!-- Car Reviews-->
                 <div class="rn-reviews mb-50">
                     <h2 class="rn-simple-title">Customer Reviews</h2>
-                    @foreach (var item in Model.CustomerReviews)
+                    @foreach (var item in Model.Car.CustomerReviews)
                     {
                         <!-- Review Item-->
                         <div class="rn-review-item">
@@ -168,7 +152,7 @@
 
                                             }
 
-                                            
+
                                         </div>
                                     </div>
                                     <div class="rn-review-rating">
@@ -179,7 +163,7 @@
                                                 <i class="fas fa-star"></i>
 
                                             }
-                                          
+
                                         </div>
                                     </div>
                                     <div class="rn-review-rating">
@@ -190,7 +174,7 @@
                                                 <i class="fas fa-star"></i>
 
                                             }
-                                           
+
                                         </div>
                                     </div>
                                     <div class="rn-review-rating">
@@ -201,7 +185,7 @@
                                                 <i class="fas fa-star"></i>
 
                                             }
-                                            
+
                                         </div>
                                     </div>
                                 </div>
@@ -213,7 +197,7 @@
                         <!-- End Review Item-->
                     }
 
-                    
+
 
                     <div class="text-center">
                         <a class="btn btn-lg btn-outline-light" href="#">Load More</a>

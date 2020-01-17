@@ -23,7 +23,6 @@ namespace FinalProject.Controllers
         [AllowAnonymous]
         [HttpGet]
         public IActionResult Register() => View();
-
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
