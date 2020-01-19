@@ -18,13 +18,13 @@
                     </div>
                     <div class="form-group">
                         <label asp-for="Photo" class="control-label"></label>
-                        <input asp-for="Photo" type="file" class="form-control" />
+                        <input asp-for="PhotoFile" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="4Mb"   type="file" class="form-control" />
                         <span asp-validation-for="Photo" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <label asp-for="PhotoSmFile" class="control-label"></label>
-                        <input asp-for="PhotoSmFile" type="file" asp-validation="mime size" class="form-control" />
-                        <span asp-validation-for="PhotoSmFile" class="text-danger"></span>
+                        <label asp-for="PhotoSm" class="control-label"></label>
+                        <input asp-for="PhotoSmFile" type="file" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="4Mb"  class="form-control" />
+                        <span asp-validation-for="PhotoSm" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <input type="submit" value="Create" class="btn btn-primary" />

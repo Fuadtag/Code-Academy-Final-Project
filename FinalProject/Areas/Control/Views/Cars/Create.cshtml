@@ -10,7 +10,7 @@
     <hr />
     <div class="row">
         <div class="col-md-4">
-            <form asp-action="Create">
+            <form asp-action="Create" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="form-group">
                     <label asp-for="CarModelId" class="control-label"></label>
@@ -68,9 +68,9 @@
                     <input asp-for="Discount" class="form-control" />
                     <span asp-validation-for="Discount" class="text-danger"></span>
                 </div>
-                <div class="form-group" id="editor" style="height:200px">
+                <div class="form-group"  style="height:200px">
                     <label asp-for="Description" class="control-label"></label>
-                    <input  asp-for="Description" class="form-control" />
+                    <textarea  asp-for="Description" id="editor"    class="form-control " />
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
                 <div class="form-group form-check">
@@ -79,19 +79,19 @@
                     </label>
                 </div>
                 <div class="form-group">
-                    <label asp-for="Photo" class="control-label"></label>
-                    <input asp-for="Photo" type="file" class="form-control" />
-                    <span asp-validation-for="Photo" class="text-danger"></span>
+                    <label asp-for="PhotoFile" class="control-label"></label>
+                    <input asp-for="PhotoFile" class="form-control" />
+                    <span asp-validation-for="PhotoFile" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="CartPhoto" class="control-label"></label>
-                    <input asp-for="CartPhoto" type="file" class="form-control" />
-                    <span asp-validation-for="CartPhoto" class="text-danger"></span>
+                    <label asp-for="CartPhotoFile" class="control-label"></label>
+                    <input asp-for="CartPhotoFile"  class="form-control" />
+                    <span asp-validation-for="CartPhotoFile" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                    <label asp-for="DetailPhoto" class="control-label"></label>
-                    <input asp-for="DetailPhoto" type="file" class="form-control" />
-                    <span asp-validation-for="DetailPhoto" class="text-danger"></span>
+                    <label asp-for="DetailPhotoFile" class="control-label"></label>
+                    <input asp-for="DetailPhotoFile" class="form-control" />
+                    <span asp-validation-for="DetailPhotoFile" class="text-danger"></span>
                 </div>
                 <div class="form-group">
                     <input type="submit" value="Create" class="btn btn-primary" />
@@ -104,14 +104,10 @@
         <a asp-action="Index">Back to List</a>
     </div>
 </div>
+
+<script src="https://cdn.ckeditor.com/4.13.1/standard/ckeditor.js"></script>
 <script>
-
-    ClassicEditor
-    .create( document.querySelector( '#editor' ) )
-    .catch( error => {
-    console.error( error );
-    } );
-    </script>
-
+     CKEDITOR.replace('#editor');
+</script>
 
 

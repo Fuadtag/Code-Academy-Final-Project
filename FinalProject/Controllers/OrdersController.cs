@@ -44,6 +44,8 @@ namespace FinalProject.Controllers
                     
 
                 };
+                Car car = _context.Cars.FirstOrDefault(c => c.Id == carid);
+                car.Status = false;
                 _context.OrderItems.Add(orderItem);
                 _context.SaveChanges();
             }
@@ -55,6 +57,8 @@ namespace FinalProject.Controllers
             Order order = _context.Orders.FirstOrDefault(o => o.Id == id);
             if (order != null)
             {
+                var item = _context.OrderItems.Where(o => o.OrderId == order.Id);
+                _context.RemoveRange(item);
                 _context.Orders.Remove(order);
                 _context.SaveChanges();
                 return RedirectToAction("Index", "Home");

@@ -71,6 +71,11 @@ namespace FinalProject.Controllers
             if (id == null)
             {
                 var token = Request.Cookies["Token"];
+                
+                if (token == null)
+                {
+                    return RedirectToAction("List", "Cars");
+                }
                 Customer customer = _context.Customers.FirstOrDefault(c => c.Token == token);
                 Order model = _context.Orders.Include("OrderItems").Include("OrderItems.Car").Include("OrderItems.Car.Model").FirstOrDefault(o => o.CustomerId == customer.Id);
                 decimal total = 0;

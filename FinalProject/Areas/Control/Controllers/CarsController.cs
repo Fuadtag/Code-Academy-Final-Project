@@ -66,7 +66,7 @@ namespace FinalProject.Areas.Control.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CarModelId,Transmission,Fuel,Passsenger,Luggage,Door,Title,DailyPrice,Discount,Description,Status,Photo,CartPhoto,DetailPhoto")] Car car)
+        public async Task<IActionResult> Create( Car car)
         {
             if (ModelState.IsValid)
             {

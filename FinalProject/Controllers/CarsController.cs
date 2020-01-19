@@ -21,9 +21,10 @@ namespace FinalProject.Controllers
         }
         public async Task<IActionResult> List(int p = 1)
         {
+            
             int pagesize = 6;
 
-            ICollection<Car> cars = await _context.Cars.Include("Model").Include("Model.CarBrand").Skip((p - 1)* pagesize).Take(pagesize).ToListAsync();
+            ICollection<Car> cars = await _context.Cars.Include("Model").Include("Model.CarBrand").Where(c => c.Status == true).Skip((p - 1)* pagesize).Take(pagesize).ToListAsync();
             decimal pagecount = Math.Ceiling((decimal)(cars.Count / pagesize));
             ViewData["Pagecount"] = pagecount;
             return View(cars);

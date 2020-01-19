@@ -8,6 +8,8 @@ using Microsoft.EntityFrameworkCore;
 using FinalProject.Data;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using FinalProject.Helpers;
 
 namespace FinalProject.Areas.Control.Controllers
 {
@@ -16,10 +18,12 @@ namespace FinalProject.Areas.Control.Controllers
     public class PartnersController : Controller
     {
         private readonly RentNowContext _context;
+        private readonly IWebHostEnvironment _webHost;
 
-        public PartnersController(RentNowContext context)
+        public PartnersController(RentNowContext context, IWebHostEnvironment webHost)
         {
             _context = context;
+            _webHost = webHost;
         }
 
         // GET: Control/Partners
@@ -57,8 +61,23 @@ namespace FinalProject.Areas.Control.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Photo,Name")] Partner partner)
+        public async Task<IActionResult> Create([Bind("Id, Photo, Name")]Partner partner)
         {
+            if (partner.PhotoFile != null)
+
+            {
+                try
+                {
+                    FileManager fileManager = new FileManager(_webHost);
+                    partner.Photo = fileManager.Upload(partner.PhotoFile);
+                }
+                catch (Exception e)
+                {
+                    ModelState.AddModelError("Photo", e.Message);
+                    throw;
+                }
+                
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(partner);

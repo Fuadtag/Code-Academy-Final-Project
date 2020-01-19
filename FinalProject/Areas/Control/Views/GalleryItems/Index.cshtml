@@ -26,10 +26,10 @@
                 {
                     <tr>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Photo)
+                            <img src="~/images/@item.Photo"/>
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.PhotoSm)
+                            <img src="~/images/@item.PhotoSm" />
                         </td>
                         <td>
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |

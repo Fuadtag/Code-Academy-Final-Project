@@ -43,7 +43,7 @@ namespace FinalProject.Controllers
 
         [HttpPost]
 
-        public async Task<IActionResult> Login( Customer customer)
+        public async Task<IActionResult> Login(Customer customer)
         {
             if (!string.IsNullOrEmpty(customer.Email) && !string.IsNullOrEmpty(customer.Password))
             {
@@ -58,7 +58,7 @@ namespace FinalProject.Controllers
                 var result = hasher.VerifyHashedPassword(lgncustomer, lgncustomer.Password, customer.Password);
                 if (lgncustomer != null && result == PasswordVerificationResult.Success)
                 {
-                    customer.Token = Guid.NewGuid().ToString();
+                    lgncustomer.Token = Guid.NewGuid().ToString();
                     await _context.SaveChangesAsync();
                     var option = new CookieOptions
                     {
@@ -66,7 +66,7 @@ namespace FinalProject.Controllers
                         IsEssential = true
 
                     };
-                    Response.Cookies.Append("Token", customer.Token, option);
+                    Response.Cookies.Append("Token", lgncustomer.Token, option);
                     return RedirectToAction("Index", "Home");
                 }
             }
@@ -122,6 +122,19 @@ namespace FinalProject.Controllers
             return View(customer);
         }
 
+        public IActionResult Logout()
+        {
+            var token = Request.Cookies["Token"];
+            if (token != null)
+            {
+                var customer = _context.Customers.FirstOrDefault(c => c.Token == token);
+                Response.Cookies.Delete("Token");
+                customer.Token = null;
+                _context.SaveChanges();
+
+            }
+            return RedirectToAction("Index", "Home");
+        }
         
 
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

@@ -17,7 +17,7 @@ namespace FinalProject.Helpers
         }
         public string Upload(IFormFile file, string allowedTypes = "image/png|image/jpeg|image/gif|image/jpg", int maxSize = 4096)
         {
-            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
+            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "images");
             if (file == null)
             {
                 string fileName = "noimage.png";
@@ -25,13 +25,13 @@ namespace FinalProject.Helpers
             }
             if (file.Length / 4096 > maxSize)
             {
-                throw new Exception("File size max be 4096kb");
+                throw new Exception("File size can be max 4096kb");
             }
             if (!allowedTypes.Split('|').Contains(file.ContentType))
             {
                 throw new Exception("File type is not acceptable");
             }
-            string filename = "~/Uploads/" + CreatePath() + "/" + Guid.NewGuid().ToString() + "-" + file.FileName;
+            string filename = "images/" + CreatePath() + "/" + Guid.NewGuid().ToString() + "-" + file.FileName;
             string filePath = Path.Combine(UploadPath, filename);
             FileStream fs = new FileStream(filePath, FileMode.Create);
             file.CopyToAsync(fs);
@@ -41,7 +41,7 @@ namespace FinalProject.Helpers
         }
         public void Delete(string filename)
         {
-            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
+            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "images");
             if (string.IsNullOrEmpty(filename))
             {
                 throw new NullReferenceException("Filename cannot be null");
@@ -58,7 +58,7 @@ namespace FinalProject.Helpers
         }
         private string CreatePath()
         {
-            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "Uploads");
+            string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "images");
 
 
 

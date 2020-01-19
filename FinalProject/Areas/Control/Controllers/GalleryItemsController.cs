@@ -49,7 +49,7 @@ namespace FinalProject.Areas.Control.Controllers
 
             return View(galleryItem);
         }
-
+        [HttpGet]
         // GET: Control/GalleryItems/Create
         public IActionResult Create()
         {
@@ -62,7 +62,7 @@ namespace FinalProject.Areas.Control.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,GalleryId,Photo,PhotoSm")] GalleryItem galleryItem)
+        public async Task<IActionResult> Create([Bind("Id,GalleryId,Photo,PhotoSm,PhotoSmFile,PhotoFile")] GalleryItem galleryItem)
         {
             if (galleryItem.PhotoFile != null)
             {
@@ -70,6 +70,7 @@ namespace FinalProject.Areas.Control.Controllers
                 {
                     FileManager fileManager = new FileManager(_webHostEnvironment);
                     galleryItem.Photo = fileManager.Upload(galleryItem.PhotoFile);
+                    galleryItem.PhotoSm = fileManager.Upload(galleryItem.PhotoSmFile);
                 }
                 catch (Exception e)
                 {
