@@ -61,7 +61,7 @@ namespace FinalProject.Areas.Control.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id, Photo, Name")]Partner partner)
+        public async Task<IActionResult> Create(Partner partner)
         {
             if (partner.PhotoFile != null)
 

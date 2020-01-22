@@ -37,5 +37,7 @@ namespace FinalProject.Models
         [Column(TypeName ="money")]
         public decimal Total { get; set; }
 
+        public bool Status { get; set; }
+
     }
 }

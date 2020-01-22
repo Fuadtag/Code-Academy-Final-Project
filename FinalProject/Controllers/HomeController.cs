@@ -23,16 +23,16 @@ namespace FinalProject.Controllers
 
        
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             HomeViewModel model = new HomeViewModel();
-            model.Advantages = _context.Advantage.ToList();
-            model.Blogs = _context.Blogs.Include("Category").Include("Author").OrderByDescending(b => b.CreatedAt).Take(3).ToList();
-            model.Sliders = _context.Sliders.Take(3).ToList();
-            model.Cartypes = _context.CarTypes.ToList();
-            model.Advantages = _context.Advantage.Take(8).ToList();
-            model.Testimonials = _context.Testimonials.Take(4).ToList();
-            model.Cars = _context.Cars.Include("Model").Include("Model.CarBrand").Where(c => c.Status == true).Take(6).ToList();
+            model.Advantages = await _context.Advantage.ToListAsync();
+            model.Blogs = await _context.Blogs.Include("Category").Include("Author").OrderByDescending(b => b.CreatedAt).Take(3).ToListAsync();
+            model.Sliders = await _context.Sliders.Take(3).ToListAsync();
+            model.Cartypes = await _context.CarTypes.ToListAsync();
+            model.Advantages = await _context.Advantage.Take(8).ToListAsync();
+            model.Testimonials = await _context.Testimonials.Take(4).ToListAsync();
+            model.Cars = await _context.Cars.Include("Model").Include("Model.CarBrand").Where(c => c.Status == true).Take(6).ToListAsync();
 
 
            

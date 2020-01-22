@@ -10,20 +10,20 @@
         <hr />
         <div class="row">
             <div class="col-md-4">
-                <form asp-action="Create" enctype="multipart/form-data">
+                <form asp-action="Create" id="myform" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <div class="form-group">
                         <label asp-for="PhotoFile" class="control-label"></label>
-                        <input asp-for="PhotoFile" class="form-control" />
+                        <input asp-for="PhotoFile" class="form-control" data-validation="mime size" data-validation-allowing="jpg, png,jpeg" data-validation-max-size="2Mb" required />
                         <span asp-validation-for="PhotoFile" class="text-danger"></span>
                     </div>
                     <div class="form-group">
                         <label asp-for="Name" class="control-label"></label>
-                        <input asp-for="Name" class="form-control" />
+                        <input asp-for="Name" required maxlength="20" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
                     <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                        <input type="submit"  value="Create"  class="btn btn-primary" />
                     </div>
                 </form>
             </div>
@@ -33,4 +33,12 @@
             <a asp-action="Index">Back to List</a>
         </div>
         </div>
+@section Scripts{ 
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    
+
+
+  
+
+}
 

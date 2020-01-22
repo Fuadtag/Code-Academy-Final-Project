@@ -299,7 +299,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogCategoryId = 1,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 279, DateTimeKind.Local).AddTicks(5172),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 151, DateTimeKind.Local).AddTicks(3729),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -316,7 +316,7 @@ namespace FinalProject.Migrations
                             Id = 2,
                             AuthorId = 2,
                             BlogCategoryId = 2,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 281, DateTimeKind.Local).AddTicks(6181),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 153, DateTimeKind.Local).AddTicks(34),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -333,7 +333,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 281, DateTimeKind.Local).AddTicks(6385),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 153, DateTimeKind.Local).AddTicks(121),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach",
@@ -350,7 +350,7 @@ namespace FinalProject.Migrations
                             Id = 4,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 281, DateTimeKind.Local).AddTicks(6393),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 153, DateTimeKind.Local).AddTicks(124),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach4",
@@ -367,7 +367,7 @@ namespace FinalProject.Migrations
                             Id = 5,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 281, DateTimeKind.Local).AddTicks(6396),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 153, DateTimeKind.Local).AddTicks(127),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach5",
@@ -384,7 +384,7 @@ namespace FinalProject.Migrations
                             Id = 6,
                             AuthorId = 3,
                             BlogCategoryId = 4,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 281, DateTimeKind.Local).AddTicks(6401),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 153, DateTimeKind.Local).AddTicks(129),
                             InfoText = "Aliquam erat volutpat. Morbi eget velit ut lectus efficitur vulputate dictum vel ex. Etiam bibendum libero eget lorem malesuada, id mattis est egestas. Mauris eu quam bibendum, placerat odio non, ultrices leo. Proin laoreet purus nisl, non elementum tortor accumsan vitae. Proin commodo vulputate purus, eu dignissim ipsum lobortis ut. Sed ac nisi velit. Integer magna mi, faucibus a sapien eget, volutpat euismod dolor.",
                             Likes = 0,
                             Name = "Expanding Your Home Network’s Reach6",
@@ -476,7 +476,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             AuthorId = 1,
                             BlogId = 1,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 281, DateTimeKind.Local).AddTicks(9526),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 153, DateTimeKind.Local).AddTicks(3592),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -484,7 +484,7 @@ namespace FinalProject.Migrations
                             Id = 12,
                             AuthorId = 2,
                             BlogId = 2,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 282, DateTimeKind.Local).AddTicks(714),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 153, DateTimeKind.Local).AddTicks(5420),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         },
                         new
@@ -492,7 +492,7 @@ namespace FinalProject.Migrations
                             Id = 3,
                             AuthorId = 3,
                             BlogId = 3,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 282, DateTimeKind.Local).AddTicks(733),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 153, DateTimeKind.Local).AddTicks(5461),
                             Text = "Mauris lobortis sapien non tellus maximus volutpat. Nam aliquet quis erat et luctus. Sed dignissim id felis vitae fringilla. Maecenas faucibus enim eu mattis iaculis. In ultrices laoreet diam ac tempus."
                         });
                 });
@@ -1065,7 +1065,7 @@ namespace FinalProject.Migrations
                             Id = 1,
                             CarId = 1,
                             ComfortStars = (byte)4,
-                            CreatedAt = new DateTime(2020, 1, 18, 15, 37, 18, 286, DateTimeKind.Local).AddTicks(7464),
+                            CreatedAt = new DateTime(2020, 1, 22, 14, 3, 42, 157, DateTimeKind.Local).AddTicks(3937),
                             CustomerId = 1,
                             DrivingStars = (byte)4,
                             PositiveReview = false,
@@ -1274,6 +1274,9 @@ namespace FinalProject.Migrations
                         .HasColumnType("nvarchar(200)")
                         .HasMaxLength(200);
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.Property<decimal>("Total")
                         .HasColumnType("money");
 
@@ -1288,11 +1291,12 @@ namespace FinalProject.Migrations
                         {
                             Id = 1,
                             CustomerId = 1,
-                            DropDate = new DateTime(2020, 1, 23, 15, 37, 18, 287, DateTimeKind.Local).AddTicks(629),
+                            DropDate = new DateTime(2020, 1, 27, 14, 3, 42, 157, DateTimeKind.Local).AddTicks(7114),
                             DropLocation = "Baku, H.A Airport",
                             PaymentMethod = 0,
-                            PickupDate = new DateTime(2020, 1, 18, 15, 37, 18, 287, DateTimeKind.Local).AddTicks(132),
+                            PickupDate = new DateTime(2020, 1, 22, 14, 3, 42, 157, DateTimeKind.Local).AddTicks(6610),
                             PickupLocation = "Baku, H.A Airport",
+                            Status = false,
                             Total = 0m
                         });
                 });
@@ -1310,6 +1314,9 @@ namespace FinalProject.Migrations
                     b.Property<int>("OrderId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("Status")
+                        .HasColumnType("bit");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CarId");
@@ -1323,13 +1330,15 @@ namespace FinalProject.Migrations
                         {
                             Id = 1,
                             CarId = 1,
-                            OrderId = 1
+                            OrderId = 1,
+                            Status = false
                         },
                         new
                         {
                             Id = 2,
                             CarId = 2,
-                            OrderId = 1
+                            OrderId = 1,
+                            Status = false
                         });
                 });
 

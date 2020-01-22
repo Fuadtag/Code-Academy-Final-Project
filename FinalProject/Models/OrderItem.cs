@@ -18,5 +18,6 @@ namespace FinalProject.Models
         public Car Car { get; set; }
         public ICollection<CarExtraService> Services { get; set; }
 
+        public bool Status { get; set; }
     }
 }

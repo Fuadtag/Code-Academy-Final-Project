@@ -3,57 +3,57 @@
 @{
     ViewData["Title"] = "Index";
 }
-    <div class="pl-4 pr-4">
-        <h1>Cars</h1>
+<div class="pl-4 pr-4">
+    <h1>Cars</h1>
 
-        <p>
-            <a class="btn btn-primary" asp-action="Create">Create New</a>
-        </p>
-        <table class="table display table_id">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Model)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(c => c.Model.CarBrand)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Transmission)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Fuel)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Passsenger)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Luggage)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Door)
-                    </th>
+    <p>
+        <a class="btn btn-primary" asp-action="Create">Create New</a>
+    </p>
+    <table class="table display table_id">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Model)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(c => c.Model.CarBrand)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Transmission)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fuel)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Passsenger)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Luggage)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Door)
+                </th>
 
-                    <th>
-                        @Html.DisplayNameFor(model => model.DailyPrice)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Discount)
-                    </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.DailyPrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Discount)
+                </th>
 
-                    <th>
-                        @Html.DisplayNameFor(model => model.Status)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Photo)
-                    </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Photo)
+                </th>
 
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.Model.Name)
@@ -92,12 +92,14 @@
                     </td>
 
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a> |
-                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a> |
-                        <a asp-action="Delete" asp-route-id="@item.Id"><i class="fas fa-trash"></i></a>
+                        <a asp-action="Edit" asp-route-id="@item.Id"><i class="fas fa-edit"></i></a>
+                        <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info-circle"></i></a>
+                        <a asp-action="Delete" asp-route-id="@item.Id" id="delete-item"><i class="fas fa-trash"></i></a>
                     </td>
                 </tr>
-                }
-            </tbody>
-        </table>
-        </div>
+            }
+        </tbody>
+    </table>
+</div>
+<script src="~/AdminDashboard/js/sb-admin-2.js"></script>
+

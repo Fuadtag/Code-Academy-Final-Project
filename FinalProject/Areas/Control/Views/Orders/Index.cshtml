@@ -1,0 +1,76 @@
+﻿@model IEnumerable<FinalProject.Models.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+    <div class="pl-4">
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PaymentMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickupDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DropDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PickupLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DropLocation)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Customer.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DropDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PickupLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DropLocation)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="fas fa-info"></i></a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+    </div>

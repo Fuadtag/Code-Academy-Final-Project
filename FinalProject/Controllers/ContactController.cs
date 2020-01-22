@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FinalProject.Data;
 using FinalProject.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
@@ -15,9 +16,9 @@ namespace FinalProject.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            Setting model = _context.Settings.FirstOrDefault();
+            Setting model = await _context.Settings.FirstOrDefaultAsync();
             return View(model);
         }
     }

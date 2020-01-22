@@ -46,7 +46,7 @@
                                 @foreach (var item in Model.Categories)
                                 {
                                     <li>
-                                        <a href="#">@item.Name</a>
+                                        <a asp-action="Detail" asp-controller="Blogs" asp-route-id ="@item.Id">@item.Name</a>
                                     </li>
                                 }
 
@@ -75,7 +75,7 @@
                                                 <div class="rn-recent-post-item-meta">
                                                     <span class="rn-recent-post-item-categories">
                                                         In
-                                                        <a href="#">@item.Category.Name</a>
+                                                        <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@item.Id">@item.Category.Name</a>
                                                     </span>
                                                     <span class="rn-recent-post-item-author">
                                                         At
@@ -84,7 +84,7 @@
                                                 </div>
                                                 <div class="rn-recent-post-item-title">
                                                     <h3>
-                                                        <a href="#">@item.Title</a>
+                                                        <a asp-action="Detail" asp-controller="Blogs" asp-route-id="@item.Id">@item.Title</a>
                                                     </h3>
                                                 </div>
                                             </div>

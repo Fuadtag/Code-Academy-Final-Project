@@ -30,7 +30,7 @@ namespace FinalProject.Areas.Control.Controllers
         // GET: Control/Cars
         public async Task<IActionResult> Index()
         {
-            var rentNowContext = _context.Cars.Include(c => c.Model).Include(c => c.Model.CarBrand);
+            var rentNowContext = _context.Cars.Include(c => c.Model).Include(c => c.Model.CarBrand).Where(c => c.Status == true);
             return View(await rentNowContext.ToListAsync());
         }
 

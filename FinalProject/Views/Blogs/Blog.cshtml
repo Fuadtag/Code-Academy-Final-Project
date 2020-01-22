@@ -26,7 +26,7 @@
                     <!-- Blog Post Item -->
                     <article class="rn-post-item rn-post-size-lg">
                         <div class="rn-post-item-thumb">
-                            <a href="#">
+                            <a asp-action="Detail" asp-controller="Blogs" asp-route-id ="@item.Id">
                                 <img class="img-fluid" src="~/images/@item.Photo" alt="@item.Title" />
                             </a>
                         </div>

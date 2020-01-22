@@ -31,7 +31,7 @@ namespace FinalProject.Helpers
             {
                 throw new Exception("File type is not acceptable");
             }
-            string filename = "images/" + CreatePath() + "/" + Guid.NewGuid().ToString() + "-" + file.FileName;
+            string filename = Guid.NewGuid().ToString() + "-" + file.FileName;
             string filePath = Path.Combine(UploadPath, filename);
             FileStream fs = new FileStream(filePath, FileMode.Create);
             file.CopyToAsync(fs);
@@ -59,10 +59,6 @@ namespace FinalProject.Helpers
         private string CreatePath()
         {
             string UploadPath = Path.Combine(webHostEnvironment.WebRootPath, "images");
-
-
-
-
             return UploadPath;
         }
 

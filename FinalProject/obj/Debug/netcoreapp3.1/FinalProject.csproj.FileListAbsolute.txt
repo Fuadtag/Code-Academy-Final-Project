@@ -1061,3 +1061,8 @@ C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcorea
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.dll
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.pdb
 C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\FinalProject.csprojAssemblyReference.cache
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Orders\Create.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Orders\Delete.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Orders\Details.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Orders\Edit.cshtml.g.cs
+C:\Users\USER\Desktop\Code-Academy-Final-Project\FinalProject\obj\Debug\netcoreapp3.1\Razor\Areas\Control\Views\Orders\Index.cshtml.g.cs

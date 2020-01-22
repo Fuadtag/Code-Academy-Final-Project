@@ -17,38 +17,38 @@ namespace FinalProject.Controllers
         {
             _context = context;
         }
-        public IActionResult AboutUs()
+        public async Task<IActionResult> AboutUs()
         {
             AboutUsViewModel model = new AboutUsViewModel
             {
-                Visions = _context.OurVisions.ToList(),
-                Passion = _context.Passions.FirstOrDefault(),
-                Teams = _context.Teams.ToList(),
-                Partners = _context.Partners.ToList()
+                Visions = await _context.OurVisions.ToListAsync(),
+                Passion = await _context.Passions.FirstOrDefaultAsync(),
+                Teams = await _context.Teams.ToListAsync(),
+                Partners = await _context.Partners.ToListAsync()
             };
             return View(model);
         }
-        public IActionResult Page()
+        public async Task<IActionResult> Page()
         {
             PageViewModel model = new PageViewModel
             {
-                Page = _context.Pages.FirstOrDefault(),
-                Tags = _context.Tags.ToList(),
-                Blogs = _context.Blogs.Include("Category").OrderByDescending(b => b.CreatedAt).Take(3).ToList(),
-                Categories = _context.BlogCategories.ToList()
+                Page = await _context.Pages.FirstOrDefaultAsync(),
+                Tags = await _context.Tags.ToListAsync(),
+                Blogs = await _context.Blogs.Include("Category").OrderByDescending(b => b.CreatedAt).Take(3).ToListAsync(),
+                Categories = await _context.BlogCategories.ToListAsync()
             };
             return View(model);
         }
-        public IActionResult Faq()
+        public async Task<IActionResult> Faq()
         {
             List<Faq> model = new List<Faq>();
-            model = _context.Faqs.ToList();
+            model = await _context.Faqs.ToListAsync();
             return View(model);
         }
 
-        public IActionResult Gallery()
+        public async Task<IActionResult> Gallery()
         {
-            Gallery model = _context.Galleries.Include("GalleryItems").FirstOrDefault();
+            Gallery model = await _context.Galleries.Include("GalleryItems").FirstOrDefaultAsync();
             return View(model);
         }
 
@@ -66,7 +66,7 @@ namespace FinalProject.Controllers
             
         }
 
-        public IActionResult Checkout(int? id)
+        public async Task<IActionResult> Checkout(int? id)
         {
             if (id == null)
             {
@@ -74,10 +74,14 @@ namespace FinalProject.Controllers
                 
                 if (token == null)
                 {
+                    return RedirectToAction("Login", "Customers");
+                }
+                Customer customer = await _context.Customers.FirstOrDefaultAsync(c => c.Token == token);
+                Order model = await _context.Orders.Include("OrderItems").Include("OrderItems.Car").Include("OrderItems.Car.Model").Where(a => a.Status == true).FirstOrDefaultAsync(o => o.CustomerId == customer.Id);
+                if (model == null)
+                {
                     return RedirectToAction("List", "Cars");
                 }
-                Customer customer = _context.Customers.FirstOrDefault(c => c.Token == token);
-                Order model = _context.Orders.Include("OrderItems").Include("OrderItems.Car").Include("OrderItems.Car.Model").FirstOrDefault(o => o.CustomerId == customer.Id);
                 decimal total = 0;
                 var days = (model.DropDate - model.PickupDate).Days;
                 foreach (var item in model.OrderItems)
@@ -85,11 +89,11 @@ namespace FinalProject.Controllers
                     total = item.Car.DailyPrice * days;
                 }
                 model.Total = total;
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return View(model);
 
             }
-            Order order = _context.Orders.Include("OrderItems").Include("OrderItems.Car").FirstOrDefault(o => o.CustomerId == id);
+            Order order = await _context.Orders.Include("OrderItems").Include("OrderItems.Car").FirstOrDefaultAsync(o => o.CustomerId == id);
             return View(order);
         }
 

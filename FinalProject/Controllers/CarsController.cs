@@ -21,7 +21,18 @@ namespace FinalProject.Controllers
         }
         public async Task<IActionResult> List(int p = 1)
         {
-            
+            ICollection<Order> orders = _context.Orders.Include(o => o.OrderItems).Include("OrderItems.Car").ToList();
+            foreach (var item in orders)
+            {
+                if (item.DropDate < DateTime.Now)
+                {
+                    foreach (var oitem in item.OrderItems)
+                    {
+                        oitem.Car.Status = true;
+                        _context.SaveChanges();
+                    }
+                }
+            }
             int pagesize = 6;
 
             ICollection<Car> cars = await _context.Cars.Include("Model").Include("Model.CarBrand").Where(c => c.Status == true).Skip((p - 1)* pagesize).Take(pagesize).ToListAsync();

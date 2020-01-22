@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using FinalProject.Data;
 using FinalProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace FinalProject.Controllers
 {
@@ -15,12 +16,12 @@ namespace FinalProject.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
             ServiceViewModel model = new ServiceViewModel
             {
-                Testimonials = _context.Testimonials.Take(3).ToList(),
-                Offers = _context.Offers.Take(6).ToList()
+                Testimonials = await _context.Testimonials.Take(3).ToListAsync(),
+                Offers = await _context.Offers.Take(6).ToListAsync()
             };
             return View(model);
         }

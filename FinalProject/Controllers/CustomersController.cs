@@ -24,12 +24,12 @@ namespace FinalProject.Controllers
         }
 
         [HttpGet]
-       public IActionResult Login()
+       public async Task<IActionResult> Login()
         {
             var token = Request.Cookies["Token"];
             if (token != null)
             {
-                Customer loginedcustomer = _context.Customers.FirstOrDefault(c => c.Token == token);
+                Customer loginedcustomer = await _context.Customers.FirstOrDefaultAsync(c => c.Token == token);
                 if (loginedcustomer != null)
                 {
                     return RedirectToAction("Index", "Home");

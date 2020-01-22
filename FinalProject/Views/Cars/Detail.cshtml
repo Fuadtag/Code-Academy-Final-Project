@@ -58,16 +58,19 @@
                         <div class="rn-icon-input">
                             <i class="fas fa-map-marker-alt"></i>
                             <input type="text" placeholder="Pickup Location" asp-for="Order.PickupLocation">
+                            <span asp-validation-for="Order.PickupLocation"></span>
                         </div>
                         <div class="rn-icon-input">
                             <i class="fas fa-map-marker-alt"></i>
                             <input type="text" placeholder="Drop Location" asp-for="Order.DropLocation">
+                            <span asp-validation-for="Order.DropLocation"></span>
                         </div>
                         <div class="rn-date-time-input">
                             <div class="row">
                                 <div class="rn-icon-input">
                                     <i class="far fa-calendar-alt"></i>
                                     <input type="text" placeholder="Pickup Date" id="pickup-date" asp-for="Order.PickupDate">
+                                    <span asp-validation-for="Order.PickupDate"></span>
                                 </div>
                             </div>
                         </div>
@@ -76,12 +79,13 @@
                                 <div class="rn-icon-input">
                                     <i class="far fa-calendar-alt"></i>
                                     <input type="text" placeholder="Drop Date" id="drop-date" asp-for="Order.DropDate">
+                                    <span asp-validation-for="Order.DropDate"></span>
                                 </div>
 
                             </div>
                         </div>
-                        <button class="btn btn-main btn-lg btn-shadow btn-block" type="submit">
-                            <i class="fas fa-search"></i> Check Now
+                        <button class="btn btn-main btn-lg btn-shadow btn-block"  id="create-order" type="submit">
+                            <i class="fas fa-search"></i> Book Now
                         </button>
                     </form>
                 </div>
@@ -246,20 +250,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <input type="text" placeholder="Name">
-                            </div>
-                            <div class="col-lg-4">
-                                <input type="email" placeholder="Email">
-                            </div>
-                            <div class="col-lg-4">
-                                <input type="url" placeholder="Website">
-                            </div>
-                        </div>
+                        
                         <textarea cols="30" rows="10" placeholder="Write your review"></textarea>
                         <div class="text-right">
-                            <input class="btn btn-main btn-lg btn-shadow" type="submit" value="Submit Review">
+                            <input class="btn btn-main btn-lg btn-shadow" type="submit" id="add-comment" value="Submit Review">
                         </div>
                     </form>
                 </div>
@@ -270,3 +264,21 @@
     </div>
 </div>
 <!-- End Car Reviews-->
+
+<script>
+    $('#add-comment').on("Submit", function (event) {
+        event.preventDefault();
+
+
+
+    })
+
+    
+
+
+
+
+
+
+
+</script>
