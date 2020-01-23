@@ -51,36 +51,5 @@
     });
 
 
-    $(function () {
-        $("#delete-item").click(function (event) {
-            var deletinput = this;
-            event.preventDefault();
-            Swal.fire({
-                title: 'Sure?',
-                text: "You'll not able to get back",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete!',
-                cancelButtonText: 'Cancel'
-            }).then((result) => {
-                if (result.value) {
-
-                    $.ajax({
-                        url: $(deletinput).attr("href"),
-                        success: function () {
-
-                        },
-
-                        complete: function () {
-                            $(deletinput).parent().parent().remove();
-                            toastr.success('Succesfully', 'Deleted');
-                        }
-                    })
-                }
-            })
-        })
-    })
 
     }); // End of use strict

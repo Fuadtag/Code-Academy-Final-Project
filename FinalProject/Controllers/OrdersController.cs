@@ -68,7 +68,7 @@ namespace FinalProject.Controllers
             Order order = await _context.Orders.FirstOrDefaultAsync(o => o.Id == id);
             if (order != null)
             {
-                var item =  _context.OrderItems.Where(o => o.OrderId == order.Id);
+                var item =  _context.OrderItems.Include("Car").Where(o => o.OrderId == order.Id);
                 foreach (var oitem in item)
                 {
                     oitem.Car.Status = true;
